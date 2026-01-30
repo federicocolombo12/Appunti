@@ -13,15 +13,12 @@ _In questa sezione inseriamo le basi su cui poggia tutto il rendering 3D._
 - [[Rappresentazione delle Curve]]:
     
     - Curve di Bezier e B-Spline.
-        
-    - NURBS (Non-Uniform Rational B-Splines).
-        
 
 ## 2. Controllo del Moto e Animazione
 
 _Come facciamo muovere gli oggetti nel tempo in modo fluido?_
 
-- [[Percezione del Moto]]: Persistenza della visione, frame rate e motion blur.
+- [[Percezione del Moto e Intro all'Animazione]]: Persistenza della visione, frame rate e motion blur.
     
 - [[Interpolazione e Keyframing]]: Tecniche per definire il movimento tra stati chiave.
     

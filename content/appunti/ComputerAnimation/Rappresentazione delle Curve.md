@@ -127,3 +127,120 @@ Nonostante sia potente, l'approccio di Hermite non è intuitivo per l'interazion
 <!-- ... existing content ... -->
 * Modificare la "lunghezza" del vettore tangente cambia la forma della curva in modo drastico (overshooting), ma non è visivamente prevedibile come spostare un punto.
 * **Soluzione:** Si preferiscono sistemi dove le tangenti sono definite indirettamente tramite altri punti (es. Catmull-Rom o Bezier).![[Screenshot 2026-01-30 alle 17.27.01.png|500]]
+
+## 6. Curve di Catmull-Rom
+Le curve di Hermite sono potenti ma scomode perché richiedono di definire manualmente le tangenti. La **Catmull-Rom Spline** risolve questo problema automatizzando il calcolo delle tangenti in base alla posizione dei punti vicini.
+![[Screenshot 2026-01-30 alle 17.40.36.png|500]]
+
+### A. Calcolo Automatico del Vettore Tangente
+L'idea chiave è che la tangente in un punto $P_i$ è parallela alla linea che collega il punto precedente ($P_{i-1}$) e quello successivo ($P_{i+1}$).
+La formula per la tangente $\mathbf{v}_i$ nel punto $P_i$ è:
+
+$$
+\mathbf{v}_i = \frac{P_{i+1} - P_{i-1}}{2} = \tau (P_{i+1} - P_{i-1})
+$$
+
+Dove $\tau$ (tau) è la **tensione** della curva (solitamente $0.5$).
+* Se $\tau = 0.5$, la tangente è esattamente la metà della distanza tra i vicini.
+* Se $\tau \to 0$, la curva diventa molto "lasca" (flaccida).
+* Se $\tau \to 1$, la curva diventa molto "tesa" e rigida.
+
+### B. Forma Matriciale ($U \cdot M \cdot G$)
+Per definire un segmento di curva tra $P_i$ e $P_{i+1}$, abbiamo bisogno di 4 punti di input: $P_{i-1}, P_i, P_{i+1}, P_{i+2}$.
+* La curva passa **esattamente** per $P_i$ e $P_{i+1}$.
+* I punti $P_{i-1}$ e $P_{i+2}$ servono solo a calcolare le tangenti.
+
+La matrice di base $M_{Catmull}$ (con tensione $s=0.5$) è:
+
+$$
+M_{Catmull} = \frac{1}{2} \cdot
+\begin{bmatrix}
+-1 & 3 & -3 & 1 \\
+2 & -5 & 4 & -1 \\
+-1 & 0 & 1 & 0 \\
+0 & 2 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+P(u) = [u^3, u^2, u, 1] \cdot M_{Catmull} \cdot 
+\begin{bmatrix} P_{i-1} \\ P_i \\ P_{i+1} \\ P_{i+2} \end{bmatrix}
+$$
+
+---
+
+## 7. Curve di Bezier
+Le curve di Bezier sono un approccio alternativo dove i punti di controllo definiscono un poligono (il **Poligono di Controllo**) che "attrae" la curva.
+
+### A. Definizione Generale (Sommatoria)
+Una curva di Bezier di grado $n$ definita da $(n+1)$ punti di controllo è data dalla combinazione lineare dei punti tramite i **Polinomi di Bernstein**:
+
+$$
+P(u) = \sum_{k=0}^{n} P_k \cdot B_{k,n}(u) \quad \text{con } u \in [0,1]
+$$
+
+Dove $B_{k,n}(u)$ sono i **Polinomi di Bernstein**:
+$$
+B_{k,n}(u) = \binom{n}{k} u^k (1-u)^{n-k}
+$$
+(Il termine $\binom{n}{k}$ è il coefficiente binomiale).
+
+### B. Proprietà Fondamentali (Bernstein)
+1. **Partizione dell'Unità:** $\sum B_{k,n}(u) = 1$ per ogni $u$. (La curva è una media pesata dei punti).
+2. **Positività:** $B_{k,n}(u) \ge 0$ nell'intervallo $[0,1]$.
+3. **Simmetria:** La forma della curva non cambia se invertiamo l'ordine dei punti (solo la direzione di percorrenza cambia).
+
+### C. Bezier Cubica ($n=3$)
+
+![[Screenshot 2026-01-30 alle 17.41.28.png]]
+È la più usata in CG. Definita da 4 punti: $P_0, P_1, P_2, P_3$.
+* **Interpolazione agli estremi:** $P(0) = P_0$ e $P(1) = P_3$.
+* **Tangenti:**
+    * La tangente iniziale è $P'(0) = 3(P_1 - P_0)$.
+    * La tangente finale è $P'(1) = 3(P_3 - P_2)$.
+* **Convex Hull:** La curva giace interamente nel poligono convesso dei 4 punti.
+
+### D. Matrice dei Coefficienti ($M_{Bezier}$)
+Espandendo i polinomi di Bernstein per $n=3$, otteniamo la matrice:
+
+$$
+M_{Bezier} = 
+\begin{bmatrix}
+-1 & 3 & -3 & 1 \\
+3 & -6 & 3 & 0 \\
+-3 & 3 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+### E. Continuità tra Segmenti
+Quando uniamo due curve di Bezier (Curva A e Curva B), la continuità dipende dalla geometria dei punti di giunzione:
+* **Continuità $C^0$ (Posizione):** L'ultimo punto di A coincide col primo di B ($P_{A3} = P_{B0}$).
+* **Continuità $C^1$ (Tangenziale - Smooth):** I tre punti alla giunzione ($P_{A2}, P_{A3}=P_{B0}, P_{B1}$) devono essere **colineari**.
+
+---
+
+## 8. B-Spline (Basis Spline)
+Le B-Spline nascono per superare i due limiti principali delle Bezier:
+1. **Controllo Globale:** Nelle Bezier di alto grado, spostare un punto modifica tutta la curva.
+2. **Grado vincolato:** Nelle Bezier, il grado è legato al numero di punti ($n$ punti $\rightarrow$ grado $n-1$).
+
+### A. Caratteristiche Chiave
+* **Controllo Locale:** I polinomi di base delle B-Spline sono non nulli solo su un intervallo limitato di $u$. Modificare un punto $P_i$ influenza solo $k$ segmenti vicini (dove $k$ è il grado).
+* **Grado Indipendente:** Posso avere 100 punti di controllo e usare una B-Spline cubica (grado 3).
+* **Nodi (Knot Vector):** La sequenza dei parametri $u$ dove i polinomi si "incollano" è definita da un vettore di nodi $T = [t_0, t_1, ..., t_m]$. La molteplicità dei nodi permette di creare spigoli vivi o discontinuità intenzionali.
+
+### B. Matrice B-Spline (Uniforme Cubica)
+Per una B-Spline cubica standard (uniforme), la matrice di base approssimante è:
+
+$$
+M_{BSpline} = \frac{1}{6}
+\begin{bmatrix}
+-1 & 3 & -3 & 1 \\
+3 & -6 & 3 & 0 \\
+-3 & 0 & 3 & 0 \\
+1 & 4 & 1 & 0
+\end{bmatrix}
+$$
+
+*Nota:* A differenza della Bezier, la B-Spline non passa per il primo e l'ultimo punto di controllo (a meno che non si usino nodi multipli agli estremi, tecnica chiamata "Clamping").
