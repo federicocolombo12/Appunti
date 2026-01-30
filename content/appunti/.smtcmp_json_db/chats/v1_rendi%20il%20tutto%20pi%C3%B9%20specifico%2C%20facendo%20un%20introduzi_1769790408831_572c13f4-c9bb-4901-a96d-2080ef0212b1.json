@@ -1,0 +1,219 @@
+{
+  "id": "572c13f4-c9bb-4901-a96d-2080ef0212b1",
+  "title": "rendi il tutto più specifico, facendo un introduzi",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "rendi il tutto più specifico, facendo un introduzione migliore",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nrendi il tutto più specifico, facendo un introduzione migliore\n\n"
+        }
+      ],
+      "id": "a03385ab-c263-424c-9c42-c7aecdacb97d",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Rappresentazione delle Curve.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Ecco una versione aggiornata con un'introduzione più dettagliata e tecnica, e precisazioni specifiche sulle coordinate omogenee e l'ordine di moltiplicazione.\n\n<smtcmp_block filename=\"Trasformazioni Geometriche.md\" language=\"markdown\">\nLe trasformazioni geometriche sono il meccanismo fondamentale per manipolare la geometria all'interno della pipeline grafica. Matematicamente, mappano i vertici da un sistema di coordinate all'altro (es. da *Model Space* a *World Space*), permettendo di modificare posizione, orientamento e scala. In Computer Graphics, queste operazioni sono gestite efficientemente tramite l'algebra lineare, specificamente utilizzando il **prodotto tra matrici e vettori**.\n\n## 1. Coordinate Omogenee e Matrici 4x4\n\nPer gestire le **trasformazioni affini** (lineari + traslazione) in modo unificato, si passa dallo spazio euclideo 3D allo spazio proiettivo 4D aggiungendo una componente $w$.\n\n- Un **Punto** è rappresentato come $[x, y, z, 1]^T$ (la posizione conta).\n- Un **Vettore** (direzione) è rappresentato come $[x, y, z, 0]^T$ (la traslazione viene ignorata).\n    \n- Una trasformazione è una **matrice 4x4**.\n<!-- ... existing content ... -->\n## 3. Composizione di Trasformazioni\n\nL'ordine delle operazioni è cruciale poiché il prodotto tra matrici **non è commutativo** ($A \\cdot B \\neq B \\cdot A$).\n\n- **Ordine di applicazione (Vettori Colonna):** Le matrici vengono lette da destra a sinistra. Per applicare una rotazione $R$ seguita da una traslazione $T$, la matrice composta è $M = T \\cdot R$.\n    \n- In matematica, se applichiamo le trasformazioni $A,B,C$ a un punto $p$, il calcolo è $q = C \\cdot B \\cdot A \\cdot p$. La GPU pre-calcola la matrice composta $D = C \\cdot B \\cdot A$ una sola volta (Model-View Matrix) e la applica a tutti i vertici dell'oggetto.\n    \n\n---\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "428b90e6-50b1-4b88-bbcc-036ddd559155",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1184,
+          "completion_tokens": 521,
+          "total_tokens": 2225
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "nelle curve di hermite è garantita come la continuità?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nnelle curve di hermite è garantita come la continuità?\n\n"
+        }
+      ],
+      "id": "5d917ba5-c612-44a3-8efc-f392679658fb",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Rappresentazione delle Curve.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Nelle curve di Hermite, la continuità dipende da come \"incolliamo\" due segmenti successivi. Poiché controlliamo esplicitamente sia i punti che le tangenti, abbiamo questo comportamento:\n\n1.  **$C^0$ (Posizione):** Garantita se il punto finale del primo segmento coincide con il punto iniziale del secondo.\n2.  **$C^1$ (Tangenza/Velocità):** Garantita facilmente se usiamo lo stesso vettore tangente nel punto di giunzione.\n3.  **$C^2$ (Curvatura/Accelerazione):** **Non è garantita**. Per ottenerla servirebbero calcoli complessi sui vettori, motivo per cui per la continuità $C^2$ si preferiscono solitamente le B-Spline.\n\nEcco l'aggiornamento al file:\n\n<smtcmp_block filename=\"Rappresentazione delle Curve.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n### Spiegazione della Matrice\nSe guardiamo le colonne della matrice moltiplicate per $G$, stiamo definendo quattro polinomi di base ($H_1, H_2, H_3, H_4$):\n* Le prime due colonne pesano i punti $P_0$ e $P_3$.\n* Le ultime due colonne pesano le tangenti $R_0$ e $R_3$.\n\n### Continuità tra Segmenti (Giunzione)\nQuando si collegano due curve di Hermite in sequenza:\n* **$C^0$ (Posizione):** È banale, basta che il punto finale del segmento $i$ coincida con l'iniziale del segmento $i+1$.\n* **$C^1$ (Tangenza):** È **garantita esplicitamente** se imponiamo che il vettore tangente uscente del primo segmento sia uguale a quello entrante del secondo ($R_{3, i} = R_{0, i+1}$).\n* **$C^2$ (Curvatura):** **Non è garantita automaticamente**. Richiederebbe che anche le derivate seconde (accelerazioni) coincidano, il che imporrebbe vincoli complessi sulla scelta delle lunghezze dei vettori tangenti.\n\n### Limiti di Hermite\nNonostante sia potente, l'approccio di Hermite non è intuitivo per l'interazione umana (Computer Aided Design):\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "0df11b60-993e-4f34-b4e3-d9b0725172c0",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 2796,
+          "completion_tokens": 535,
+          "total_tokens": 4896
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "scrivilo però in modo che sia integrato con i miei appunti, vorrei mettere un paragrafo su questa cosa",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nscrivilo però in modo che sia integrato con i miei appunti, vorrei mettere un paragrafo su questa cosa\n\n"
+        }
+      ],
+      "id": "92ad4d1f-d84d-4ae4-8d81-ec1d4d8dd52b",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Rappresentazione delle Curve.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Certamente. Inserisco un paragrafo dedicato alla continuità all'interno della sezione sulle Curve di Hermite. È il posto logico per discuterne, subito dopo aver spiegato la matrice e prima di parlare dei limiti.\n\nEcco la modifica:\n\n<smtcmp_block filename=\"Rappresentazione delle Curve.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n### Spiegazione della Matrice\nSe guardiamo le colonne della matrice moltiplicate per $G$, stiamo definendo quattro polinomi di base ($H_1, H_2, H_3, H_4$):\n* Le prime due colonne pesano i punti $P_0$ e $P_3$.\n* Le ultime due colonne pesano le tangenti $R_0$ e $R_3$.\n\n### Continuità e Giunzioni\nUn vantaggio di Hermite è il controllo diretto sulla continuità quando si uniscono più segmenti (*piecewise*):\n* **$C^0$ (Posizione):** È garantita ponendo il punto finale del segmento $i$ coincidente con il punto iniziale del segmento $i+1$ ($P_{3, i} = P_{0, i+1}$).\n* **$C^1$ (Tangenza):** È **facile da garantire**: basta imporre che il vettore tangente uscente del primo segmento sia identico a quello entrante del secondo ($R_{3, i} = R_{0, i+1}$).\n* **$C^2$ (Curvatura):** **Non è garantita**. Poiché Hermite definisce solo posizioni e velocità (derivate prime), non abbiamo controllo diretto sulle derivate seconde (accelerazioni). Per ottenere $C^2$ servirebbero calcoli complessi per accordare le accelerazioni alla giunzione.\n\n### Limiti di Hermite\nNonostante sia potente, l'approccio di Hermite non è intuitivo per l'interazione umana (Computer Aided Design):\n* È difficile per un designer immaginare e inserire numericamente le componenti $x, y, z$ di un vettore tangente ($R$).\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "97a0574a-b060-4aa3-8097-32824c5c702e",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 3390,
+          "completion_tokens": 469,
+          "total_tokens": 4826
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    }
+  ],
+  "createdAt": 1769787161794,
+  "updatedAt": 1769790408831,
+  "schemaVersion": 1
+}

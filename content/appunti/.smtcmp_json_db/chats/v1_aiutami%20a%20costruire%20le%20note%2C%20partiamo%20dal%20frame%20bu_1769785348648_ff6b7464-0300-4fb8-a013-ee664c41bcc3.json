@@ -1,0 +1,1327 @@
+{
+  "id": "ff6b7464-0300-4fb8-a013-ee664c41bcc3",
+  "title": "aiutami a costruire le note, partiamo dal frame bu",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "aiutami a costruire le note, partiamo dal frame buffer, cos'è?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\naiutami a costruire le note, partiamo dal frame buffer, cos'è?\n\n"
+        }
+      ],
+      "id": "4e1884c2-65be-4041-92f4-a297036bdc72",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Computer Animation.md"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "aiutami a costruire le note, partiamo dal frame buffer, cos'è?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\naiutami a costruire le note, partiamo dal frame buffer, cos'è?\n\n"
+        }
+      ],
+      "id": "4dcb721e-97f5-436f-b2cd-49c5509b612d",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Computer Animation.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Ecco una definizione concisa di **Frame Buffer** da inserire nelle tue note. È una componente fondamentale nella pipeline grafica che memorizza l'immagine finale prima che appaia sullo schermo.\n\nHo aggiunto una sezione dedicata nel file.\n\n<smtcmp_block filename=\"Computer Animation.md\" language=\"markdown\">\n# Computer Animation\n\n## Frame Buffer\nIl **frame buffer** è un'area di memoria (solitamente nella VRAM della scheda video) che memorizza i dati dei pixel destinati a essere visualizzati sullo schermo. Rappresenta l'immagine finale renderizzata che il controller video legge per inviare il segnale al monitor.\n\n### Caratteristiche principali\n*   **Mappa di Pixel**: Contiene i valori di colore (RGB) e spesso di trasparenza (Alpha) per ogni singolo pixel della griglia di visualizzazione.\n*   **Risoluzione**: Le dimensioni del buffer dipendono dalla risoluzione dello schermo ($Larghezza \\times Altezza$).\n*   **Profondità di Colore**: Determina il numero di bit utilizzati per ogni pixel (es. 8-bit, 24-bit), influenzando la quantità di colori rappresentabili.\n</smtcmp_block>",
+      "id": "c4fa6443-983b-412c-8f54-04a7916834d4",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 482,
+          "completion_tokens": 257,
+          "total_tokens": 1459
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "CiQBjz1rX52oGS99FtfGPI4Co8Ld056C9kGThASil9MXD11eK28KhwEBjz1rXwPyGwcZFUj/qw1+OSElvQTUzbTjlGKWBMXFSCAB8jMkDs0DTnX/3Y+VMM1Ee/PAuhE1r9tuXc2yBcesORAHcD2zt6m0juFTvE/OFPb6g2qkdhMqLxS+rcgF0KTqapjaRZsvOmwReZl55xShaFT3ixXvrImuWOnWcqvZA903RkO1AMcKWQGPPWtfm+tcY/hgguYGFljf+GbAgh+D6oz+6pye9Vi55DJ7yI9jwV228g5sgWJ1tNpbMeeUiXCxC67YIkZxhqnU40t1w8UHb8wrcBNdq9UnsoqekhQ0b/mgCrEBAY89a1/2K/vEhFToTki1vWRUoWuX+Vzfe9hxLUb+l0tNe1fTEB27/LcGOnEfKWPsAkDmcRUbk8E52PzC4ywZThJ3HOxHE2VQykuegfe6lqZLjUo8EqNgyHRE8NmFHRU1Wb5W+yZ5DYC7DRwu05Ot8OW0+ikxwNcN0/Is8c9MpZSrM8qxHMoOn+O3e3BCKM41Xr6XcrbpPnkNzu+1X5DfFOeF4s29bkorpvQPRb5H0i57CpEBAY89a19e8cEU8NvJFiL+BORsm0sR7kQ97Y9kw5WbkuTa18Ibdn9xVp/f57MDeCYki4sPuZv01o4GF9Pzf2r+K198Nnc78G/eUy8JW5nk4eDiHht1C7ZQ+emPaBVBnoxcuy8+o2RYBnUPbp5ofv+g8RNtdj393xcxCQlfuYTQw1E2H38NSd/BN6fZagdKtYIGUArhAQGPPWtfp4qHmATvnBvdo5x1EcBMB4dmkA3geeD5EXaJEfNNBmKY70Oxb3l74iMGASOrg5Q2QH34EwjuZ4vuuOMgDreC1s9QU57B3fDHThX+jR7OrZCNPkoHHMrceL877QmCr3QeRa7hzi4lN/Mm+rMypwPDyk9fMTF3lJ0fQFR7GxUrzPLmckWJvH+yWuZLB3TwmKnpj54ndM39FcD2HpFMltd3f08Ls+zmnirAvntl9RAXSrsma9jZzLqq9NbTFdt4JMt4EbhK8OpZSe7q8uWviF3t/xQPauWkEvzB1alChwr4AQGPPWtfFw3KpeT544OdHg0hvU3PIIrxzQ2vZ63N3yEDDZyKJgqzPb9mel7LTnUovEJfL4Ju5qEuutvXTsKVsq9Ur1FfrxKdaj333GAgwf0LBlFF6PLdbxst8cP+kn3dFpBspiVgRvcn0zfi7QNoZsPxnFDokLpCwFvy6Juk2C8sSuF9xMsBtVvscM0Cfmt9I6LnwVxfA4zm/a1FcYmjUN8CHClagLJpoYWeb1MNWQD61uLEeaXFANHktpN6inVpAqJVdzZmdDwvD3IlDmTPtZfcb4rsiXm4r9Ps8e9Zj4ZPTY8voECiRuLIfa5nbkXmGYp0+ihUQ2YfCpECAY89a181jwpXIGY6VHPOk8FD9fRgmp2wd/3LyZiL+A0neyjvvpNClj0xhBeMeL7sNZUaEnJ8NrdoMH+1a/Z1xh9pRQi4JghBVT9Px9vZmiVk/8TbTnxBSqSVOcMn7ygk/SQ2CqX61BepEU/rrOeYPWhcnp1y3Nv2sNmQpi1hTzN+90+m7xs6iP1DDJPIUZs5UuS/6tXdGKeGPpU5O4+yl91LR3fvamhnaNUE0B9YUPk1JPW/JstnEPEsEgOG/Vx4MrGBMw/Mx3CH4idmj/NRW+X1qIB+OguxTdTGMHbE3UoJeWwCC92e9MW90NiUCoLv7gw2yGIr4VMQQro8mkd6+ha4t8rQwnY9aZHOjBFhl0g4CqgCAY89a1+HKoVI8YkgDlHE6rWjx8g6Jp30aXptl6iJG/6I0WptP4+pi5NKEuxOkL5semDJGbReBP0nlEd0eob3vFneYo6vIHelzJmdzfrpklyUhp5CJOYhTnJnQglsT4twfRDz/ynMdQZPnWzsxxEGgJwH4buwtzLgsPvSa2VELfFy2vfFpBha0g1oU6WldYZ9kGvGGOTmQUazkt4xW2oUoymiV8BcKW1wxopNtiFZJDjv3OiYlFG+tdlen5jbjaxswS3VkJ25ZsSmwxxQpK/4adHzWONoAQhgel+VcLYf1WiZ4yVToxaJXDqi3vPLPb+veFgE+aRS4AHP5tDIwtzdJQCBXClu/9XHFEmoTwYn6st+NlSMxcfMeMQQUOjl5BFxnLf8r5ZHr58KygIBjz1rX34WRrQx84f0BnVRmakJzczCnl7thI1hZomouEHN1e1xZ3YKUGRDS6kTr0wjohMIj9CmLSWTNNzpyvOXjy8qhgDtDXG1tCK5bPn1XuakSPt9SWcON1R9gGxgSpyU9bpO4kupUZx8NQuOzHsG4R5Fn7sj6tMF100OjELmijZihbvolnOhS4M4i+Yxx6iaEnPsSnH+umkdDMj31sVWSUDVKApj2sHnSuHRl4X1EsUeKO8BJarj7VZDl8nb1DSQRHxxSiGwK6huZ4Jnf7Y5sRh0CNzXwp5PfifPp2CpDWr4w+e/t0zOq1gpKhfQeNeguedbXcGKFRnC1jFynXoJB0w5oqK8M0lj5QcpyYXOrazD5wRDKZmrbJ9n5TAizlKi52EBmRAH3PgV2DRdXXtObnbxsBy+PbdgDjXIBC+PtGymfcRIgchhE6IKlAIBjz1rX0E9H+sKWSVRePZwKSkWX5S2bqKF6LSw6c8sung0mSoPN8v4ER+kSMo7MciY1a13Skw4GiLbVCRXfTgsrnPCBm8f58Vqmu3UycmI5NfKNEeDf9viWgc3U6Yz7qDECm1Tp0CBgi5UI97m5Qosin2MjTaeeeOWkTnsb8rAQJ9qjNPsTduL7CrIYgzQ8KlSOB3wAJYyuZhj4wydbjBLkiVG3gouFuSrZZE1dxC1odne6hn7S2VEavIESi+xiS/Fph0w1z34yg4VKFhJe4PeSSGe/qxM7x36a6vvW6ZHBxcImFAG9F56FWqmTucI3A4PeI7PxoPR1myGNjPFMlPUtu1XgvOcytkH85ONGvfx+GGkUHMKqQIBjz1rX9zjCxWJ0uul+ZxAqfqbj8XM3GX+SZIOcny3sPsz1milRL6mrCArlkiZSPajsVcaDcVE6siMNO7HTb9K/1IkIlUORiiW5YAAPveOdLJQDqPiq1yf3ra4wsAcl4H2l/0FexQRMSNFjV3zJ5G8pHfJQc5GeKTuIHZ2KCcV+lHDyzRYJ9uUx4SrlVWp0BKln4F7kkngXK6LWQMSVPoyYqH8owZGWjgNvyrcyFk1IUjmAqbrbHZvfpiVzpszXgERYNub7+92P/ObwBPi0tFWd5rrTF/58QCLcXyvDLg/1OfC+p9G6U+0mX3zN6jc+/4lHnWXnkQ2fOH6gvGcYUQH1/+vo0xlWAtbcDwC+q53xUTLYD4kCV9pwhjB/rZ4zshFEGgtFlxapdoKygIBjz1rX7MtJsoNUjBVEytdfwOLozYiOirp4d4PeZWG/6peL5iSfhBTRk3FLFvscddOzxDXe4z0BFPdNfGNIBKeCUDwAwMhMnSihqkm4VFOXy4Yozht67r6O8uCVfj5+iCMoAZezFAUSUWHER5Si8CyT3VsLQ17TmDaagZiPTfcLYyRcjUcjKhUNty5fly+wkXvMCa5rWhugM73HdI+SM0gMVUkfuzZBgQFfNytBB0xtz1Irr2CuoN1tKtk/JLEjVrXkvNSBEw5/R+ObVqBqOqO/Xqw/wv7iVpKNTIz5ost0Aq5iUteMhpZD398SU3S4xLqYZTc+UVpESugRYMWpBt0N7eoTP5MN4njIkSvDS7uFGmYznAdmUp+D3skIDBq3f0vwgKnbFWLcDu/lRZSVrQEHFeRv2Oj4zK44jeqrDk1C1s6UTyRzBzZWv8KsQIBjz1rX73i0x2l0n5N8WQY6PTjV8ds5pDazVjY0k6ntjG0KI09JpUDGl4ek24qrbaLdozs51V+/XNnX8AhGbrpiBgjOp9GAv/LU9A5/Mhrgwh9xVi06DGdjlo27IhQe+++lXZy4IIJ6JblMWRfJ7AFN0ew6dt4FdVWbaZE/ONSRkPplR4ZNXZqm2ChksuMdxn2NTtKb7/jxLC7vT3mEHDgH+rVVODal256o8E3inYhq900mB50vpDqYWVVI93AMh1+A2DGv8a1ITLjgLokxVm+cAiN7GTPJxjvv4EAxbazRiYFtDGZi5XZkXGUkTM5TfBGKH9rgf3krjb0+nm4bPEfRW2rqEpuN+w5SkicAFDIGw8Nh9L97/eb2cauOIDRE00thWN8TNx4fp6HN683q5wr5gqEAgGPPWtfun+qcwjuGo+fUyBgUPJDMMTHDa+y/MlMIPBXSI5My51gpmvPqO3McA9MttijrgOnDt0r+PQLKaUt/ivIp8A4rpVRCBiD0FiGb7xk5Tbkez5TDIJiBoXr6Y2VZ9gXDpFNcPTvGzB8//gjVt98b91gvqo1ga+lybOd9MzacdJweuySAXftf03dPaRwsRRp6fuFMpzcqG2+cGnVIiFd24ZNX7Hn53I1l2suEmEN5FkTnjNbteAgcTDbRYYfq3rRYdeez+X0GiSw3XEMt7SD12NiKslQNkrniskLasv81KfxsjLBrifxX1tfWXoKQGHEDAwBgcjYVKJTL2TEcPOv2N5c"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "rafica 3D",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Creare scene in un mondo virtuale 3D composte",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "da oggetti geometrici con attributi pittorici +",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "immagini e testo",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Le scene esistono indipendentemente dal fatto che",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "vengano visualizzate o meno",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Guardare le scene da un dato punto di vista e",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "visualizzare l’immagine corrispondente",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Interagire (virtualmente) con gli oggetti che",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "compongono le scene",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Animare le scene in conseguenza di cambiamenti",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "di: punto di vista, cono di vista, posizione degli",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "oggetti, deformazione degli oggettiSintesi di immagini 3D",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Due entità fondamentali:",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Oggetti (sintetici)",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Osservatore (virtuale)",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Ogni oggetto è la",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "rappresentazione digitale di",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "forma e caratteristiche di un",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "oggetto reale tridimensionale",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Gli oggetti posizionati nello",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "spazio 3D formano scene",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " L’osservatore (viewer) è uno",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "strumento che permette di",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "ottenere un’immagine di una",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "scena da un dato punto di vista",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Rendering è il processo con cui",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "un viewer genera un’immagine a",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "partire da una scenaDefinire un oggetto 3D",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Strumenti per specificare la forma geometrica di primitive",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "geometriche fornite dall’API",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Permettono di specificare un insieme ridotto di geometrie,",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "come punti, spezzate, poligoni, insiemi di poligoni (mesh)",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Geometrie anche molto complesse si possono descrivere",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "(approssimare) con insiemi formati da molte di queste",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "primitive",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Strumenti per specificare le caratteristiche pittoriche:",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Colore",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Spessore, tratteggio, riempimento",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Trama (texture)Definire una scena",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Strumenti per posizionare gli oggetti",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Trasformazioni geometriche di modellazione",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Ogni oggetto viene definito in un proprio sistema di",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "coordinate e poi trasportato nel sistema della scena",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "attraverso un opportuno cambio di coordinate",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Un oggetto può essere utilizzato più volte nella stessa",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "scena posizionandone diverse istanze in posti diversi",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Strumenti per creare sfondi, inserire testo",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Primitive raster (pixel, bitmap)",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": " Differiscono dalle primitive geometriche in quanto sono",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "intrinsecamente “piatte” e assumono una posizione",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "sempre perpendicolare rispetto alla direzione di vista",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "specificata dall’osservatore",
+                  "type": "text",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "secondo questi  crea una pagina coerente che visualizzi queste informazioni",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nrafica 3D Creare scene in un mondo virtuale 3D composteda oggetti geometrici con attributi pittorici +immagini e testo Le scene esistono indipendentemente dal fatto chevengano visualizzate o meno Guardare le scene da un dato punto di vista evisualizzare l’immagine corrispondente Interagire (virtualmente) con gli oggetti checompongono le scene Animare le scene in conseguenza di cambiamentidi: punto di vista, cono di vista, posizione deglioggetti, deformazione degli oggettiSintesi di immagini 3D Due entità fondamentali: Oggetti (sintetici) Osservatore (virtuale) Ogni oggetto è larappresentazione digitale diforma e caratteristiche di unoggetto reale tridimensionale Gli oggetti posizionati nellospazio 3D formano scene L’osservatore (viewer) è unostrumento che permette diottenere un’immagine di unascena da un dato punto di vista Rendering è il processo con cuiun viewer genera un’immagine apartire da una scenaDefinire un oggetto 3D Strumenti per specificare la forma geometrica di primitivegeometriche fornite dall’API Permettono di specificare un insieme ridotto di geometrie,come punti, spezzate, poligoni, insiemi di poligoni (mesh) Geometrie anche molto complesse si possono descrivere(approssimare) con insiemi formati da molte di questeprimitive Strumenti per specificare le caratteristiche pittoriche: Colore Spessore, tratteggio, riempimento Trama (texture)Definire una scena Strumenti per posizionare gli oggetti Trasformazioni geometriche di modellazione Ogni oggetto viene definito in un proprio sistema dicoordinate e poi trasportato nel sistema della scenaattraverso un opportuno cambio di coordinate Un oggetto può essere utilizzato più volte nella stessascena posizionandone diverse istanze in posti diversi Strumenti per creare sfondi, inserire testo Primitive raster (pixel, bitmap) Differiscono dalle primitive geometriche in quanto sonointrinsecamente “piatte” e assumono una posizionesempre perpendicolare rispetto alla direzione di vistaspecificata dall’osservatore\n\n\nsecondo questi  crea una pagina coerente che visualizzi queste informazioni\n\n"
+        }
+      ],
+      "id": "7ec30d94-9741-431b-a7d3-30ef3a9c0250",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Definizione di Oggetti 3D.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Ecco una riorganizzazione coerente delle note basata sul testo fornito, strutturata per concetti chiave (Fondamenti, Oggetti, Scena). Ho inserito queste informazioni prima della sezione specifica sul Frame Buffer.\n\n<smtcmp_block filename=\"Computer Animation.md\" language=\"markdown\">\n# Computer Animation\n\n## Fondamenti di Grafica 3D\nLa grafica 3D permette di creare scene in un mondo virtuale composte da oggetti geometrici, indipendenti dalla loro visualizzazione.\n*   **Sintesi di immagini**: Si basa su due entità, gli **Oggetti** (sintetici) e l'**Osservatore** (virtuale).\n*   **Rendering**: È il processo tramite il quale un *viewer* genera un'immagine a partire da una scena vista da un punto specifico.\n*   **Animazione**: Include cambiamenti di punto di vista, posizione o deformazione degli oggetti.\n\n## Definizione degli Oggetti 3D\nGli oggetti sono rappresentazioni digitali definite tramite primitive geometriche fornite dall'API.\n*   **Geometria**: Si usano insiemi ridotti di primitive (punti, spezzate, poligoni, mesh) per approssimare anche forme complesse.\n*   **Attributi Pittorici**: Definiscono l'aspetto tramite colore, spessore, riempimento e trama (texture).\n\n## Composizione della Scena\nPer definire una scena si utilizzano strumenti di posizionamento e trasformazione:\n*   **Trasformazioni geometriche**: Ogni oggetto è definito in un proprio sistema di coordinate e trasportato nel sistema della scena tramite un cambio di coordinate.\n*   **Istanze**: Un oggetto può essere riutilizzato più volte in posizioni diverse.\n*   **Primitive Raster**: Elementi come pixel e bitmap (per sfondi o testo). A differenza delle primitive geometriche, sono intrinsecamente \"piatte\" e restano sempre perpendicolari alla direzione di vista.\n\n## Frame Buffer\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "cceec264-217e-465f-a84f-9e1cd5060ef3",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1255,
+          "completion_tokens": 445,
+          "total_tokens": 3534
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "cos'è il pinhole camera e come funziona",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\ncos'è il pinhole camera e come funziona\n\n"
+        }
+      ],
+      "id": "2d70c156-1957-495d-ac48-6ee487ebd94b",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Computer Animation.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Il **Pinhole Camera** (o modello a foro stenopeico) è il modello di camera più semplice e ideale utilizzato in Computer Graphics per simulare la proiezione prospettica.\n\nHo aggiunto la sezione relativa dopo la \"Composizione della Scena\", poiché riguarda il funzionamento dell'Osservatore.\n\n<smtcmp_block filename=\"Computer Animation.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n## Composizione della Scena\n<!-- ... existing content ... -->\n*   **Primitive Raster**: Elementi come pixel e bitmap (per sfondi o testo). A differenza delle primitive geometriche, sono intrinsecamente \"piatte\" e restano sempre perpendicolari alla direzione di vista.\n\n## Pinhole Camera (Modello a Foro Stenopeico)\nÈ il modello matematico standard utilizzato per calcolare come una scena 3D viene proiettata su uno schermo 2D.\n*   **Funzionamento**: I raggi di luce partono dall'oggetto, passano per un singolo punto detto **Centro di Proiezione** (o occhio) e colpiscono il **Piano di Proiezione** (o *Image Plane*).\n*   **Prospettiva**: Crea una proiezione prospettica naturale dove gli oggetti più lontani appaiono più piccoli ($z$ influenza $x$ e $y$).\n*   **Geometria**: Utilizza la similitudine dei triangoli per mappare le coordinate 3D $(x,y,z)$ in coordinate 2D sul piano.\n\n## Frame Buffer\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "75b20a98-1a15-450f-ad86-c2e4e6f1ee2d",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1735,
+          "completion_tokens": 346,
+          "total_tokens": 3110
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    }
+  ],
+  "createdAt": 1769784622451,
+  "updatedAt": 1769785348648,
+  "schemaVersion": 1
+}
