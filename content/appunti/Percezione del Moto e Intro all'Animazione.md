@@ -7,7 +7,7 @@ Perché vediamo il movimento dove non c'è? È fondamentale distinguere tra cred
 - **Definizione:** È la teoria (errata) secondo cui l'immagine rimane impressa sulla retina per una frazione di secondo (circa 1/25 o 1/10 di secondo), fondendosi con la successiva.
     
 - **Realtà:** La persistenza della visione spiega solo perché non vediamo il "nero" tra un frame e l'altro (evita il _flicker_), ma **non spiega il movimento**. Se fosse l'unica causa, vedremmo una scia di immagini sovrapposte, non un moto fluido.
-    
+
 
 ### La spiegazione reale: Fenomeno Phi e Movimento Beta
 
