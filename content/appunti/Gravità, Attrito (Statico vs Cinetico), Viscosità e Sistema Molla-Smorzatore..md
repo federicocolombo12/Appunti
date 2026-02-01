@@ -3,6 +3,7 @@
 Oltre alle forze impulsive generate dagli urti, sugli oggetti agiscono forze continue durante tutta la simulazione.
 
 ## A. Gravità
+![[Screenshot 2026-02-01 alle 18.56.37.png|500]]
 È la forza più semplice e onnipresente.
 $$F_g = m \cdot g$$
 Dove $g$ è l'accelerazione di gravità (di solito $\approx 9.81 m/s^2$ verso il basso).
@@ -18,12 +19,15 @@ Agisce quando l'oggetto è **fermo** ma una forza esterna cerca di muoverlo.
   * $\mu_s$: Coefficiente di attrito statico.
   * $N$: Forza Normale (pressione contro la superficie).
 * Se la forza applicata supera $\mu_s N$, l'oggetto inizia a muoversi e si passa al caso cinetico.
+![[Screenshot 2026-02-01 alle 18.57.15.png | 500]]
+
 
 ### 2. Attrito Cinetico (Kinetic Friction)
 Agisce quando l'oggetto è **in movimento**. Si oppone alla direzione della velocità.
 $$F_k = -(\mu_k \cdot N) \cdot \frac{v}{|v|}$$
 * $\mu_k$: Coefficiente di attrito cinetico (generalmente $\mu_k < \mu_s$).
 * Questo spiega perché serve più forza per *iniziare* a spingere un armadio che per *continuare* a spingerlo.
+![[Screenshot 2026-02-01 alle 18.57.53.png |300]]
 
 ## C. Viscosità (Smorzamento dell'Aria/Fluido)
 A differenza dell'attrito (che dipende dal contatto), la viscosità è la resistenza del mezzo in cui l'oggetto si muove (aria, acqua).
@@ -40,6 +44,7 @@ Abbandoniamo l'ipotesi di "Corpo Rigido". Un corpo deformabile è modellato come
 ## Il Sistema Molla-Smorzatore (Spring-Damper)
 È l'unità fondamentale. Collega due particelle $A$ e $B$.
 
+![[Screenshot 2026-02-01 alle 18.58.24.png]]
 ### 1. La Forza Elastica (Legge di Hooke)
 Tende a riportare la molla alla sua lunghezza di riposo ($L_0$).
 $$F_s = -k_s \cdot (|L| - L_0) \cdot \frac{L}{|L|}$$
@@ -48,6 +53,8 @@ $$F_s = -k_s \cdot (|L| - L_0) \cdot \frac{L}{|L|}$$
 * Se la molla è compressa ($|L| < L_0$), spinge in fuori. Se è estesa ($|L| > L_0$), tira in dentro.
 
 ### 2. Lo Smorzatore (Damper)
+
+![[Screenshot 2026-02-01 alle 18.59.36.png | 400]]
 Una molla ideale oscilla all'infinito. Per simulare la realtà, dobbiamo dissipare l'energia cinetica dell'oscillazione.
 Lo smorzatore agisce sulla **velocità relativa** tra le due particelle proiettata lungo l'asse della molla:
 $$F_d = -k_d \cdot (v_{rel} \cdot \frac{L}{|L|}) \cdot \frac{L}{|L|}$$
@@ -57,7 +64,7 @@ $$F_d = -k_d \cdot (v_{rel} \cdot \frac{L}{|L|}) \cdot \frac{L}{|L|}$$
 ---
 
 # Spring Mesh (Reti di Molle)
-
+![[Screenshot 2026-02-01 alle 18.59.05.png | 500]]
 Per simulare oggetti 3D o tessuti (Cloth Simulation), colleghiamo molteplici masse in una rete (Mesh).
 Tuttavia, collegare solo i vicini diretti non basta: la struttura collasserebbe o si comporterebbe in modo strano (effetto "tessuto super elastico").
 

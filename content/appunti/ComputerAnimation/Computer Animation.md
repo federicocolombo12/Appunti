@@ -30,7 +30,6 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
 - Simulazione di Corpi Rigidi:
 	- [[Gestione delle Collisioni.]] 
 		
-    - Leggi di Newton applicate alla CG (F=ma).
         
     - [[Collisione piano-particella e forze di Impulso]], [[Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore.]]
         
