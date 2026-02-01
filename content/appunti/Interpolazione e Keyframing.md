@@ -112,7 +112,7 @@ Durante l'animazione, dato un valore di distanza desiderata $s_{target}$, dobbia
 Dopo aver risolto il problema geometrico con la riparametrizzazione per lunghezza d'arco ($s = G(u)$), ora possiamo muoverci a velocità costante. Tuttavia, per un'animazione realistica, vogliamo controllare l'accelerazione.
 
 Introduciamo la **Funzione Tempo-Distanza** $s = T(t)$, che mappa il tempo normalizzato alla distanza percorsa.
-
+![[Pasted image 20260201113152.png]]
 ### La Pipeline Completa di Valutazione
 Per calcolare la posizione di un oggetto al tempo $t$, concateniamo le funzioni:
 
@@ -181,7 +181,7 @@ $$
 
 ---
 
-## 4. Esempio Numerico (Rif. Slide 28-29)
+## 4. Esempio Numerico 
 Confrontiamo un movimento lineare (velocità costante) con uno sinusoidale su un percorso di 10 metri in 1 secondo.
 
 | Tempo ($t$) | Distanza Lineare | Distanza Sinusoidale | Stato |
