@@ -106,9 +106,9 @@ Durante l'animazione, dato un valore di distanza desiderata $s_{target}$, dobbia
     $$
 
 ---
-# 2.Controllo della Velocità (Velocity Control)
+## 2.Controllo della Velocità (Velocity Control)
 
-## 1. La Funzione Tempo-Distanza
+### 1. La Funzione Tempo-Distanza
 Dopo aver risolto il problema geometrico con la riparametrizzazione per lunghezza d'arco ($s = G(u)$), ora possiamo muoverci a velocità costante. Tuttavia, per un'animazione realistica, vogliamo controllare l'accelerazione.
 
 Introduciamo la **Funzione Tempo-Distanza** $s = T(t)$, che mappa il tempo normalizzato alla distanza percorsa.
@@ -126,7 +126,7 @@ $$
 
 ---
 
-## 2. Ease-In ed Ease-Out
+### 2. Ease-In ed Ease-Out
 In fisica, gli oggetti dotati di massa non partono e non si fermano istantaneamente (richiederebbe forza infinita).
 * **Ease-In (Slow-In):** Il movimento inizia con velocità zero e accelera gradualmente.
 * **Ease-Out (Slow-Out):** Il movimento rallenta gradualmente fino a velocità zero.
@@ -138,7 +138,7 @@ $$
 
 ---
 
-## 3. Interpolazione Sinusoidale (Sine Interpolation)
+### 3. Interpolazione Sinusoidale (Sine Interpolation)
 Un metodo classico ed elegante per ottenere un effetto **Ease-In / Ease-Out** simmetrico è utilizzare una porzione della funzione trigonometrica **Seno** (Rif. Slide 26-29).
 
 ![[Pasted image 20260201114252.png]]
@@ -183,7 +183,7 @@ $$
 
 ---
 
-## 4.Controllo della Velocità a Tratti (Piecewise Velocity Control)
+### 4.Controllo della Velocità a Tratti (Piecewise Velocity Control)
 
 ### Il Concetto: Profilo di Velocità Trapezoidale
 A differenza dell'interpolazione sinusoidale (che cambia velocità continuamente), questo metodo suddivide il movimento in **tre fasi distinte** per garantire un tratto centrale a velocità perfettamente uniforme. È il metodo standard per macchinari, robotica e animazioni di telecamere.
@@ -246,7 +246,7 @@ $$
 
 ---
 
-## 5. Implementazione (Pseudocodice)
+### 5. Implementazione (Pseudocodice)
 
 Questa funzione prende in input il tempo corrente $t$, la durata dell'accelerazione $t_1$ e la fine del tratto costante $t_2$. Restituisce la distanza percorsa normalizzata (0.0 a 1.0).
 
@@ -288,3 +288,4 @@ float PiecewiseEase(float t, float t1, float t2) {
         return 1.0f - (Vmax * t_rem * t_rem) / (2.0f * t_dec);
     }
 }
+cpp'''
