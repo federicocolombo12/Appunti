@@ -49,8 +49,7 @@ Vogliamo muovere un oggetto nel tempo.
 * **Input:** Passo temporale $h$ (o $\Delta t$).
 
 ### Metodo di Eulero (Euler Integration)
-
-
+![[Pasted image 20260201123802.png]]
 È il metodo più semplice e intuitivo, basato sulla serie di Taylor troncata al primo ordine.
 Proiettiamo lo stato futuro seguendo la tangente (derivata) attuale.
 
@@ -91,23 +90,3 @@ $$
 * **Stabilità:** Può gestire passi temporali ($h$) molto più grandi senza esplodere.
 * **Costo:** Richiede 4 valutazioni delle forze per frame (4 volte più lento di Eulero per singolo step), ma permette step molto più ampi, quindi alla fine è spesso più efficiente.
 
-### Pseudocodice RK4 (Struttura Logica)
-```cpp
-State RK4(State initial, float h) {
-    // 1. Valuta forza all'inizio
-    Derivative k1 = evaluate(initial, 0.0);
-    
-    // 2. Valuta a metà step basandosi su k1
-    Derivative k2 = evaluate(initial + k1 * 0.5 * h, 0.5 * h);
-    
-    // 3. Valuta a metà step basandosi su k2
-    Derivative k3 = evaluate(initial + k2 * 0.5 * h, 0.5 * h);
-    
-    // 4. Valuta alla fine step basandosi su k3
-    Derivative k4 = evaluate(initial + k3 * h, h);
-    
-    // Media pesata
-    Derivative final_slope = (k1 + 2*k2 + 2*k3 + k4) / 6.0;
-    
-    return initial + final_slope * h;
-}
