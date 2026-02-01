@@ -39,7 +39,7 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
 	    
      [[Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa]]: Muovere scheletri e gerarchie di oggetti.
 		 
-	- [[Figure Articolate]]
+	- [[Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali)]]
 
 
 ## 4. Oggetti Deformabili e Sistemi Complessi
