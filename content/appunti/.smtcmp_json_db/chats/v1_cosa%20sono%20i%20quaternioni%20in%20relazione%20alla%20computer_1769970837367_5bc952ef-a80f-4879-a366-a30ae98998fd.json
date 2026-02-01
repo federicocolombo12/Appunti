@@ -1,0 +1,79 @@
+{
+  "id": "5bc952ef-a80f-4879-a366-a30ae98998fd",
+  "title": "cosa sono i quaternioni in relazione alla computer",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "cosa sono i quaternioni in relazione alla computer grafica",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\ncosa sono i quaternioni in relazione alla computer grafica\n\n"
+        }
+      ],
+      "id": "e935f7e6-991f-4e55-af15-b4f3b0e2c754",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Cinematica Diretta e Inversa.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I quaternioni sono un sistema numerico quadridimensionale utilizzato in computer grafica per rappresentare le rotazioni. Sono preferiti alle matrici e agli angoli di Eulero perché evitano il \"Gimbal Lock\" e permettono interpolazioni (animazioni) più fluide ed efficienti.\n\nEcco una bozza per il tuo file:\n\n<smtcmp_block filename=\"Quaternioni.md\" language=\"markdown\">\n# Quaternioni in Computer Grafica\n\nI quaternioni sono un'estensione dei numeri complessi utilizzata per calcolare rotazioni nello spazio 3D in modo efficiente e stabile.\n\n## Struttura\nUn quaternione è composto da 4 numeri (uno scalare e un vettore 3D):\n$$q = w + xi + yj + zk$$\n\n## Perché si usano?\nRispetto ad altri metodi di rotazione, offrono vantaggi significativi:\n\n### Vs. Angoli di Eulero\n- **Nessun Gimbal Lock**: Evitano il problema della perdita di un grado di libertà quando due assi di rotazione si allineano.\n- **Interpolazione migliore**: Permettono l'interpolazione sferica lineare (**SLERP**), essenziale per animazioni fluide tra due orientamenti.\n\n### Vs. Matrici di Rotazione\n- **Efficienza**: Richiedono meno memoria (4 float contro 9 o 16) e meno calcoli per essere combinati.\n- **Stabilità**: È computazionalmente meno costoso correggere gli errori di arrotondamento (normalizzazione) in un quaternione rispetto a una matrice.\n</smtcmp_block>",
+      "id": "4461874e-fd57-4da9-b549-7f06d99a03a8",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 455,
+          "completion_tokens": 351,
+          "total_tokens": 1311
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    }
+  ],
+  "createdAt": 1769970770514,
+  "updatedAt": 1769970837367,
+  "schemaVersion": 1
+}
