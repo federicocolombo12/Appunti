@@ -34,8 +34,9 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
     - [[Collisione piano-particella e forze di Impulso]], [[Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore.]]
 	    
     - [[Simulazione di un Corpo Rigido]]
-	
-    
+		
+		
+	    
      [[Cinematica Diretta e Inversa]]: Muovere scheletri e gerarchie di oggetti.
     
 
