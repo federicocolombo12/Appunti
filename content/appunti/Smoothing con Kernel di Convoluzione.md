@@ -28,41 +28,62 @@ $$
 Per avere un controllo maggiore, generalizziamo il concetto di media introducendo la **Convoluzione**.
 ![[Pasted image 20260201122329.png]]
 ### A. Interpretazione del Segnale (Funzione a Gradini)
-Immagina la tua animazione non come una linea continua, ma come una sequenza discreta di campioni (frame).
-Matematicamente, possiamo vedere la posizione $P(t)$ come una somma di **Funzioni a Gradino (Basis Functions)** scalate:
-* Ogni frame è un "impulso".
-* La convoluzione sovrappone una "finestra" (Kernel) su questi impulsi per mescolarli insieme.
+Immagina la tua animazione originale (i frame) non come punti, ma come una serie di **impulsi verticali** (come dei paletti piantati a terra) di altezza pari al valore del punto.
+La **Convoluzione** funziona così:
+1.  Prendiamo una forma geometrica (il **Kernel**) e ne mettiamo una copia sopra ogni "paletto" (frame).
+2.  Scaliamo l'altezza del kernel in base all'altezza del paletto.
+3.  Sommiamo tutte queste forme sovrapposte.
 
-### B. Il Kernel di Convoluzione
-Il **Kernel** (o maschera di filtro) è un array di numeri (pesi) che definisce *come* vogliamo mescolare i punti.
+Il risultato è la curva rossa liscia che vedi nelle slide. La forma della curva finale dipende interamente dalla forma del Kernel che hai scelto.
 
-**Gli Attributi del Kernel:**
-1.  **Ampiezza (Width / Support):** Quanti punti vicini consideriamo?
-    * Un kernel *largo* (es. 5 o 7 punti) produce uno smoothing molto forte (la curva diventa molto piatta).
-    * Un kernel *stretto* (es. 3 punti) preserva più dettagli.
-2.  **Pesi (Weights):** Quanto conta ogni vicino?
-    * I pesi sono solitamente simmetrici rispetto al centro.
-    * **Regola d'Oro:** La somma dei pesi deve essere **1** (altrimenti la curva si sposta nello spazio o cambia scala).
+## B. I Tre Kernel Fondamentali
 
-### C. Calcolo del Nuovo Punto
-Per ottenere il punto levigato $P'_i$, sovrapponiamo il centro del kernel al punto originale $P_i$ e moltiplichiamo i vicini per i pesi corrispondenti.
+![[Pasted image 20260201123038.png]]
+### A. Box Filter (Filtro a Scatola)
+* **Forma nelle slide:** Un rettangolo (una linea orizzontale che cade a zero bruscamente).
+* **Matematica:** Pesi tutti uguali. Es. `[0.33, 0.33, 0.33]`.
+* **Significato:** È la **Media Semplice**.
+    * *"Prendi i miei vicini e trattali esattamente come me."*
+* **Difetto:** Non è molto naturale. Se un punto entra o esce dalla finestra di calcolo, la media cambia di colpo (discontinuità C1), creando scalettature impercettibili ma fastidiose.
 
-Se abbiamo un Kernel di ampiezza $2k+1$ (dove $k$ è il raggio):
+### B. Tent Filter (Filtro a Tenda/Triangolo)
+* **Forma nelle slide:** Un triangolo (parte da 0, sale al centro, scende a 0).
+* **Matematica:** Pesi che decrescono linearmente. Es. `[0.25, 0.50, 0.25]`.
+    * Il punto centrale (io) vale il doppio dei vicini.
+* **Significato:** **Interpolazione Lineare**.
+    * *"Io sono importante, i miei vicini un po' meno."*
+* **Vantaggio:** Molto meglio del Box, garantisce continuità (C0), ma la derivata (velocità) può cambiare bruscamente sui picchi.
 
-$$
-P'_i = \sum_{j=-k}^{k} P_{i+j} \cdot w_j
-$$
-
-**Esempio Pratico (Kernel Gaussiano a 5 punti):**
-Immaginiamo un kernel con pesi: $[0.1, \ 0.2, \ 0.4, \ 0.2, \ 0.1]$.
-(Nota: $0.1+0.2+0.4+0.2+0.1 = 1.0$)
-
-Il nuovo punto sarà:
-$$
-P'_i = (P_{i-2} \cdot 0.1) + (P_{i-1} \cdot 0.2) + (P_{i} \cdot 0.4) + (P_{i+1} \cdot 0.2) + (P_{i+2} \cdot 0.1)
-$$
-
-> **Vantaggio:** Il punto centrale ($P_i$) mantiene l'importanza maggiore (0.4), mentre i vicini lontani contano meno. Questo preserva la forma originale meglio di una media semplice.
+### C. Gaussian Filter (Filtro Gaussiano - La scelta migliore)
+* **Forma nelle slide:** Una curva a campana (larga alla base, arrotondata in cima).
+* **Matematica:** Pesi basati sulla funzione $e^{-x^2}$. Es. `[0.05, 0.25, 0.40, 0.25, 0.05]`.
+    * Il peso scende dolcemente verso lo zero senza mai toccarlo bruscamente.
+* **Significato:** È lo standard nell'animazione e nel cinema.
+* **Perché si usa:** È l'unico filtro che garantisce che la curva risultante sia **liscia all'infinito** (C-infinito). Non introduce artefatti, non crea angoli, smussa in modo perfettamente organico.
 
 ---
+### C. Calcolo del Nuovo Punto 
+Per ottenere il punto levigato $P'_i$, sovrapponiamo il centro del kernel al punto originale $P_i$ e moltiplichiamo i vicini per i pesi corrispondenti. Se abbiamo un Kernel di ampiezza $2k+1$ (dove $k$ è il raggio): $$ P'_i = \sum_{j=-k}^{k} P_{i+j} \cdot w_j $$ **Esempio Pratico (Kernel Gaussiano a 5 punti):** Immaginiamo un kernel con pesi: $[0.1, \ 0.2, \ 0.4, \ 0.2, \ 0.1]$. (Nota: $0.1+0.2+0.4+0.2+0.1 = 1.0$) Il nuovo punto sarà: $$ P'_i = (P_{i-2} \cdot 0.1) + (P_{i-1} \cdot 0.2) + (P_{i} \cdot 0.4) + (P_{i+1} \cdot 0.2) + (P_{i+2} \cdot 0.1) $$
+## C. Il Calcolo Pratico 
+Come otteniamo il numero finale? Immagina di avere una "finestra scorrevole" (il Kernel) che sposti lungo la timeline.
 
+**Esempio Numerico:**
+Voglio calcolare la posizione smussata al **frame 10**.
+Uso un Kernel a 3 punti (Tent): `Pesi = [0.25, 0.5, 0.25]`.
+
+I punti originali sono:
+* Frame 9: $x = 10$
+* Frame 10: $x = 20$ (Picco brusco)
+* Frame 11: $x = 10$
+
+**Calcolo:**
+1.  Sovrappongo il centro del Kernel (0.5) al Frame 10.
+2.  I lati del Kernel (0.25) cadono sul Frame 9 e 11.
+3.  Moltiplico e sommo:
+    $$P'_{10} = (10 \cdot 0.25) + (20 \cdot 0.50) + (10 \cdot 0.25)$$
+    $$P'_{10} = 2.5 + 10 + 2.5 = 15$$
+
+**Risultato:** Il picco originale era **20**. Il punto smussato è **15**.
+Il movimento è stato "tagliato" per renderlo più morbido.
+
+---
