@@ -10,6 +10,7 @@ Un Corpo Rigido è un oggetto ideale che:
 
 ## 2. Il Ciclo di Simulazione (Simulation Loop)
 Per animare questi corpi, il motore fisico esegue un ciclo continuo (loop) ad ogni frame o sottostep temporale.
+![[Screenshot 2026-02-01 alle 19.11.34.png]]
 
 **Fasi del Ciclo:**
 1.  **Calcolo delle Forze:** Si sommano tutte le forze agenti (gravità, vento, spinte).
@@ -54,10 +55,11 @@ $$\dot{r}(t) = \omega(t) \times r(t)$$
 **Significato Fisico:**
 * La velocità è perpendicolare sia all'asse di rotazione ($\omega$) sia al raggio vettorre ($r$).
 * Più il punto è lontano dall'asse (modulo di $r$ grande), più veloce si muove linearmente.
+![[Screenshot 2026-02-01 alle 19.14.20.png]]
 
 ---
 
-## 5. Cinematica del Corpo Rigido (Putting it together)
+## 5. Cinematica del Corpo Rigido
 Un corpo rigido combina i due moti visti sopra: **Trasla** (come un punto) e **Ruota** (come una sfera).
 
 La posizione $p(t)$ di un qualsiasi punto arbitrario sull'oggetto rigido, al tempo $t$, è data da:
