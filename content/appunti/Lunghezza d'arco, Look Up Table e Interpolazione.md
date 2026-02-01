@@ -1,4 +1,3 @@
-# Controllo del Moto e Riparametrizzazione
 
 ## Introduzione: Il Problema della Velocità
 In [[Computer Animation]], usiamo curve parametriche $P(u)$ per definire le traiettorie nello spazio.
@@ -345,6 +344,7 @@ $$
 
 #### Le Equazioni del Moto $s(t)$
 Una volta trovato $V_{max}$, definiamo la funzione posizione $s(t)$ a tratti (Piecewise Function).
+![[Pasted image 20260201115728.png]]
 
 ### Fase 1: Accelerazione ($0 \le t < t_1$)
 È un moto uniformemente accelerato ($s = \frac{1}{2}at^2$).
@@ -371,33 +371,3 @@ s(t) = 1 - \frac{V_{max} \cdot (1 - t)^2}{2(1 - t_2)}
 $$
 
 ---
-
-## 5. Pseudocodice Implementativo
-
-```python
-def get_parabolic_ease(t, t1, t2):
-    # t: tempo corrente [0, 1]
-    # t1: fine accelerazione (es. 0.2)
-    # t2: inizio decelerazione (es. 0.8)
-
-    if t <= 0: return 0.0
-    if t >= 1: return 1.0
-
-    # 1. Calcolo Vmax basato sull'area
-    v_max = 2.0 / (1.0 + t2 - t1)
-
-    # 2. Selezione Fase
-    if t < t1:
-        # Fase Accel (Parabola ascendente)
-        return (v_max / (2.0 * t1)) * (t * t)
-
-    elif t <= t2:
-        # Fase Costante (Retta)
-        dist_start = (v_max * t1) / 2.0
-        return dist_start + v_max * (t - t1)
-
-    else:
-        # Fase Decel (Parabola discendente invertita)
-        t_rem = 1.0 - t        # tempo rimanente
-        t_dec = 1.0 - t2       # durata decelerazione
-        return 1.0 - (v_max * t_rem * t_rem) / (2.0 * t_dec)
