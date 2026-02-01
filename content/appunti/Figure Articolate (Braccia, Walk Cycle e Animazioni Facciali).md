@@ -218,7 +218,7 @@ Invece di spostare i vertici a mano (Blend Shapes), simuliamo la struttura anato
 
 ### 2. Attivazione e Reazione Muscolare
 Come si muove la pelle (la mesh) quando il muscolo virtuale si contrae?
-
+![[Screenshot 2026-02-01 alle 20.17.27.png]]
 #### Modello A: Geometrico (Distanza dal punto di inserzione)
 È un approccio cinematico veloce.
 Si definisce un **vettore muscolare** (dal punto di attacco osseo al punto di inserzione nella pelle).
@@ -227,7 +227,7 @@ Lo spostamento è pesato in base alla distanza e all'angolo:
 * I vertici vicini al punto di inserzione si muovono molto.
 * I vertici lontani o laterali si muovono poco (fall-off function, spesso cosinusoidale).
 * *Difetto:* Non simula il volume (la pelle non si "arriccia" realisticamente).
-
+![[Screenshot 2026-02-01 alle 20.18.30.png]]
 #### Modello B: Fisico Viscoelastico (Mass-Spring System)
 È un approccio dinamico accurato.
 La pelle è modellata come una rete di masse collegate da molle e smorzatori (Mass-Spring).
@@ -236,3 +236,4 @@ La pelle è modellata come una rete di masse collegate da molle e smorzatori (Ma
 3.  **Viscoelasticità:** La pelle ha resistenza al cambiamento (viscosità) e tende a tornare alla forma originale (elasticità).
 * *Pro:* Crea rughe ed effetti di volume (bulging) automatici e realistici.
 * *Contro:* Computazionalmente pesante.
+![[Screenshot 2026-02-01 alle 20.18.42.png]]

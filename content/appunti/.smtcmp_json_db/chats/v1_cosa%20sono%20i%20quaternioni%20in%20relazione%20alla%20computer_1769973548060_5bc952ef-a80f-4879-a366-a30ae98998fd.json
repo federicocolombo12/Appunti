@@ -45,7 +45,7 @@
       "mentionables": [
         {
           "type": "current-file",
-          "file": "Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md"
+          "file": "ComputerAnimation/Computer Animation.md"
         }
       ]
     },
@@ -74,6 +74,6 @@
     }
   ],
   "createdAt": 1769970770514,
-  "updatedAt": 1769972960451,
+  "updatedAt": 1769973548060,
   "schemaVersion": 1
 }
