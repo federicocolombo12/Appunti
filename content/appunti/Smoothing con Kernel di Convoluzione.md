@@ -1,18 +1,16 @@
-
-
-##Il Problema: Traiettorie "Brusche" e Rumore
 In Computer Animation, non sempre lavoriamo con curve matematiche perfette (come le Spline) create da zero. Spesso importiamo dati dal mondo reale (es. **Motion Capture**).
 Questi dati grezzi soffrono di **High Frequency Noise** (rumore ad alta frequenza):
 * La traiettoria appare "nervosa", tremolante.
 * Ci sono picchi improvvisi (spikes) non realistici per la fisica di un corpo pesante.
 
 **Obiettivo:** Vogliamo "raccordare" questi punti bruschi per ottenere una curva morbida e fluida, senza perdere il movimento generale.
-
+![[Pasted image 20260201122258.png]]
 ---
 
 ## 2. Lo Smoothing tramite Media (Moving Average)
 Il metodo più intuitivo per ammorbidire una curva è la "Media Mobile".
 Invece di usare la posizione esatta di un punto $P_i$, la sostituiamo con la **media** tra il punto stesso e i suoi vicini.
+![[Pasted image 20260201122317.png]]
 
 ### Formula Base (Media a 3 punti)
 Per ogni punto $P_i$ della traiettoria, calcoliamo la nuova posizione $P'_i$:
@@ -28,7 +26,7 @@ $$
 
 ## 3. Lo Smoothing con Kernel di Convoluzione
 Per avere un controllo maggiore, generalizziamo il concetto di media introducendo la **Convoluzione**.
-
+![[Pasted image 20260201122329.png]]
 ### A. Interpretazione del Segnale (Funzione a Gradini)
 Immagina la tua animazione non come una linea continua, ma come una sequenza discreta di campioni (frame).
 Matematicamente, possiamo vedere la posizione $P(t)$ come una somma di **Funzioni a Gradino (Basis Functions)** scalate:
@@ -68,25 +66,3 @@ $$
 
 ---
 
-### Pseudocodice: Smoothing per Convoluzione
-
-```cpp
-vector<Point3> ConvolveTrajectory(vector<Point3> trajectory, vector<float> kernel) {
-    vector<Point3> smoothTrajectory = trajectory; // Copia iniziale
-    int k = kernel.size() / 2; // Raggio del kernel (es. size 5 -> k=2)
-
-    // Per ogni punto della traiettoria (escludendo i bordi)
-    for (int i = k; i < trajectory.size() - k; i++) {
-        Point3 newPoint(0, 0, 0);
-        
-        // Applica la somma di convoluzione
-        for (int j = -k; j <= k; j++) {
-            // kernel index deve essere spostato per accedere all'array (0..size)
-            float weight = kernel[j + k]; 
-            newPoint += trajectory[i + j] * weight;
-        }
-        
-        smoothTrajectory[i] = newPoint;
-    }
-    return smoothTrajectory;
-}
