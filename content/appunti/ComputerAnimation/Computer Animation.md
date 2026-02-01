@@ -37,7 +37,7 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
 		
 		
 	    
-     [[Cinematica Diretta e Inversa]]: Muovere scheletri e gerarchie di oggetti.
+     [[Modelli Gerarchici e Strutture Articolate, Cinema tica Diretta e Inversa]]: Muovere scheletri e gerarchie di oggetti.
     
 
 

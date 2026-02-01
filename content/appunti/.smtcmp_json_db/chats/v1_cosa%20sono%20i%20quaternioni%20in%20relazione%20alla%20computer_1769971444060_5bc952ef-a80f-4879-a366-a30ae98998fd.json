@@ -45,7 +45,7 @@
       "mentionables": [
         {
           "type": "current-file",
-          "file": "Cinematica Diretta e Inversa.md"
+          "file": "Modelli Gerarchici e Strutture Articolate.md"
         }
       ]
     },
@@ -74,6 +74,6 @@
     }
   ],
   "createdAt": 1769970770514,
-  "updatedAt": 1769970837367,
+  "updatedAt": 1769971444060,
   "schemaVersion": 1
 }
