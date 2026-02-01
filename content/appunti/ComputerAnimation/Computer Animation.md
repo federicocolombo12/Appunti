@@ -32,7 +32,7 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
 		
     - Leggi di Newton applicate alla CG (F=ma).
         
-    - [[Collisione piano-particella e forze di Impulso]],  e Forze: Gravità, Attrito (Statico vs Cinetico), Viscosità.
+    - [[Collisione piano-particella e forze di Impulso]], [[Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore.]]
         
     
         
