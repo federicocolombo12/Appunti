@@ -52,6 +52,7 @@ $$
 ---
 
 ## 3. Stima tramite Differenza Diretta (Forward Differencing)
+![[Pasted image 20260201112445.png]]
 Poiché non possiamo risolvere l'integrale, lo approssimiamo sommando le lunghezze di tanti piccoli segmenti lineari (corde).
 
 Dividiamo la curva in $k$ passi. La stima è la sommatoria delle distanze euclidee:
@@ -105,18 +106,3 @@ Durante l'animazione, dato un valore di distanza desiderata $s_{target}$, dobbia
     $$
 
 ---
-
-### Pseudocodice Implementativo
-```python
-# 1. Calcolo distanza target
-distanza_target = velocita * tempo
-
-# 2. Ricerca nella tabella
-idx = find_index(table, distanza_target)
-
-# 3. Interpolazione inversa
-alpha = (distanza_target - table[idx].s) / (table[idx+1].s - table[idx].s)
-u_final = table[idx].u + alpha * (table[idx+1].u - table[idx].u)
-
-# 4. Valutazione curva
-draw( P(u_final) )
