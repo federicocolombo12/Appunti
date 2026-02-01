@@ -45,7 +45,7 @@
       "mentionables": [
         {
           "type": "current-file",
-          "file": "Modelli Gerarchici e Strutture Articolate.md"
+          "file": "Figure Articolate.md"
         }
       ]
     },
@@ -74,6 +74,6 @@
     }
   ],
   "createdAt": 1769970770514,
-  "updatedAt": 1769971444060,
+  "updatedAt": 1769972184502,
   "schemaVersion": 1
 }

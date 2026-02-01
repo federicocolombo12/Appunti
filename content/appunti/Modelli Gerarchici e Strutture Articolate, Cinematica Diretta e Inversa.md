@@ -110,7 +110,7 @@ Esistono due approcci per risolvere l'IK: Numerico (iterativo) e Analitico (esat
 La soluzione analitica usa formule geometriche chiuse (trigonometria) per trovare gli angoli direttamente.
 * **Pro:** Velocissima e precisa.
 * **Contro:** Applicabile solo a catene semplici (pochi gradi di libertà) e specifiche.
-
+![[Screenshot 2026-02-01 alle 19.52.20.png]]
 ### Analisi Approfondita: Il Manipolatore Planare a 2 Link (Slide 36)
 Immaginiamo un braccio 2D con due segmenti di lunghezza $L_1$ e $L_2$.
 Vogliamo raggiungere il punto target $P(x, y)$. Dobbiamo trovare $\theta_1$ (spalla) e $\theta_2$ (gomito).
@@ -134,14 +134,14 @@ Una volta noto $\theta_2$, $\theta_1$ si calcola come differenza tra due angoli:
 
 Formula generale semplificata:
 $$\theta_1 = \operatorname{atan2}(y, x) - \operatorname{atan2}(L_2 \sin \theta_2, L_1 + L_2 \cos \theta_2)$$
-
+![[Screenshot 2026-02-01 alle 19.52.41.png]]
 ---
 
 ## C. Analisi degli Esempi (Slide 38 e 39)
 
 Quando applichiamo le formule analitiche (in particolare l'arcocoseno), incontriamo i limiti fisici e matematici del sistema.
 
-### Esempio 1: Soluzioni Multiple (Slide 38)
+### Esempio 1: Soluzioni Multiple (Slide 38)![[Screenshot 2026-02-01 alle 19.52.59.png]]
 Supponiamo che il target $(x,y)$ sia all'interno dell'area raggiungibile (Workspace).
 L'operazione matematica $\operatorname{acos}(valore)$ restituisce due possibili valori angolari: uno positivo e uno negativo ($\pm \alpha$).
 
@@ -159,6 +159,6 @@ $$\frac{x^2 + y^2 - L_1^2 - L_2^2}{2 L_1 L_2} > 1$$
 Poiché il dominio della funzione $\operatorname{acos}(v)$ è $[-1, 1]$, cercare di calcolare l'arcocoseno di un numero maggiore di 1 genera un errore matematico (o un numero complesso).
 * **Significato Fisico:** Il target è fuori dalla portata (**Unreachable**).
 * **Gestione:** Il sistema deve "clampare" il braccio alla massima estensione possibile nella direzione del target.
-
+![[Screenshot 2026-02-01 alle 19.53.26.png]]
 ---
 **Collegamenti:** [[Teorema del Coseno]], [[Spazio di Lavoro (Workspace)]], [[Jacobiana]]
