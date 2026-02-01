@@ -28,11 +28,11 @@ _Come facciamo muovere gli oggetti nel tempo in modo fluido?_
 
 _Passiamo dall'animazione manuale a quella assistita dalla fisica._
 - Simulazione di Corpi Rigidi:
-	- [[Gestione delle Collisioni.]]
+	- [[Gestione delle Collisioni.]] 
 		
     - Leggi di Newton applicate alla CG (F=ma).
         
-    - Forze: Gravità, Attrito (Statico vs Cinetico), Viscosità.
+    - [[Collisione piano-particella e forze di Impulso]],  e Forze: Gravità, Attrito (Statico vs Cinetico), Viscosità.
         
     
         
