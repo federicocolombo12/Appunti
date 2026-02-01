@@ -20,10 +20,9 @@ _Come facciamo muovere gli oggetti nel tempo in modo fluido?_
 
 - [[Percezione del Moto e Intro all'Animazione]]: Persistenza della visione, frame rate e motion blur.
     
-- [[Interpolazione e Keyframing]]: Tecniche per definire il movimento tra stati chiave.
-    
-- [[Riprogrammazione della Velocità]]: Lunghezza d'arco e controllo della velocità lungo una curva.
-    
+- [[Lunghezza d'arco, Look Up Table e Interpolazione]]: Lunghezza d'arco e controllo della velocità lungo una curva.
+- [[Frame di Frenet]]
+
 
 ## 3. Cinematica e Dinamica (Corpi Rigidi)
 
