@@ -157,7 +157,6 @@ $$\tau_i = (p_i - x(t)) \times F_i$$
 # Quantità di Moto e Momento Angolare
 
 ## A. Quantità di Moto Lineare ($P$) e Conservazione
-Riprendiamo formalmente il concetto introdotto precedentemente.
 La quantità di moto (Linear Momentum) di un oggetto è definita come:
 $$P(t) = M v(t)$$
 
