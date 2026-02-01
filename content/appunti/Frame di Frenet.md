@@ -54,33 +54,3 @@ Costruiamo la base $\{u, v, w\}$ combinando la posizione sulla curva e il vettor
     Ricalcoliamo il vettore "alto" locale affinché sia ortogonale agli altri due (l'$Up$ del mondo non è quasi mai perpendicolare a $w$).
     $$v = u \times w$$
 
-### Vantaggi sulla Camera
-Questo metodo è lo standard per le **Camera Animation**:
-* **Stabilità:** Non soffre dei "flip" del Frenet frame (a meno che non si guardi esattamente verticalmente, caso raro detto *Gimbal Lock*).
-* **Controllo Artistico:** L'animatore può spostare il COI indipendentemente dalla traiettoria della camera, permettendo inquadrature dinamiche (es. la camera segue un'auto ma inquadra un palazzo a lato).
-
----
-
-### Pseudocodice Implementativo (LookAt con u, v, w)
-
-```cpp
-Matrix4x4 ComputeOrientation(Vector3 P, Vector3 COI, Vector3 worldUp) {
-    // 1. Calcolo w (Forward/View)
-    Vector3 w = Normalize(COI - P);
-    
-    // 2. Calcolo u (Side)
-    // Attenzione all'ordine del cross product (dipende se mano destra/sinistra)
-    Vector3 u = Normalize(CrossProduct(w, worldUp));
-    
-    // 3. Calcolo v (New Up)
-    Vector3 v = CrossProduct(u, w);
-    
-    // 4. Costruzione Matrice
-    // (u, v, w sono le colonne o righe della matrice di rotazione)
-    return Matrix4x4(
-        u.x, v.x, w.x, 0,
-        u.y, v.y, w.y, 0,
-        u.z, v.z, w.z, 0,
-        P.x, P.y, P.z, 1
-    );
-}
