@@ -153,3 +153,86 @@ Per allungare il passo senza dover piegare eccessivamente le gambe o cadere, il 
 Immaginiamo di voler animare un cammino "furtivo" (Sneak).
 * **Differenza Cinematica:** Invece di avere il tallone che impatta rigidamente (Heel Strike), il contatto avviene con la punta o la pianta (per ridurre rumore).
 * **Centro di Massa:** Rimane costantemente basso (niente High Point), riducendo l'oscillazione verticale per massimizzare la stabilità.
+# Animazione Facciale: Modellazione e Tecniche
+
+## A. Creazione del Modello: La Topologia è tutto
+Prima di animare, dobbiamo costruire una mesh adatta. Un modello statico bello non è necessariamente un modello animabile.
+
+Esistono due tecniche principali di acquisizione/creazione:
+1.  **Scansione 3D / Fotogrammetria:**
+    * Si acquisisce un volto reale tramite laser scanner o fotografie multiple.
+    * *Pro:* Realismo statico perfetto (pori, rughe).
+    * *Contro:* La topologia risultante è spesso un "caos" di triangoli disordinati, inadatta alla deformazione. Richiede **Retopology**.
+2.  **Modellazione Basata su Edge-Loops (Manuale):**
+    * Si costruisce la mesh disponendo i poligoni in anelli concentrici (loops) attorno alle aperture naturali (occhi, bocca).
+    * *Fondamentale:* Gli edge-loops devono seguire l'orientamento reale delle fibre muscolari sottostanti.
+    * *Pro:* Deformazioni pulite senza artefatti di shading durante l'animazione.
+
+---
+
+## B. Interpolazione di Pose Chiave (Blend Shapes)
+È il metodo più diffuso nell'industria cinematografica e videoludica (usato ad esempio per Gollum o nei film Pixar).
+
+### Il Concetto
+L'animatore o il modellatore crea una serie di versioni distorte della mesh base, chiamate **Target Shapes** o **Morph Targets**.
+* Base: Faccia neutra.
+* Target 1: Sorriso.
+* Target 2: Sopracciglio alzato.
+
+L'animazione avviene interpolando linearmente i vertici tra la posa base e i target.
+$$P_{final} = P_{base} + \sum_{k=1}^{n} w_k (P_{target,k} - P_{base})$$
+Dove $w_k$ è il peso (weight) dell'espressione $k$ (da 0 a 1).
+
+### Limiti del Metodo
+1.  **Linearità:** I vertici si muovono in linea retta. La pelle reale, invece, scivola sulle ossa e si gonfia curvando.
+2.  **Conflitti:** Attivare insieme due shape che influenzano la stessa area (es. "Sorrido" + "Bocca aperta") può creare volumi strani se non corretti manualmente.
+3.  **Storage:** Richiede di memorizzare molte copie della mesh.
+
+---
+
+## C. FACS e Action Units (AU)![[Screenshot 2026-02-01 alle 20.16.55.png]]
+Per standardizzare le pose, l'industria adotta il **FACS (Facial Action Coding System)**, sviluppato dagli psicologi Ekman e Friesen.
+
+* **L'idea:** Non modellare "emozioni" (Felicità, Tristezza), che sono soggettive, ma modellare **movimenti muscolari atomici**.
+* **Action Units (AU):** Sono le unità minime di movimento.
+    * *AU 1:* Inner Brow Raiser (Frontalis, pars medialis).
+    * *AU 12:* Lip Corner Puller (Zygomaticus Major - il muscolo del sorriso).
+    * *AU 46:* Wink (Occhiolino).
+* **Vantaggio:** Un'emozione complessa diventa una "ricetta" di AU. Es. Felicità = AU 6 (Guance su) + AU 12 (Angoli bocca su).
+
+---
+
+## D. Modellazione Basata sui Muscoli (Anatomical Approach)
+Invece di spostare i vertici a mano (Blend Shapes), simuliamo la struttura anatomica sottostante. Definiamo tre tipologie di muscoli virtuali:
+
+### 1. Tipologie di Muscoli
+* **Lineari (Linear Muscles):**
+    * Trazionano in una direzione specifica.
+    * *Esempio:* **Zigomatico Maggiore**. Collega lo zigomo all'angolo della bocca. Quando si contrae, tira l'angolo verso l'alto-esterno.
+* **Laminari (Sheet Muscles):**
+    * Non sono filamenti, ma "fogli" di fibre piatti. Non hanno un punto di origine puntiforme ma diffuso.
+    * *Esempio:* **Frontalis** (Fronte). Solleva un'ampia area di pelle (le sopracciglia e la pelle della fronte).
+* **Radiali / Sfinteri (Sphincter Muscles):**
+    * Muscoli circolari che circondano gli orifizi. Quando si contraggono, stringono verso il centro (come il diaframma di una macchina fotografica).
+    * *Esempio:* **Orbicularis Oculi** (attorno all'occhio), **Orbicularis Oris** (attorno alla bocca).
+
+### 2. Attivazione e Reazione Muscolare
+Come si muove la pelle (la mesh) quando il muscolo virtuale si contrae?
+
+#### Modello A: Geometrico (Distanza dal punto di inserzione)
+È un approccio cinematico veloce.
+Si definisce un **vettore muscolare** (dal punto di attacco osseo al punto di inserzione nella pelle).
+Ogni vertice della pelle all'interno di un raggio d'azione ($R$) viene spostato verso l'origine del muscolo.
+Lo spostamento è pesato in base alla distanza e all'angolo:
+* I vertici vicini al punto di inserzione si muovono molto.
+* I vertici lontani o laterali si muovono poco (fall-off function, spesso cosinusoidale).
+* *Difetto:* Non simula il volume (la pelle non si "arriccia" realisticamente).
+
+#### Modello B: Fisico Viscoelastico (Mass-Spring System)
+È un approccio dinamico accurato.
+La pelle è modellata come una rete di masse collegate da molle e smorzatori (Mass-Spring).
+1.  Il muscolo applica una **Forza** ai nodi della rete.
+2.  La rete reagisce fisicamente propagando la forza.
+3.  **Viscoelasticità:** La pelle ha resistenza al cambiamento (viscosità) e tende a tornare alla forma originale (elasticità).
+* *Pro:* Crea rughe ed effetti di volume (bulging) automatici e realistici.
+* *Contro:* Computazionalmente pesante.
