@@ -14,10 +14,10 @@ Definiamo i tre vettori $\{u, v, w\}$ sfruttando le derivate della curva:
 1.  **Vettore w (Tangente):** È la direzione del movimento.
     $$w(t) = \frac{P'(t)}{||P'(t)||}$$
 
-2.  **Vettore u (Binormale):** È perpendicolare al piano su cui giace la curva (piano osculatore).
+2.  **Vettore u (Binormale):** È perpendicolare al piano su cui giace la curva (piano osculatore) ed è il prodotto vettoriale tra derivata prima e seconda
     $$u(t) = \frac{P'(t) \times P''(t)}{||P'(t) \times P''(t)||}$$
 
-3.  **Vettore v (Normale):** Completa la terna (punta verso il centro di curvatura).
+3.  **Vettore v (Normale):** Completa la terna (punta verso il centro di curvatura) ed è il prodotto vettoriale dei due vettori precedenti
     $$v(t) = w(t) \times u(t)$$
 
 ### Matrice di Orientamento (Frenet)
