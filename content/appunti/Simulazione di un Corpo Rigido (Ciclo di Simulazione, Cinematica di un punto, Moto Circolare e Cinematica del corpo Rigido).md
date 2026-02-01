@@ -154,14 +154,106 @@ $$\tau_i = (p_i - x(t)) \times F_i$$
 * Il Momento Totale è la somma di tutti i momenti: $\tau_{tot} = \sum \tau_i$.
 * Il Torque è la causa dell'accelerazione angolare.
 
-### 3. Quantità di Moto Lineare (Linear Momentum - $P$)
-È una misura della "potenza" del movimento lineare.
+# Quantità di Moto e Momento Angolare
+
+## A. Quantità di Moto Lineare ($P$) e Conservazione
+Riprendiamo formalmente il concetto introdotto precedentemente.
+La quantità di moto (Linear Momentum) di un oggetto è definita come:
 $$P(t) = M v(t)$$
 
-Relazione con la Forza:
-La forza totale è la derivata temporale della quantità di moto:
-$$F(t) = \dot{P}(t)$$
-(La forza è ciò che cambia la quantità di moto nel tempo).
+**Legge di Conservazione:**
+Dalla legge di Newton ($F = \dot{P}$), ne consegue che se la forza totale agente sul sistema è zero ($F_{tot} = 0$), allora $\dot{P} = 0$, il che significa che **$P(t)$ è costante**.
+* Questo è fondamentale nelle collisioni: in un sistema isolato, la quantità di moto totale prima e dopo l'urto si conserva.
+
+## B. Momento Angolare ($L$)
+Il Momento Angolare (Angular Momentum) è l'analogo rotazionale di $P$.
+$$L(t) = I(t) \omega(t)$$
+Mentre $P$ è legato alla velocità lineare, $L$ è legato alla velocità angolare, ma la relazione è mediata da $I(t)$ (Tensore d'Inerzia).
+
+**Dinamica del Momento Angolare:**
+Analogamente alla forza lineare, la derivata del momento angolare è uguale al **Momento Torcente (Torque)** totale applicato:
+$$\dot{L}(t) = \tau(t)$$
+Se non ci sono momenti torcenti esterni ($\tau = 0$), il momento angolare si conserva (l'oggetto continua a ruotare indefinitamente sullo stesso asse).
 
 ---
-**Collegamenti:** [[Matrici Antisimmetriche]], [[Legge di Newton]], [[Coordinate Locali]]
+
+# 8. Il Tensore d'Inerzia ($I$)
+
+La relazione $L = I \omega$ non è una semplice moltiplicazione scalare. $I$ è una **Matrice $3 \times 3$**, chiamata Tensore d'Inerzia.
+Essa descrive come la massa è distribuita attorno al centro di massa.
+
+$$
+I = \begin{bmatrix}
+I_{xx} & I_{xy} & I_{xz} \\
+I_{yx} & I_{yy} & I_{yz} \\
+I_{zx} & I_{zy} & I_{zz}
+\end{bmatrix}
+$$
+
+È una matrice simmetrica ($I_{xy} = I_{yx}$, ecc.).
+
+## Calcolo dei Termini della Matrice
+Come riempiamo questa matrice? Dipende se consideriamo l'oggetto come punti discreti o massa continua.
+
+### 1. Caso Discreto (Sommatoria su masse puntiformi)
+Se l'oggetto è composto da $N$ particelle con massa $m_k$ e posizione locale $r_k = (x_k, y_k, z_k)$:
+
+* **Termini Diagonali (Momenti d'Inerzia):**
+  Rappresentano la resistenza alla rotazione attorno agli assi principali.
+  $$I_{xx} = \sum m_k (y_k^2 + z_k^2)$$
+  $$I_{yy} = \sum m_k (x_k^2 + z_k^2)$$
+  $$I_{zz} = \sum m_k (x_k^2 + y_k^2)$$
+
+* **Termini Fuori Diagonale (Prodotti d'Inerzia):**
+  Rappresentano gli squilibri nella distribuzione della massa (segno meno davanti!).
+  $$I_{xy} = - \sum m_k (x_k y_k)$$
+  $$I_{xz} = - \sum m_k (x_k z_k)$$
+  *(e così via per gli altri)*
+
+### 2. Caso Continuo (Integrale)
+Se l'oggetto è solido, sostituiamo la sommatoria con un integrale volumetrico sulla densità $\rho$:
+$$I_{xx} = \int_V \rho(r) (y^2 + z^2) dr$$
+
+> **Nota:** Nella pratica della computer graphics, spesso si approssima il tensore d'inerzia usando la forma del **Bounding Box** o del **Convex Hull** dell'oggetto per semplificare i calcoli.
+
+---
+
+# 9. Lo Stato dell'Oggetto (The State Vector)
+
+Per simulare l'evoluzione del corpo rigido nel tempo, dobbiamo memorizzare le variabili che ne descrivono completamente la configurazione in un istante $t$. Queste variabili formano il vettore di stato $X(t)$.
+
+## Cosa memorizziamo?
+È prassi comune memorizzare la Quantità di Moto ($P, L$) invece delle velocità ($v, \omega$), perché $P$ ed $L$ sono grandezze conservate e le equazioni differenziali sono più semplici ($\dot{P}=F, \dot{L}=\tau$).
+
+Il vettore di stato $X(t)$ contiene solitamente **12 o 13 componenti**:
+1.  $x(t)$: Posizione (3 componenti).
+2.  $R(t)$: Orientamento (Matrice $3x3$ o Quaternione, quindi 9 o 4 componenti).
+3.  $P(t)$: Quantità di Moto Lineare (3 componenti).
+4.  $L(t)$: Momento Angolare (3 componenti).
+
+## Calcolo delle Grandezze Derivate
+Dallo stato $X(t)$ possiamo calcolare le velocità (necessarie per aggiornare la posizione):
+1.  **Velocità Lineare:** $v(t) = \frac{P(t)}{M}$
+2.  **Velocità Angolare:** $\omega(t) = I(t)^{-1} L(t)$
+
+## Il Problema del Tensore d'Inerzia Variabile
+Qui sorge un problema critico:
+Mentre l'oggetto ruota, la distribuzione della sua massa rispetto agli assi globali ($x,y,z$ del mondo) cambia continuamente. Quindi **$I(t)$ cambia ad ogni frame**, e invertire una matrice $3 \times 3$ ad ogni step è costoso.
+
+### Soluzione: Coordinate del Corpo (Body Coordinates)
+Calcoliamo il tensore d'inerzia **una volta sola** in coordinate locali (all'inizio della simulazione): chiamiamolo $I_{body}$. Questo è costante (l'oggetto è rigido!).
+
+La relazione tra $I(t)$ (nel mondo) e $I_{body}$ (locale) è data dalla matrice di rotazione $R(t)$:
+
+$$I(t) = R(t) I_{body} R(t)^T$$
+
+E, cosa ancora più utile, la sua inversa:
+$$I(t)^{-1} = R(t) I_{body}^{-1} R(t)^T$$
+
+**Algoritmo di Aggiornamento:**
+1.  Precalcoliamo $I_{body}^{-1}$ (una sola volta).
+2.  Ad ogni step, usiamo l'orientamento attuale $R(t)$ per calcolare $I(t)^{-1}$ globale.
+3.  Calcoliamo $\omega(t) = I(t)^{-1} L(t)$.
+
+---
+**Collegamenti:** [[Quaternioni]], [[Inversione di Matrice]], [[Integrazione Numerica]]
