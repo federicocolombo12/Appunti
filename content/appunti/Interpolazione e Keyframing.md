@@ -181,32 +181,108 @@ $$
 
 ---
 
-## 4. Esempio Numerico 
-Confrontiamo un movimento lineare (velocità costante) con uno sinusoidale su un percorso di 10 metri in 1 secondo.
+## 4.Controllo della Velocità a Tratti (Piecewise Velocity Control)
 
-| Tempo ($t$) | Distanza Lineare | Distanza Sinusoidale | Stato |
-| :--- | :--- | :--- | :--- |
-| **0.00** | 0.00 m | **0.00 m** | Fermo ($v=0$) |
-| **0.10** | 1.00 m | **0.24 m** | Parte pianissimo (Ease-In) |
-| **0.25** | 2.50 m | **1.46 m** | Sta accelerando |
-| **0.50** | 5.00 m | **5.00 m** | Velocità Max (ha recuperato il ritardo) |
-| **0.75** | 7.50 m | **8.53 m** | Sta frenando (ha superato il lineare) |
-| **0.90** | 9.00 m | **9.75 m** | Quasi fermo (Ease-Out) |
-| **1.00** | 10.00 m | **10.00 m** | Arrivo ($v=0$) |
+### Il Concetto: Profilo di Velocità Trapezoidale
+A differenza dell'interpolazione sinusoidale (che cambia velocità continuamente), questo metodo suddivide il movimento in **tre fasi distinte** per garantire un tratto centrale a velocità perfettamente uniforme. È il metodo standard per macchinari, robotica e animazioni di telecamere.
+
+Le tre fasi sono:
+1.  **Accelerazione Costante** (Ease-In parabolico).
+2.  **Velocità Costante** (Tratto lineare).
+3.  **Decelerazione Costante** (Ease-Out parabolico).
 
 ---
 
-### Pseudocodice Implementativo
+### Formulazione Matematica
+Definiamo il tempo normalizzato $t \in [0, 1]$.
+Dividiamo l'intervallo temporale usando due parametri:
+* $t_1$: Momento in cui finisce l'accelerazione.
+* $t_2$: Momento in cui inizia la decelerazione.
 
-```python
-import math
+### Il Grafico della Velocità $v(t)$
+La velocità segue un profilo a trapezio:
+* Sale linearmente da 0 a $V_{max}$ nel tempo $t_1$.
+* Resta costante a $V_{max}$ tra $t_1$ e $t_2$.
+* Scende linearmente da $V_{max}$ a 0 nel tempo $(1 - t_2)$.
 
-def get_distance_sine_ease(t, total_length):
-    # t deve essere tra 0.0 e 1.0
-    if t < 0: return 0
-    if t > 1: return total_length
+$$
+v(t) = \begin{cases} 
+\frac{V_{max}}{t_1} \cdot t & \text{se } 0 \le t < t_1 \\
+V_{max} & \text{se } t_1 \le t \le t_2 \\
+V_{max} - \frac{V_{max}}{1-t_2} \cdot (t - t_2) & \text{se } t_2 < t \le 1
+\end{cases}
+$$
+
+> **Nota Fondamentale:** Per percorrere una distanza unitaria ($s=1$) in tempo unitario ($t=1$), l'area sotto il trapezio deve essere 1. Questo vincolo ci permette di calcolare $V_{max}$:
+>
+> $$V_{max} = \frac{2}{1 + (t_2 - t_1)}$$
+
+---
+
+### La Funzione Distanza-Tempo $s(t)$
+Integrando la velocità, otteniamo la posizione $s(t)$. La curva risultante è composta da una parabola (concavità alta), una retta e una parabola (concavità bassa).
+
+Le formule definitive per $s(t)$:
+
+#### Fase 1: Accelerazione ($0 \le t < t_1$)
+Moto uniformemente accelerato.
+$$
+s(t) = \frac{V_{max}}{2 \cdot t_1} \cdot t^2
+$$
+
+#### Fase 2: Velocità Costante ($t_1 \le t \le t_2$)
+Moto rettilineo uniforme. La posizione parte dalla fine della fase 1 ($S_1 = \frac{V_{max} \cdot t_1}{2}$).
+$$
+s(t) = \frac{V_{max} \cdot t_1}{2} + V_{max} \cdot (t - t_1)
+$$
+
+#### Fase 3: Decelerazione ($t_2 < t \le 1$)
+Moto uniformemente decelerato.
+$$
+s(t) = 1 - \frac{V_{max}}{2 \cdot (1 - t_2)} \cdot (1 - t)^2
+$$
+
+---
+
+## 5. Implementazione (Pseudocodice)
+
+Questa funzione prende in input il tempo corrente $t$, la durata dell'accelerazione $t_1$ e la fine del tratto costante $t_2$. Restituisce la distanza percorsa normalizzata (0.0 a 1.0).
+
+```cpp
+float PiecewiseEase(float t, float t1, float t2) {
+    // Clamp dell'input per sicurezza
+    if (t <= 0) return 0.0f;
+    if (t >= 1) return 1.0f;
+
+    // 1. Calcolo della Velocità Massima necessaria per coprire dist=1
+    // Area trapezio = (BaseMaggiore + BaseMinore) * Altezza / 2
+    // 1 = (1 + (t2 - t1)) * Vmax / 2  --> Vmax = 2 / (1 + t2 - t1)
+    float Vmax = 2.0f / (1.0f + t2 - t1);
+
+    // 2. Fase Accelerazione
+    if (t < t1) {
+        // Formula: 1/2 * a * t^2. Qui a = Vmax/t1
+        return (Vmax / (2.0f * t1)) * (t * t);
+    }
     
-    # Formula Ease-in / Ease-out Sinusoidale
-    factor = (1.0 - math.cos(t * math.pi)) / 2.0
+    // 3. Fase Velocità Costante
+    else if (t <= t2) {
+        // Distanza accumulata alla fine della fase 1
+        float dist_phase1 = (Vmax * t1) / 2.0f;
+        
+        // Aggiungo il tratto lineare
+        return dist_phase1 + Vmax * (t - t1);
+    }
     
-    return total_length * factor
+    // 4. Fase Decelerazione
+    else {
+        // Calcolo "all'indietro" dalla fine (1.0) per semplificare la formula parabolica
+        float t_rem = 1.0f - t;      // Tempo rimanente
+        float t_dec = 1.0f - t2;     // Durata totale decelerazione
+        
+        // Formula: DistanzaTotale - (spazio non ancora percorso)
+        // Spazio non percorso è un triangolo di velocità: 1/2 * base * altezza
+        // Altezza corrente = Vmax * (t_rem / t_dec)
+        return 1.0f - (Vmax * t_rem * t_rem) / (2.0f * t_dec);
+    }
+}
