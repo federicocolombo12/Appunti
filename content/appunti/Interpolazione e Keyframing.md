@@ -288,4 +288,116 @@ float PiecewiseEase(float t, float t1, float t2) {
         return 1.0f - (Vmax * t_rem * t_rem) / (2.0f * t_dec);
     }
 }
-cpp'''
+
+```
+### 6. Controllo della Velocità ad Accelerazione Costante (Parabolic Ease)
+![[Pasted image 20260201115621.png]]
+Mentre l'interpolazione sinusoidale (Sine Ease) offre un'accelerazione che varia continuamente (molto naturale/organica), in alcuni contesti (robotica, macchinari, movimenti di camera specifici) si preferisce avere un'**accelerazione costante**.
+
+Questo profilo di velocità è detto **Trapezoidale** e genera una curva di distanza composta da segmenti parabolici e lineari.
+
+#### Differenza Chiave
+* **Seno:** Accelerazione variabile (parte da 0, picco, torna a 0).
+* **Parabolica:** Accelerazione costante (scatto iniziale costante, poi zero, poi frenata costante).
+
+---
+
+#### Il Profilo di Velocità (Velocity Profile)
+Immaginiamo il grafico della velocità $v(t)$ su un tempo normalizzato $[0, 1]$.
+Il grafico forma un **Trapezio** diviso in tre fasi temporali:
+
+1.  **$0 \to t_1$ (Ease-In):** La velocità sale linearmente da 0 a $V_{max}$ (Accelerazione Costante).
+2.  **$t_1 \to t_2$ (Tratto Costante):** La velocità rimane fissa a $V_{max}$ (Accelerazione Nulla).
+3.  **$t_2 \to 1$ (Ease-Out):** La velocità scende linearmente da $V_{max}$ a 0 (Decelerazione Costante).
+![[Pasted image 20260201115608.png]]
+---
+
+#### Calcolo dell'Area Sottesa (Fondamentale)
+In fisica, l'integrale della velocità è la distanza. Poiché stiamo lavorando su curve normalizzate, la distanza totale percorsa deve essere **1.0**.
+Quindi, **l'area del trapezio deve essere uguale a 1**.
+
+Sfruttiamo questa proprietà per trovare l'unica incognita: la velocità massima ($V_{max}$).
+
+$$
+\text{Area} = \frac{(\text{Base Maggiore} + \text{Base Minore}) \cdot \text{Altezza}}{2} = 1
+$$
+
+Dove:
+* **Base Maggiore:** Durata totale $= 1.0$
+* **Base Minore:** Durata del tratto costante $= t_2 - t_1$
+* **Altezza:** $V_{max}$
+
+$$
+1 = \frac{(1 + (t_2 - t_1)) \cdot V_{max}}{2}
+$$
+
+Risolvendo per $V_{max}$, otteniamo la formula fondamentale per dimensionare la curva:
+
+$$
+V_{max} = \frac{2}{1 + t_2 - t_1}
+$$
+
+> **Esempio:** Se accelero per il 20% del tempo ($t_1=0.2$) e decelero per l'ultimo 20% ($t_2=0.8$):
+> $$V_{max} = \frac{2}{1 + 0.6} = \frac{2}{1.6} = 1.25$$
+> La velocità di crociera deve essere il 25% più veloce della media per recuperare il tempo perso in accelerazione.
+
+---
+
+#### Le Equazioni del Moto $s(t)$
+Una volta trovato $V_{max}$, definiamo la funzione posizione $s(t)$ a tratti (Piecewise Function).
+
+### Fase 1: Accelerazione ($0 \le t < t_1$)
+È un moto uniformemente accelerato ($s = \frac{1}{2}at^2$).
+L'accelerazione è la pendenza della rampa: $a = \frac{V_{max}}{t_1}$.
+
+$$
+s(t) = \frac{V_{max}}{2 t_1} \cdot t^2
+$$
+
+### Fase 2: Velocità Costante ($t_1 \le t \le t_2$)
+È un moto rettilineo uniforme.
+Partiamo dalla posizione raggiunta alla fine della fase 1 ($S_{t1} = \frac{V_{max} t_1}{2}$).
+
+$$
+s(t) = \frac{V_{max} t_1}{2} + V_{max} \cdot (t - t_1)
+$$
+
+### Fase 3: Decelerazione ($t_2 < t \le 1$)
+È un moto uniformemente decelerato.
+Per semplicità di calcolo, possiamo vederla come "Distanza Totale (1) meno il tratto che manca percorrendo la parabola al contrario".
+
+$$
+s(t) = 1 - \frac{V_{max} \cdot (1 - t)^2}{2(1 - t_2)}
+$$
+
+---
+
+## 5. Pseudocodice Implementativo
+
+```python
+def get_parabolic_ease(t, t1, t2):
+    # t: tempo corrente [0, 1]
+    # t1: fine accelerazione (es. 0.2)
+    # t2: inizio decelerazione (es. 0.8)
+
+    if t <= 0: return 0.0
+    if t >= 1: return 1.0
+
+    # 1. Calcolo Vmax basato sull'area
+    v_max = 2.0 / (1.0 + t2 - t1)
+
+    # 2. Selezione Fase
+    if t < t1:
+        # Fase Accel (Parabola ascendente)
+        return (v_max / (2.0 * t1)) * (t * t)
+
+    elif t <= t2:
+        # Fase Costante (Retta)
+        dist_start = (v_max * t1) / 2.0
+        return dist_start + v_max * (t - t1)
+
+    else:
+        # Fase Decel (Parabola discendente invertita)
+        t_rem = 1.0 - t        # tempo rimanente
+        t_dec = 1.0 - t2       # durata decelerazione
+        return 1.0 - (v_max * t_rem * t_rem) / (2.0 * t_dec)
