@@ -136,3 +136,56 @@ Dove:
 > **Importante:** Quando applichiamo l'impulso $J$, questo modificherà **sia** la velocità lineare $v$ (spostando l'oggetto), **sia** la velocità angolare $\omega$ (facendolo ruotare), in base al momento torcente generato dall'impatto.
 
 ---
+# Calcolo dell'Impulso e Aggiornamento delle Velocità
+
+Una volta determinato che c'è stata una collisione e trovato il punto di contatto, dobbiamo applicare l'impulso $J$ per modificare lo stato dell'oggetto.
+
+Ricordiamo che l'impulso è un vettore diretto lungo la normale di collisione $n$:
+$$J = j \cdot n$$
+Dove $j$ è la **magnitudine** (l'intensità scalare) dell'impulso, che è l'incognita che dobbiamo trovare.
+
+## A. Aggiornamento delle Velocità (Linear e Angular)
+L'impulso agisce istantaneamente sulle velocità dell'oggetto. Le formule di aggiornamento derivano dalle leggi di Newton e di Eulero.
+
+### 1. Velocità Lineare ($v$)
+La variazione di velocità lineare dipende dalla massa totale $M$.
+$$v^+ = v^- + \frac{j \cdot n}{M}$$
+* $v^+$: Velocità dopo l'urto.
+* $v^-$: Velocità prima dell'urto.
+
+### 2. Velocità Angolare ($\omega$)
+La variazione di velocità angolare è più complessa perché dipende da **dove** colpiamo l'oggetto (il braccio $r$) e da **come è distribuita la massa** (il Tensore d'Inerzia $I$).
+$$\omega^+ = \omega^- + I^{-1}(r \times (j \cdot n))$$
+
+Dove:
+* $I^{-1}$: Inversa della matrice del Tensore d'Inerzia (rappresenta la resistenza alla rotazione sui vari assi).
+* $r$: Vettore dal centro di massa al punto di contatto.
+* $\times$: Prodotto vettoriale.
+
+---
+
+## B. Calcolo della Magnitudine dell'Impulso ($j$)
+
+Per calcolare $j$, usiamo il **coefficiente di restituzione** $\epsilon$ (epsilon). Sappiamo che la velocità relativa dopo l'urto deve essere una frazione $-\epsilon$ di quella prima dell'urto.
+
+Combinando le equazioni di aggiornamento della velocità (sopra) con la definizione di elasticità, otteniamo la "Grande Formula dell'Impulso".
+
+### La Formula Finale
+$$j = \frac{-(1 + \epsilon) v_{rel}^-}{\frac{1}{M} + n \cdot (I^{-1}(r \times n) \times r)}$$
+
+### Analisi della Formula (Cosa significa?)
+Non limitatevi a memorizzarla, capiamola pezzo per pezzo:
+
+1.  **Numeratore [$-(1 + \epsilon) v_{rel}^-$]:**
+    * Rappresenta l'energia del rimbalzo.
+    * Se $\epsilon = 1$ (super elasticità), il numeratore è massimo (doppia inversione di velocità).
+    * $v_{rel}^-$ è la velocità con cui i punti di contatto si stavano avvicinando.
+
+2.  **Denominatore [Termine di Massa e Inerzia]:**
+    * Rappresenta l'**inerzia totale** vista dal punto di contatto.
+    * $\frac{1}{M}$: È la resistenza al movimento lineare.
+    * $n \cdot (I^{-1}(r \times n) \times r)$: È la resistenza al movimento rotatorio.
+    * *Interpretazione fisica:* Colpire un oggetto al centro (dove $r \approx 0$ o parallelo a $n$) minimizza il termine rotatorio, rendendo l'oggetto "più pesante" da spostare. Colpirlo di striscio o lontano dal centro rende il denominatore più grande, quindi l'impulso risultante $j$ cambia per favorire la rotazione.
+
+---
+**Collegamenti:** [[Tensore d'Inerzia]], [[Prodotto Vettoriale]], [[Coordinate Locali vs Globali]]
