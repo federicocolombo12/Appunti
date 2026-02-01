@@ -1,6 +1,6 @@
 # Controllo del Moto e Riparametrizzazione
 
-## 1. Introduzione: Il Problema della Velocità
+## Introduzione: Il Problema della Velocità
 In [[Computer Animation]], usiamo curve parametriche $P(u)$ per definire le traiettorie nello spazio.
 
 * **Input:** Un parametro adimensionale $u$, tipicamente $u \in [0, 1]$.
@@ -24,7 +24,7 @@ Poiché $||P'(u)||$ (la magnitudine del vettore tangente) varia lungo la curva, 
 
 ---
 
-## 2. Lunghezza d'Arco (Arc Length)
+## 1. Lunghezza d'Arco (Arc Length)
 Definiamo la funzione **Lunghezza d'Arco** $G(u)$ che calcola la distanza dall'inizio della curva fino al punto parametrico $u$.
 
 ### Formula Analitica (Integrale)
@@ -51,7 +51,7 @@ $$
 
 ---
 
-## 3. Stima tramite Differenza Diretta (Forward Differencing)
+### 1. Stima tramite Differenza Diretta (Forward Differencing)
 ![[Pasted image 20260201112445.png]]
 Poiché non possiamo risolvere l'integrale, lo approssimiamo sommando le lunghezze di tanti piccoli segmenti lineari (corde).
 
@@ -69,7 +69,7 @@ $$
 
 ---
 
-## 4. La Tabella di Lunghezza d'Arco (Arc Length Table)
+### 2. La Tabella di Lunghezza d'Arco (Arc Length Table)
 Per evitare calcoli pesanti a ogni frame, pre-calcoliamo una **Look-up Table** $(u, s)$.
 
 ### A. Costruzione della Tabella (Pre-processing)
@@ -106,7 +106,7 @@ Durante l'animazione, dato un valore di distanza desiderata $s_{target}$, dobbia
     $$
 
 ---
-# Controllo della Velocità (Velocity Control)
+# 2.Controllo della Velocità (Velocity Control)
 
 ## 1. La Funzione Tempo-Distanza
 Dopo aver risolto il problema geometrico con la riparametrizzazione per lunghezza d'arco ($s = G(u)$), ora possiamo muoverci a velocità costante. Tuttavia, per un'animazione realistica, vogliamo controllare l'accelerazione.
@@ -141,6 +141,7 @@ $$
 ## 3. Interpolazione Sinusoidale (Sine Interpolation)
 Un metodo classico ed elegante per ottenere un effetto **Ease-In / Ease-Out** simmetrico è utilizzare una porzione della funzione trigonometrica **Seno** (Rif. Slide 26-29).
 
+![[Pasted image 20260201114252.png]]
 ### Derivazione della Formula
 La funzione $\sin(\theta)$ ha pendenza (derivata) nulla a $-\frac{\pi}{2}$ e $+\frac{\pi}{2}$.
 Vogliamo mappare il nostro tempo $t \in [0, 1]$ in questo intervallo angolare.
@@ -171,6 +172,7 @@ s(t) = L_{tot} \cdot \frac{1 - \cos(\pi t)}{2}
 $$
 
 Dove $L_{tot}$ è la lunghezza totale della curva.
+
 
 ### Analisi della Velocità
 La velocità è la derivata prima della distanza:
