@@ -50,3 +50,55 @@ La differenza tra l'operatore di estrusione ($Ex$) e lo Swept Volume ($Sw$) è c
 
 **Conseguenze per il Rilevamento:**
 L'intersezione degli Swept Volumes **non è sufficiente** a garantire che due oggetti collidano
+# 3. Gestione del Tempo e Ottimizzazione
+
+## A. Rilevamento di Interferenze Multiple (Campionamento)
+Come abbiamo visto, l'uso degli *Swept Volumes* perde l'informazione temporale. Per risolvere questo problema, le tecniche di rilevamento di interferenze multiple selezionano un **insieme discreto di istanti di tempo** in cui eseguire il test di collisione.
+
+### Il Fattore Critico: La Frequenza di Campionamento
+La scelta di "ogni quanto" controllare (frequenza) è un parametro cruciale che bilancia accuratezza e prestazioni:
+* **Campionamento troppo grossolano:** C'è il rischio di "mancare" una collisione se l'interazione avviene interamente tra due istanti campionati (l'oggetto attraversa l'ostacolo senza venire rilevato).
+* **Campionamento troppo fine:** Il costo computazionale diventa eccessivo, rallentando la simulazione.
+
+### La Progressione Aritmetica
+Il metodo più semplice per definire gli istanti di controllo è utilizzare una progressione aritmetica uniforme.
+Dati un istante iniziale $t_s$ e un istante finale $t_f$, e deciso un numero $n$ di test da eseguire, l'istante $i$-esimo è dato da:
+
+$$t_i = t_s + \frac{i(t_f - t_s)}{n}$$
+
+Questa formula divide l'intervallo di tempo in $n$ segmenti uguali.
+
+---
+
+## B. Parametrizzazione delle Traiettorie
+A differenza del campionamento (che è approssimato), le tecniche di parametrizzazione cercano di determinare **esattamente** l'istante della collisione.
+
+### Il Metodo Analitico
+Si esprimono le traiettorie degli oggetti come **funzioni del parametro tempo**. Matematicamente, si cerca di risolvere un sistema di equazioni per trovare il valore $t$ in cui i volumi si intersecano.
+
+### Il Limite della Complessità
+La complessità di questo calcolo dipende direttamente dalla complessità del moto:
+* Per moti lineari semplici, è risolvibile.
+* Per traiettorie arbitrarie (es. curve complesse o rotazioni), l'equazione risultante può facilmente diventare un polinomio di **ordine 5 o superiore**.
+* Poiché non esistono soluzioni analitiche generali per polinomi di grado $\ge 5$, spesso anche questo metodo richiede soluzioni numeriche approssimate.
+
+---
+
+## C. Ottimizzazione: Gerarchie Limitanti (Bounding Volume Hierarchies)
+L'efficienza totale di un algoritmo di collision detection dipende da due fattori:
+1.  La velocità del singolo test di intersezione.
+2.  Il numero totale di volte che il test viene eseguito.
+
+Poiché testare la collisione tra mesh poligonali complesse (magari composte da migliaia di triangoli) è lentissimo, si utilizzano le **Gerarchie di Volumi Limitanti**.
+
+### L'Approccio Gerarchico
+L'idea è incapsulare l'oggetto complesso all'interno di volumi geometrici semplici (sfere, cubi) facili da testare.
+Questo approccio offre due vantaggi fondamentali:
+
+1.  **Rifiuto Rapido (Early Rejection):** È possibile rilevare una *non-intersezione* già al primo livello della gerarchia. Se i volumi contenitori (es. le sfere che avvolgono gli interi oggetti) non si toccano, non serve controllare i poligoni interni.
+2.  **Riduzione dello Spazio di Ricerca:** Se i volumi contenitori collidono, si scende di un livello nella gerarchia, riducendo la porzione di spazio e di geometria da considerare per il test successivo.
+
+**Algoritmo Logico:**
+1.  Testa i volumi limitanti "padre".
+2.  SE collidono $\rightarrow$ Testa i volumi limitanti "figli".
+3.  SE i figli collidono $\rightarrow$ Procedi fino alle foglie (gli oggetti veri e propri o parti di essi).
