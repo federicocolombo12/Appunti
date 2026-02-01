@@ -33,7 +33,7 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
         
     - [[Collisione piano-particella e forze di Impulso]], [[Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore.]]
 	    
-    - [[Simulazione di un Corpo Rigido]]
+    - [[Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido)]]
 		
 		
 	    
