@@ -102,3 +102,97 @@ Questo approccio offre due vantaggi fondamentali:
 1.  Testa i volumi limitanti "padre".
 2.  SE collidono $\rightarrow$ Testa i volumi limitanti "figli".
 3.  SE i figli collidono $\rightarrow$ Procedi fino alle foglie (gli oggetti veri e propri o parti di essi).
+# 6. Ottimizzazione Spaziale e Bounding Volumes
+
+Per evitare di testare ogni oggetto contro ogni altro oggetto ($O(n^2)$), dobbiamo organizzare lo spazio o semplificare la geometria degli oggetti.
+
+## A. Suddivisione dello Spazio (Space Partitioning)
+Queste tecniche dividono l'intero ambiente virtuale in regioni per determinare rapidamente quali oggetti sono vicini tra loro.
+
+1.  **Octree:**
+2. ![[Pasted image 20260201131150.png]]
+    * È una struttura gerarchica ad albero.
+    * Lo spazio cubico iniziale viene diviso in 8 ottanti (cubi più piccoli).
+    * Se un ottante contiene troppi oggetti, viene suddiviso ricorsivamente in altri 8 sotto-ottanti.
+    * *Vantaggio:* Ottimo per scene con densità variabile di oggetti.
+3.  **Griglie Uniformi (Uniform Grids):**
+    * Lo spazio viene diviso in una griglia di celle di dimensioni fisse.
+    * Ogni oggetto viene assegnato alle celle che occupa.
+    * *Vantaggio:* Accesso rapidissimo ($O(1)$) per trovare i vicini.
+    * *Svantaggio:* Spreco di memoria se la scena è vuota; inefficiente se gli oggetti hanno dimensioni molto diverse.
+    * ![[Pasted image 20260201131205.png]]
+4.  **BSP (Binary Space Partitioning):**
+    * Divide lo spazio ricorsivamente usando piani di taglio (spesso coincidenti con i poligoni della scena).
+    * Crea un albero binario: "davanti al piano" vs "dietro al piano".
+    * *Uso:* Storicamente fondamentale per i motori di gioco indoor (es. Doom/Quake) per gestire visibilità e collisioni.
+
+## B. Bounding Volumes (Volumi Limitanti)
+Invece di dividere lo spazio, avvolgiamo gli oggetti complessi in forme geometriche semplici.
+
+1.  **AABB (Axis-Aligned Bounding Box):**
+2. ![[Pasted image 20260201131233.png]]
+    * Parallelepipedo con facce allineate agli assi $X, Y, Z$.
+    * *Pro:* Test di intersezione velocissimo (basta confrontare le coordinate min/max).
+    * *Contro:* Non ruota con l'oggetto. Se l'oggetto ruota, l'AABB deve essere ricalcolato e può diventare molto più grande dell'oggetto (molto spazio vuoto).
+3.  **OBB (Oriented Bounding Box):**
+    * Parallelepipedo che ruota solidale con l'oggetto.
+    * *Pro:* "Fitta" (aderisce) molto meglio all'oggetto rispetto all'AABB (meno falsi positivi).
+    * *Contro:* Test di intersezione matematicamente più oneroso.
+4.  **Sphere Tree (Gerarchia di Sfere):**
+    * L'oggetto è approssimato da un insieme di sfere gerarchiche.
+    * *Pro:* Invariante alla rotazione (una sfera ruotata è sempre uguale). Calcolo della distanza banalissimo (distanza tra centri < somma raggi).
+    * ![[Pasted image 20260201131247.png]]
+
+---
+
+# 7. Caso di Studio: Collisione Piano-Particella
+
+Analizziamo ora il caso più elementare di collisione e risposta cinematica: una particella puntiforme che colpisce un piano fisso.
+
+## Il Problema
+Immaginiamo una particella che si muove con velocità costante verso un muro (piano). Dobbiamo:
+1.  Capire **se** e **quando** lo attraversa.
+2.  Calcolare la nuova velocità per farla **rimbalzare**.
+
+## 1. Definizione Matematica
+
+### L'Equazione del Piano
+Un piano nello spazio è definito da un punto e una normale, oppure dall'equazione implicita:
+$$E(p) = ax + by + cz + d = 0$$
+Dove $(a,b,c)$ sono le componenti del vettore normale $N$ al piano.
+* Se $E(p) > 0$: Il punto $p$ è "davanti" al piano.
+* Se $E(p) = 0$: Il punto $p$ è esattamente sul piano.
+* Se $E(p) < 0$: Il punto $p$ è "dietro" al piano.
+
+### L'Aggiornamento della Particella
+La particella si muove nel tempo secondo passi discreti ($t_i$). La sua posizione è aggiornata in base alla velocità media ($v_{ave}$):
+$$p(t_i) = p(t_{i-1}) + \Delta t \cdot v_{ave}$$
+
+## 2. Rilevamento dell'Intersezione (Detection)
+Ad ogni passo della simulazione ($t_i$), valutiamo l'equazione del piano $E(p(t_i))$.
+* Finché $E(p(t_i)) > 0$, la particella è ancora in volo davanti al muro.
+* Nel momento in cui $E(p(t_i)) \le 0$, è avvenuta una collisione (la particella ha attraversato o toccato il piano) nell'intervallo di tempo tra $t_{i-1}$ e $t_i$.
+
+## 3. Risposta Cinematica: Il Rimbalzo
+Una volta rilevata la collisione, dobbiamo aggiornare la velocità per simulare il rimbalzo.
+La logica vettoriale è la seguente:
+1.  Scomponiamo la velocità $v$ in due componenti:
+    * **Normale:** Perpendicolare al piano.
+    * **Tangenziale:** Parallela al piano.
+2.  Per ottenere un rimbalzo perfetto, dobbiamo **invertire** la componente normale della velocità, lasciando inalterata quella tangenziale.
+
+**Formula di Riflessione:**
+La nuova velocità $v'$ si calcola sottraendo due volte la proiezione della velocità sulla normale:
+$$v' = v - 2(v \cdot N)N$$
+
+## 4. Smorzamento (Damping)
+Nella realtà, nessun rimbalzo è perfettamente elastico (l'energia si dissipa).
+Per simulare questo effetto, introduciamo un coefficiente di smorzamento $k$ (con $0 < k < 1$).
+La formula modificata diventa:
+
+$$v' = v - (1 + k)(v \cdot N)N$$
+
+* Se $k=1$: Rimbalzo perfettamente elastico (nessuna perdita di energia).
+* Se $k \to 0$: Rimbalzo anelastico (la pallina tende a fermarsi contro il muro, "smorzandosi").
+
+> **Nota:** Questo approccio è puramente cinematico (basato sul movimento) e produce risultati visivamente plausibili, specialmente per oggetti sferici, pur non calcolando le forze fisiche reali (massa, momento, ecc.).
