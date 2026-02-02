@@ -50,9 +50,9 @@ _Oltre il corpo rigido: muscoli, tessuti e fenomeni naturali._
     
 - [[Sistemi Molla-Smorzatore]]: Modellare tessuti e corpi soffici.
     
-- [[Sistemi Particellari]]: Simulazione di fuoco, fumo, esplosioni.
+- [[Sistemi Particellari]]: Simulazione di fuoco, fumo, esplosioni,  Algoritmi per stormi e folle (Regole di Reynolds)..
     
-- [[Flocking e Comportamenti Emergenti]]: Algoritmi per stormi e folle (Regole di Reynolds).
+-
     
 
 ## 5. Modellazione Avanzata e Natura

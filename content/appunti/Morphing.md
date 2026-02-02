@@ -103,6 +103,7 @@ Vogliamo capire, per un pixel $X$ nell'immagine di destinazione, da dove prender
 Ogni linea definisce un sistema di coordinate locale per i pixel vicini:
 * **$u$ (Posizione lungo la linea):** La proiezione del punto sulla linea (0 = inizio, 1 = fine).
 * **$v$ (Distanza dalla linea):** La distanza perpendicolare dal segmento.
+![[Pasted image 20260202190059.png]]
 
 Dato un pixel $X$ nell'immagine di destinazione (quella che stiamo costruendo), calcoliamo $u$ e $v$ rispetto alla linea $P_1 P_2$:
 * Vettore linea: $\vec{P} = P_2 - P_1$
@@ -118,7 +119,7 @@ Una volta ottenuti $(u, v)$ per il pixel di destinazione, applichiamo questi val
 $$X' = Q_1 + u \cdot (Q_2 - Q_1) + \frac{v \cdot (Q_2 - Q_1)_{\perp}}{||Q_2 - Q_1||}$$
 
 In parole povere: *"Se il pixel $X$ si trova a metà della linea e distante 10 pixel a destra nella destinazione, allora prendi il colore dal punto che si trova a metà della linea e distante (proporzionalmente) a destra nella sorgente."*
-
+![[Pasted image 20260202190113.png]]
 ---
 
 ## 3. Analisi degli Esempi (Slide 42)
@@ -131,22 +132,12 @@ Gli esempi allegati ai lucidi (Figure 11.2 a/b) mostrano come la modifica della 
     * *Sorgente:* Linea verticale al centro dell'immagine.
     * *Destinazione:* La linea viene ruotata di 45°.
 * **Effetto:** L'intera immagine viene ruotata. Poiché tutti i pixel sono definiti in coordinate $(u,v)$ relative alla linea, se la linea ruota, tutto il "mondo" ruota con essa per mantenere la relazione relativa costante.
-
+![[Pasted image 20260202190208.png]]
 ### Caso B: Scalamento (Allungamento/Accorciamento)
 * **Situazione:**
     * *Sorgente:* Linea lunga al centro.
     * *Destinazione:* La linea viene accorciata (i punti $P_1$ e $P_2$ sono più vicini).
 * **Effetto:** L'immagine viene scalata (rimpicciolita). Se la linea di riferimento diventa più corta, i pixel mantengono il loro valore $u$ (proporzione), quindi si "avvicinano" tra loro seguendo la contrazione della linea.
-
+![[Pasted image 20260202190221.png]]
 ---
 
-## 4. Gestione di Linee Multiple (Cenni Avanzati)
-Cosa succede se disegniamo 10 linee (naso, occhi, mento)?
-Un pixel si troverà ad avere coordinate $(u,v)$ diverse per ogni linea. Chi vince?
-* Si usa una **Media Pesata**.
-* Lo spostamento di un pixel è la somma degli spostamenti suggeriti da ogni linea, pesati per la distanza e la lunghezza della linea.
-* **Regola:** Le linee più vicine al pixel hanno un peso maggiore (influenza più forte).
-
-### Domanda d'Esame Tipica
-*"Come si calcola il colore di un pixel nel morphing se ci sono più linee caratteristiche?"*
-**Risposta:** Si calcola la posizione 'sorgente' suggerita da **ogni** linea individualmente. Poi si fa una media di queste posizioni pesata in base alla distanza del pixel dalla linea (più è vicino, più la linea conta). Infine si campiona il colore alla posizione media risultante.
