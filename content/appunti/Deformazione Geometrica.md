@@ -282,6 +282,7 @@ Estendiamo il concetto di griglia 2D a un volume tridimensionale (Lattice).
 2.  Definiamo un sistema di coordinate locale $(s, t, u)$ tramite un'origine $P_0$ e tre vettori asse $S, T, U$.
 
 ### Mapping: Come trovare (s, t, u)?
+![[Pasted image 20260202163837.png]]
 Dato un punto $P$ nello spazio globale, dobbiamo trovare le sue coordinate locali $(s, t, u)$ tali che:
 $$P = P_0 + s \cdot S + t \cdot T + u \cdot U$$
 *(Dove $0 \le s,t,u \le 1$ se il punto è dentro il lattice)*.
@@ -296,7 +297,8 @@ I vettori "normali" alle facce del lattice sono:
 
 La formula per trovare la coordinata locale $s$ è:
 $$s = \frac{(P - P_0) \cdot (T \times U)}{S \cdot (T \times U)}$$
-*(Similmente per $t$ e $u$ permutando i vettori).*
+*(Similmente per $t$ e $u$ permutando i vettori).
+![[Pasted image 20260202163914.png]]*
 
 > **Nota per l'Esame:** Questo passaggio serve **solo** all'inizio (Bind Pose) per "registrare" il vertice nel sistema lattice. Una volta trovati $s, t, u$, questi valori restano fissi per quel vertice.
 
@@ -318,3 +320,60 @@ $$P'(s,t,u) = \sum_{i=0}^{L} \sum_{j=0}^{M} \sum_{k=0}^{N} P_{ijk} \cdot B_i(s) 
 ### Griglie Non Uniformi
 La griglia non deve essere necessariamente composta da cubi perfetti. I punti di controllo possono essere distribuiti in modo non uniforme (es. più densi dove serve più dettaglio nella deformazione).
 La formula rimane valida perché lavoriamo nello spazio parametrico normalizzato $[0,1]$.
+# Lezione 4 (Parte 4): Composizione e Animazione con FFD
+
+## 1. Composizione di FFD
+Raramente una deformazione complessa si ottiene con un solo passaggio. Spesso è necessario combinare più griglie FFD. Esistono due approcci principali.
+
+### A. Composizione Sequenziale (In Serie)
+Applicazione di deformazioni una dopo l'altra.
+* **Processo:** L'oggetto $O$ viene deformato da una griglia $FFD_1$ ottenendo $O'$. Successivamente, $O'$ viene deformato da $FFD_2$ ottenendo $O''$.
+* **Formula:** $P_{finale} = FFD_2(FFD_1(P_{iniziale}))$
+* **Limitazione:** Se le deformazioni sono molte, il calcolo diventa pesante e gestire l'interazione tra deformazioni sovrapposte può essere controintuitivo (es. torcere un oggetto già piegato).
+
+### B. Composizione Gerarchica (Hierarchical FFD)
+Questo è l'approccio professionale per gestire i **Livelli di Dettaglio** (LOD - Level of Detail).
+* **Concetto:** Si usano griglie annidate o collegate in gerarchia padre-figlio.
+* **Funzionamento:**
+    1.  **Livello Base (Coarse):** Una griglia con *pochi* punti di controllo (es. $2 \times 2 \times 2$) definisce la forma generale.
+    2.  **Livelli Successivi (Fine):** Griglie più dense (es. $4 \times 4 \times 4$) sono collegate alla griglia base.
+* **Vantaggio Operativo:**
+    * Quando muovo i punti della griglia "Padre", **tutte** le griglie "Figlio" al suo interno si spostano di conseguenza.
+    * Posso poi scendere nel dettaglio e muovere i punti della griglia "Figlio" per rifiniture locali senza perdere la forma generale data dal padre.
+* **Utilizzo:** Ideale per modellazione complessa (es. definire la posa di un braccio e poi aggiustare la forma del bicipite).
+
+---
+
+## 2. Animazione tramite FFD
+La FFD non serve solo a cambiare la forma statica di un modello (Modeling), ma è un potente strumento di [[Animation]]. Esistono due modi opposti per animare con FFD.
+
+### Metodo A: Animazione dei Punti di Controllo
+È il metodo più intuitivo. L'oggetto "vive" dentro la griglia.
+1.  **Setup:** L'oggetto è mappato staticamente nel lattice ($s,t,u$ costanti).
+2.  **Azione:** L'animatore sposta i **Punti di Controllo** ($P_{ijk}$) nel tempo (Keyframing).
+3.  **Risultato:** L'oggetto si deforma seguendo il movimento della griglia.
+* *Esempi:* Un cuore che batte, un volto che parla, una palla che rimbalza (Squash & Stretch).
+
+### Metodo B: Animazione dell'Oggetto attraverso la Griglia
+Qui la griglia è statica (o ha una forma fissa deformata) e l'oggetto la attraversa.
+1.  **Setup:** La griglia ha una forma deformata (es. è piegata a 90° o ristretta al centro).
+2.  **Azione:** L'oggetto possiede una **Legge di Moto** (traiettoria) che lo fa muovere attraverso lo spazio occupato dalla griglia.
+3.  **Processo Matematico:**
+    * Ad ogni frame, il vertice dell'oggetto entra in una nuova posizione dello spazio.
+    * Vengono ricalcolate le coordinate locali $(s,t,u)$ rispetto alla griglia.
+    * Viene applicata la deformazione in quel punto specifico.
+* **Risultato:** L'oggetto subisce la deformazione solo mentre passa nella zona influenzata.
+* *Esempi:*
+    * Un serpente che ha ingoiato una preda (la pancia si gonfia solo dove passa la preda).
+    * Una moneta che entra in una fessura storta.
+    * Un'auto che diventa "gommosa" mentre passa in un tunnel magico.
+
+---
+
+## Sintesi per l'Esame: Differenze Chiave
+| Caratteristica | Metodo A (Anim. Punti) | Metodo B (Anim. Oggetto) |
+| :--- | :--- | :--- |
+| **Cosa si muove** | I punti della griglia ($P_{ijk}$) | L'oggetto ($P$) |
+| **Coordinate $(s,t,u)$** | **Costanti** (calcolate una volta) | **Variabili** (ricalcolate ogni frame) |
+| **Costo Computazionale** | Basso (solo interpolazione) | Alto (mapping + interpolazione) |
+| **Effetto Visivo** | L'oggetto cambia forma sul posto | L'oggetto "fluisce" nella forma |
