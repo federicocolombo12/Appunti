@@ -48,13 +48,8 @@ _Oltre il corpo rigido: muscoli, tessuti e fenomeni naturali._
 
 - [[Deformazione Geometrica]] e [[Morphing]]: Seed vertex, funzioni di attenuazione e Squash & Stretch.
     
-- [[Sistemi Molla-Smorzatore]]: Modellare tessuti e corpi soffici.
-    
-- [[Sistemi Particellari]]: Simulazione di fuoco, fumo, esplosioni,  Algoritmi per stormi e folle (Regole di Reynolds)..
-    
--
-    
-
+- [[Sistemi Particellari]] e  [[Flocking e Comportamenti Emergenti]]:: Simulazione di fuoco, fumo, esplosioni, Algoritmi per stormi e folle (Regole di Reynolds)..
+  
 ## 5. Modellazione Avanzata e Natura
 
 _Tecniche specifiche per strutture organiche e frattali._
