@@ -214,7 +214,7 @@ Per disegnare la struttura (o descriverla all'esame), dobbiamo indentare mentalm
 **Risultato Visivo:**
 
 È una pianta a forma di **Y**. Ha un tronco basso (`FF`) che si divide in due grossi rami principali (uno a sx, uno a dx). Entrambi i rami sono "pelosi" o complessi, avendo a loro volta ramificazioni interne.
-![[Pasted image 20260202204558.png]]
+![[Pasted image 20260202204558.png|500]]
 ---
 
 ### ✍️ Esercizio 2: Derivazione e Disegno
@@ -299,4 +299,90 @@ Un fusto alto e dritto.
 - Al nodo alto: esce solo un ramo complesso a sinistra.
     
 - Il fusto termina con una punta dritta.
-![[Pasted image 20260202204857.png]]
+![[Pasted image 20260202204857.png | 400]]
+# Evoluzione degli L-Systems: Varianti Avanzate
+
+## 1. L-System Stocastici (Stochastic)
+I sistemi deterministici producono piante identiche (cloni). In natura, due piante della stessa specie sono simili ma mai uguali.
+I sistemi stocastici introducono il **non-determinismo** per generare variabilità.
+![[Pasted image 20260202205944.png]]
+### Funzionamento
+* Per uno stesso predecessore esistono più regole di produzione possibili.
+* A ogni regola è associata una **probabilità (peso)** $p$.
+* La somma delle probabilità per un dato predecessore deve essere 1 (100%).
+* **Esempio:**
+    * $p=0.6 : A \rightarrow [+F]A$ (Ramo a sinistra, più probabile)
+    * $p=0.4 : A \rightarrow [-F]A$ (Ramo a destra, meno probabile)
+* *Nota:* Il sistema non "sceglie" in modo intelligente, è puramente casuale (Monte Carlo).
+
+---
+
+## 2. L-System Sensibili al Contesto (Context-Sensitive)
+Nei sistemi 0L (Context-Free), un modulo si sviluppa indipendentemente dai vicini. In realtà, la crescita dipende dal flusso di nutrienti o ormoni che arrivano dalle parti adiacenti.
+![[Pasted image 20260202205953.png]]
+### Sintassi $(2L-System)$
+La regola si applica solo se il predecessore è circondato da specifici vicini.
+$$L < P > R \rightarrow S$$
+* **$L$ (Left Context):** Cosa deve esserci a sinistra (verso la radice).
+* **$P$ (Predecessor):** Il simbolo da riscrivere.
+* **$R$ (Right Context):** Cosa deve esserci a destra (verso la punta).
+* **$S$ (Successor):** Il risultato.
+
+*Applicazione:* Simulare la propagazione di segnali (es. "Se la parte sotto di me è secca, secco anche io").
+
+---
+
+## 3. L'Animazione della Crescita
+Animare una pianta pone due problemi distinti che avvengono su scale temporali diverse:
+
+### A. Cambiamenti Topologici (Discreti)
+* Aggiunta di nuovi rami, foglie o fiori.
+* Gestiti dalle **Regole di Produzione** (avvengono a intervalli discreti, iterazione $n \rightarrow n+1$).
+
+### B. Allungamento/Crescita (Continui)
+* L'espansione fisica di un internodo esistente.
+* **Problema del metodo ingenuo:** Se usiamo $F \rightarrow FF$ per allungare un segmento, raddoppiamo i simboli a ogni passo.
+    * *Risultato:* Esplosione esponenziale della memoria e rallentamento del rendering.
+* **Soluzione:** Usare L-System Parametrici per modificare il valore numerico della lunghezza senza aggiungere simboli.
+
+---
+
+## 4. L-System Parametrici
+Ogni simbolo del vocabolario non è più solo una lettera, ma una funzione con parametri: $A(x, y, ...)$.
+![[Pasted image 20260202210004.png]]
+### Caratteristiche
+* **Condizione (Guard):** La regola viene applicata *solo se* una condizione logica sui parametri è vera.
+* **Aritmetica:** I parametri del successore possono essere calcolati matematicamente da quelli del predecessore.
+
+### Esempio Combinato (Context-Sensitive + Parametrico)
+Simulazione del passaggio di informazioni (es. nutrienti):
+$$A(t_0) < A(t_1) > A(t_2) : (t_2 > t_1 \land t_1 > t_0) \rightarrow A(t_1 + 0.01)$$
+* *Interpretazione:* Se il modulo centrale $A(t_1)$ ha un vicino a sinistra con valore minore e uno a destra con valore minore (gradiente), allora incrementa il suo valore (accumula risorse).
+
+---
+
+## 5. Timed L-Systems (Temporizzati)
+Necessari per gestire la crescita continua nel tempo senza essere legati agli scatti discreti delle iterazioni.
+
+### Concetti Chiave
+1.  **Tempo Globale:** Una variabile che scorre continuamente.
+2.  **Età Locale ($\tau$):** Ogni modulo ha un'età che incrementa.
+3.  **Ciclo di Vita:**
+    * **Età Iniziale:** Quando il modulo nasce.
+    * **Età Terminale:** Quando il modulo "muore" o si trasforma in qualcos'altro (es. da gemma diventa fiore).
+    
+Questo permette di disaccoppiare la velocità di crescita dal frame rate dell'animazione.
+
+---
+
+## 6. Interazione con l'Ambiente (Open L-Systems)
+La pianta non cresce nel vuoto. Deve reagire a:
+* **Ostacoli:** Collisioni con muri o altre piante.
+* **Risorse:** Luce (Eliotropismo), Acqua.
+* **Forze:** Gravità, Vento.
+
+### Meccanismo di Comunicazione
+Si utilizzano speciali **Moduli di Query** (spesso indicati con `?P` o simili) nella stringa.
+1. La tartaruga interpreta la stringa.
+2. Quando incontra il modulo di query, interroga l'ambiente (es. "C'è un ostacolo alle coordinate x,y?").
+3. L'ambiente restituisce un valore che diventa parametro per le regole successive.
