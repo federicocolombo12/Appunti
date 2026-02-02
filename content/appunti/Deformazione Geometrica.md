@@ -320,7 +320,7 @@ $$P'(s,t,u) = \sum_{i=0}^{L} \sum_{j=0}^{M} \sum_{k=0}^{N} P_{ijk} \cdot B_i(s) 
 ### Griglie Non Uniformi
 La griglia non deve essere necessariamente composta da cubi perfetti. I punti di controllo possono essere distribuiti in modo non uniforme (es. più densi dove serve più dettaglio nella deformazione).
 La formula rimane valida perché lavoriamo nello spazio parametrico normalizzato $[0,1]$.
-# Lezione 4 (Parte 4): Composizione e Animazione con FFD
+# Composizione e Animazione con FFD
 
 ## 1. Composizione di FFD
 Raramente una deformazione complessa si ottiene con un solo passaggio. Spesso è necessario combinare più griglie FFD. Esistono due approcci principali.

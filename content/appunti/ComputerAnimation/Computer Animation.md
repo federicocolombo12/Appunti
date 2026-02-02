@@ -46,7 +46,7 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
 
 _Oltre il corpo rigido: muscoli, tessuti e fenomeni naturali._
 
-- [[Deformazione Geometrica]]: Seed vertex, funzioni di attenuazione e Squash & Stretch.
+- [[Deformazione Geometrica]] e [[Morphing]]: Seed vertex, funzioni di attenuazione e Squash & Stretch.
     
 - [[Sistemi Molla-Smorzatore]]: Modellare tessuti e corpi soffici.
     
