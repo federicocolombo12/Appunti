@@ -43,7 +43,7 @@ Per fare da ponte tra la griglia di Partenza ($M_S$) e la griglia Intermedia ($M
     * $X_{aux} = X_{partenza}$ (Mantiene le X originali)
     * $Y_{aux} = Y_{intermedia}$ (Adotta le Y target)
     *(Nota: In alcune implementazioni l'ordine è invertito, ma il concetto è creare un ibrido).*
-
+![[Pasted image 20260202170251.png]]
 ### Passo 1: Distorsione lungo X (First Pass)
 Trasformiamo l'immagine Sorgente ($I_S$) in un'immagine temporanea.
 1.  **Obiettivo:** Spostare i pixel orizzontalmente.
@@ -60,7 +60,7 @@ Trasformiamo l'immagine temporanea nell'immagine deformata finale.
     * Si usa la griglia Ausiliaria (che ha X originali e Y finali) verso la griglia Intermedia.
     * Si usano **Scanline Verticali**.
     * Si mappano le righe di pixel nelle nuove posizioni verticali.
-
+![[Pasted image 20260202170313.png]]
 ---
 
 ## 4. La Doppia Deformazione e il Cross-Dissolve
@@ -70,6 +70,7 @@ Per ottenere il morphing completo, l'intero processo di warping viene eseguito *
     * Ottengo l'immagine $I_{S \to I}$.
 2.  **Warping B:** Deformo l'immagine di Arrivo (all'indietro) verso la forma Intermedia.
     * Ottengo l'immagine $I_{D \to I}$.
+    ![[Pasted image 20260202170419.png]]
 
 ### Fusione Finale (Blending)
 Infine, applico la dissolvenza incrociata pixel per pixel:
