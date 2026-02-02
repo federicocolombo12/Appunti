@@ -158,7 +158,7 @@ Il punto deformato $A'$ si trova alle coordinate:
 * **Coordinata X (24.5 -> 24.71):** Il punto si è spostato verso destra. Questo è corretto perché si trovava nella parte destra della griglia ($s > 0.5$) che è stata "stirata" verso l'esterno. Essendo però molto in alto ($t=0.825$), risente fortemente dell'allargamento della cima.
 * **Coordinata Y (15.3 -> 15.3):** La coordinata Y non è cambiata. Questo accade perché i punti di controllo non si sono spostati verticalmente (la base è rimasta a Y=12 e la cima a Y=16).
 # Lezione 4: Deformazione Polyline (Metodo Scalare Semplificato)
-
+![[Pasted image 20260202162942.png]]
 ## 1. Il Concetto: Proiezione e Distanza
 Per mappare un punto $P$ su un segmento (linea o "osso") che va da $Q_1$ a $Q_2$, non servono vettori complessi. Ci servono solo due numeri (scalari) che rispondono a due domande semplici:
 
@@ -171,11 +171,12 @@ Immagina di tracciare una linea perpendicolare dal punto $P$ fino a toccare il s
 1.  **Calcolo di $u$ (La posizione relativa):**
     Misuriamo la distanza tra l'inizio ($Q_1$) e la proiezione ($K$). Dividiamo questa distanza per la lunghezza totale del segmento ($L$).
     $$u = \frac{\text{Distanza}(Q_1, K)}{\text{Lunghezza Totale}(Q_1, Q_2)}$$
+    ![[Pasted image 20260202163002.png]]
 
 2.  **Calcolo di $v$ (Lo scostamento):**
     È semplicemente la distanza fisica tra il punto $P$ e la sua proiezione $K$.
     $$v = \text{Distanza}(P, K)$$
-
+![[Pasted image 20260202163040.png]]
 ---
 
 ## Esercizio Pratico (Risoluzione Semplificata)
