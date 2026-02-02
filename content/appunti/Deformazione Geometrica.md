@@ -76,36 +76,84 @@ Dove:
 ## Esercizio Pratico (Slide 11)
 **Problema:** Determinare le nuove coordinate del vertice $A$ nel caso la griglia venga deformata.
 ![[Pasted image 20260202094858.png]]
-### Dati (Scenario Tipico)
-1.  **Situazione Iniziale (Griglia indeformata):**
-    * La griglia è un quadrato $20 \times 20$ (esempio). Origine in $(0,0)$.
-    * Quindi coordinate globali di A: $(24,5, 15,3)$.
-    * Estremi griglia: $X \in [20, 28], Y \in [12, 16]$.
+# Esercizio Pratico: Deformazione FFD 2D (Caso Personalizzato)
 
-2.  **Passo 1: Calcolo Coordinate Locali ($s,t$)**
-    * $s = (24,5 - 20) / (28 - 20) = 0.5625$
-    * $t = (15.3 - 12) / (16 - 12) =0.825$
-    * Il punto $A$ si trova a $(0.5625, 0.825)$ nello spazio parametrico.
+## 1. Dati del Problema
+Analizziamo la configurazione iniziale fornita.
 
-3.  **Situazione Deformata (Griglia modificata):**
-    * Supponiamo che i vertici superiori della griglia vengano allargati (effetto trapezio).
-    * $P_{00} = (0,0)$ (invariato)
-    * $P_{10} = (20,0)$ (invariato)
-    * $P_{01} = (-10, 20)$ (spostato a sinistra)
-    * $P_{11} = (30, 20)$ (spostato a destra)
+### Geometria Iniziale (Bind Pose)
+* **Griglia:** Rettangolo definito da $X \in [20, 28]$ e $Y \in [12, 16]$.
+    * Larghezza ($W$) = $28 - 20 = 8$
+    * Altezza ($H$) = $16 - 12 = 4$
+* **Punto $A$ (Originale):** $(24.5, 15.3)$
 
-4.  **Passo 2: Calcolo della nuova posizione $A'$**
-    Applichiamo l'interpolazione bilineare con $s=0.5, t=0.5$:
+### Punti di Controllo Iniziali ($P_{ij}$)
+La griglia è definita dai 4 vertici:
+* $P_{00}$ (Basso-Sx): $(20, 12)$
+* $P_{10}$ (Basso-Dx): $(28, 12)$
+* $P_{01}$ (Alto-Sx): $(20, 16)$
+* $P_{11}$ (Alto-Dx): $(28, 16)$
 
-    $$A' = P_{00}(0.5)(0.5) + P_{10}(0.5)(0.5) + P_{01}(0.5)(0.5) + P_{11}(0.5)(0.5)$$
-    $$A' = 0.25 \cdot [P_{00} + P_{10} + P_{01} + P_{11}]$$
+---
 
-    Sostituendo i valori:
-    * $x' = 0.25 \cdot (0 + 20 - 10 + 30) = 0.25 \cdot 40 = 10$
-    * $y' = 0.25 \cdot (0 + 0 + 20 + 20) = 0.25 \cdot 40 = 10$
+## 2. Passo 1: Mappatura (Coordinate Locali)
+Calcoliamo la posizione parametrica di $A$ rispetto alla griglia. Queste coordinate $(s,t)$ sono "congelate" e non cambieranno durante la deformazione.
 
-    *Risultato in questo caso specifico:* Il punto $A'$ rimane a $(10,10)$ perché la deformazione era simmetrica rispetto al centro.
-    *(N.B. Se la deformazione non fosse simmetrica, A si sposterebbe seguendo la "gelatina").*
+$$s = \frac{A_x - X_{min}}{X_{max} - X_{min}} = \frac{24.5 - 20}{8} = \frac{4.5}{8} = \mathbf{0.5625}$$
 
-### Concetto Chiave per l'Esame
-In FFD, la complessità geometrica dell'oggetto non influenza il costo di calcolo della deformazione dei punti di controllo, ma solo il costo finale di ricalcolo dei vertici ($P'$).
+$$t = \frac{A_y - Y_{min}}{Y_{max} - Y_{min}} = \frac{15.3 - 12}{4} = \frac{3.3}{4} = \mathbf{0.825}$$
+
+*Verifica:* Il punto si trova nella metà destra ($s > 0.5$) e nella parte alta ($t > 0.8$) della griglia.
+
+---
+
+## 3. Passo 2: Definizione della Deformazione
+Applicando la deformazione visibile in figura (effetto trapezio), modifichiamo le posizioni dei Punti di Controllo ($P'_{ij}$).
+*Ipotesi:* La base rimane ferma, la cima si allarga di 2 unità per lato.
+
+* **$P'_{00}$**: $(20, 12)$ *(Invariato)*
+* **$P'_{10}$**: $(28, 12)$ *(Invariato)*
+* **$P'_{01}$**: $(18, 16)$ *(Spostato a Sinistra di 2: $20 - 2$)*
+* **$P'_{11}$**: $(30, 16)$ *(Spostato a Destra di 2: $28 + 2$)*
+
+---
+
+## 4. Passo 3: Calcolo Nuova Posizione $A'$
+Utilizziamo l'**Interpolazione Bilineare** per trovare le nuove coordinate globali.
+
+**Formula:**
+$$A'(s,t) = P'_{00}(1-s)(1-t) + P'_{10} \cdot s \cdot (1-t) + P'_{01} \cdot (1-s) \cdot t + P'_{11} \cdot s \cdot t$$
+
+### Calcolo dei Pesi
+Calcoliamo quanto ogni vertice della griglia influenza il punto $A$:
+
+1.  **Peso Basso-Sx** $(1-s)(1-t) = (0.4375)(0.175) \approx \mathbf{0.07656}$
+2.  **Peso Basso-Dx** $s(1-t) = (0.5625)(0.175) \approx \mathbf{0.09844}$
+3.  **Peso Alto-Sx** $(1-s)t = (0.4375)(0.825) \approx \mathbf{0.36094}$
+4.  **Peso Alto-Dx** $st = (0.5625)(0.825) \approx \mathbf{0.46406}$
+
+> **Nota:** La somma dei pesi deve fare sempre 1. ($0.076 + 0.098 + 0.361 + 0.464 \approx 1.0$).
+
+### Calcolo Coordinata X'
+Moltiplichiamo le X dei nuovi punti di controllo per i rispettivi pesi:
+$$X' = 20(0.07656) + 28(0.09844) + 18(0.36094) + 30(0.46406)$$
+$$X' = 1.5312 + 2.7563 + 6.4969 + 13.9218$$
+$$X' = \mathbf{24.70625}$$
+
+### Calcolo Coordinata Y'
+Moltiplichiamo le Y dei nuovi punti di controllo per i rispettivi pesi:
+$$Y' = 12(0.07656) + 12(0.09844) + 16(0.36094) + 16(0.46406)$$
+$$Y' = 12(0.175) + 16(0.825)$$ *(Raggruppando per righe, dato che le Y sono uguali a due a due)*
+$$Y' = 2.1 + 13.2$$
+$$Y' = \mathbf{15.3}$$
+
+---
+
+## 5. Risultato Finale
+Il punto deformato $A'$ si trova alle coordinate:
+
+# $$A' \approx (24.71, 15.3)$$
+
+### Interpretazione
+* **Coordinata X (24.5 -> 24.71):** Il punto si è spostato verso destra. Questo è corretto perché si trovava nella parte destra della griglia ($s > 0.5$) che è stata "stirata" verso l'esterno. Essendo però molto in alto ($t=0.825$), risente fortemente dell'allargamento della cima.
+* **Coordinata Y (15.3 -> 15.3):** La coordinata Y non è cambiata. Questo accade perché i punti di controllo non si sono spostati verticalmente (la base è rimasta a Y=12 e la cima a Y=16).
