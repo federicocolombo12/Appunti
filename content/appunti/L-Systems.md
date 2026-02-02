@@ -55,7 +55,7 @@ Esiste un asse principale (il tronco) che cresce indefinitamente e rimane domina
 L'apice del fusto si divide in due nuovi apici di uguale importanza (o quasi). Non c'è un tronco centrale dominante che prosegue dritto all'infinito; la struttura si biforca costantemente.
 * *Esempio:* Alcune felci, alghe, o alberi decidui complessi.
 * *In L-System:* Il simbolo dell'apice viene sostituito da due nuovi simboli divergenti.
-
+![[Pasted image 20260202195710.png]]
 ---
 
 ## 4. Le Gemme: Il Motore della Crescita
@@ -68,7 +68,7 @@ Le gemme sono embrioni di tessuto vegetale. La loro gestione è cruciale negli L
 ### Classificazione per Funzione
 * **Vegetative:** Danno origine a nuovi fusti e foglie.
 * **Floreali:** Danno origine ai fiori (terminando la crescita di quel ramo).
-
+![[Pasted image 20260202195723.png]]
 ### Stato della Gemma
 * **Attiva:** Produce nuovi moduli al passo successivo.
 * **Dormiente:** Non produce nulla finché un segnale (es. taglio del ramo principale o cambio di stagione) non la attiva.
@@ -83,3 +83,4 @@ La simulazione non è solo geometrica ma simula processi biologici. La crescita 
     * *Fototropismo:* Crescita verso la luce.
     * *Gravitropismo:* Crescita contro (o verso) la gravità.
 4. **Ostacoli:** Collision detection con l'ambiente o con la pianta stessa (self-collision).
+![[Pasted image 20260202195754.png]]
