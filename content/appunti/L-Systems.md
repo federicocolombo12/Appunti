@@ -299,3 +299,4 @@ Un fusto alto e dritto.
 - Al nodo alto: esce solo un ramo complesso a sinistra.
     
 - Il fusto termina con una punta dritta.
+![[Pasted image 20260202204857.png]]
