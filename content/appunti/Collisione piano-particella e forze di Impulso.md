@@ -1,4 +1,3 @@
-
 Analizziamo ora il caso più elementare di collisione e risposta cinematica: una particella puntiforme che colpisce un piano fisso.
 
 ## Il Problema

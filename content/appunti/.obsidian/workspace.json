@@ -1,0 +1,228 @@
+{
+  "main": {
+    "id": "322e8733d2b38db0",
+    "type": "split",
+    "children": [
+      {
+        "id": "052dea42a3769241",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d9339c31766ad4d9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ComputerAnimation/Computer Animation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Computer Animation"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fcab3c412d2f0c9b",
+    "type": "split",
+    "children": [
+      {
+        "id": "a6aa90d89bc48f5a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a0c41ee2e162a97",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "efdc1b0e063db4d1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "cb26d3748c18d657",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "78808a0b13ed9615",
+    "type": "split",
+    "children": [
+      {
+        "id": "5485ca9cb84845a3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66c6e49a7bbe4889",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Collisione piano-particella e forze di Impulso.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Collisione piano-particella e forze di Impulso"
+            }
+          },
+          {
+            "id": "d15920b0fdf7edec",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Collisione piano-particella e forze di Impulso.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Collisione piano-particella e forze di Impulso"
+            }
+          },
+          {
+            "id": "1a8fd79adfad90d5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "64d7d50d8bc90b7c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "fb6166f57cc7ba10",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Collisione piano-particella e forze di Impulso.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Collisione piano-particella e forze di Impulso"
+            }
+          },
+          {
+            "id": "702892be52830acf",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "d9339c31766ad4d9",
+  "lastOpenFiles": [
+    "Collisione piano-particella e forze di Impulso.md",
+    "Tensore d'Inerzia.md",
+    "Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
+    "Screenshot 2026-02-01 alle 20.18.42.png",
+    "Screenshot 2026-02-01 alle 20.18.30.png",
+    "Screenshot 2026-02-01 alle 20.17.27.png",
+    "Screenshot 2026-02-01 alle 20.16.55.png",
+    "Screenshot 2026-02-01 alle 20.15.55.png",
+    "Screenshot 2026-02-01 alle 20.11.00.png",
+    "Screenshot 2026-02-01 alle 20.10.37.png",
+    "Screenshot 2026-02-01 alle 20.10.28.png",
+    "Screenshot 2026-02-01 alle 20.10.09.png",
+    "Screenshot 2026-02-01 alle 20.09.56.png",
+    "Quantità di Moto.md",
+    "ComputerAnimation/Computer Animation.md",
+    "Sistema Molla Smorzatore.md",
+    "Gestione delle Collisioni..md",
+    "Simulazione di Corpi Rigidi.md",
+    "Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
+    "ComputerAnimation/Pipeline di Rendering.md",
+    "Smoothing con Kernel di Convoluzione.md",
+    "Frame di Frenet.md",
+    "Riprogrammazione della Velocità.md",
+    "Lunghezza d'arco, Look Up Table e Interpolazione.md",
+    "ComputerAnimation/Trasformazioni Geometriche.md",
+    "ComputerAnimation/Hardware e Software Graphics.md",
+    "Percezione del Moto e Intro all'Animazione.md",
+    "Untitled.base"
+  ]
+}
