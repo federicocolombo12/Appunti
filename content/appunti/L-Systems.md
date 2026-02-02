@@ -84,3 +84,62 @@ La simulazione non è solo geometrica ma simula processi biologici. La crescita 
     * *Gravitropismo:* Crescita contro (o verso) la gravità.
 4. **Ostacoli:** Collision detection con l'ambiente o con la pianta stessa (self-collision).
 ![[Pasted image 20260202195754.png]]
+
+# L-System: Logica Formale e Turtle Graphics
+
+## 1. Definizione e Classificazione
+Gli **L-System** (Lindenmayer Systems) sono sistemi di riscrittura parallela di stringhe introdotti dal biologo Aristid Lindenmayer nel 1968.
+
+### D0L-Systems (Deterministic 0-Context)
+Il caso più semplice è il **D0L-System**.
+* **D (Deterministico):** Per ogni simbolo dell'alfabeto esiste **una sola** regola di produzione (o nessuna). Non c'è ambiguità su come sostituire un simbolo.
+* **0 (Context-Free):** La riscrittura di un simbolo dipende solo dal simbolo stesso, non dai suoi vicini (sinistra o destra).
+
+---
+
+## 2. Componenti del Sistema
+Un L-System è definito da una tupla composta da:
+1.  **Alfabeto ($V$):** L'insieme dei simboli validi (es. $\{F, +, -, A\}$).
+2.  **Assioma ($\omega$):** La stringa iniziale (stato al tempo $t=0$).
+3.  **Regole di Produzione ($P$):** Definiscono come ogni simbolo viene trasformato al passo successivo.
+    * Struttura: `Predecessore (α) -> Successore (β)`
+    * *Nota:* Se un simbolo non ha una regola esplicita, si assume la regola identità ($A \rightarrow A$).
+
+### Il Processo di Derivazione
+Le regole vengono applicate **in parallelo** e simultaneamente a tutti i caratteri della stringa corrente.
+* *Iterazione $n$:* Stringa di input.
+* *Iterazione $n+1$:* Ogni carattere della stringa $n$ viene sostituito dal suo successore definito nelle regole.
+![[Pasted image 20260202201933.png]]
+---
+
+## 3. Interpretazione Geometrica
+Una volta generata la stringa finale (dopo $N$ iterazioni), questa deve essere tradotta in immagine. Esistono due metodi principali:
+
+### A. Sostituzione Geometrica Diretta
+Ogni simbolo della stringa viene sostituito da un oggetto grafico predefinito.
+* *Esempio:* In una stringa `XXTTXX`, ogni `X` piazza un segmento e ogni `T` piazza una forma a "V".
+* *Limite:* Metodo rigido, poco adatto a strutture ramificate complesse e continue.
+![[Pasted image 20260202201945.png]]
+### B. Interpretazione [[Turtle Graphics]]
+La stringa viene letta come una sequenza di comandi impartiti a un cursore (la "Tartaruga") che si muove nello spazio cartesiano.
+* **Stato della Tartaruga:** È definito dalla terna $(x, y, \alpha)$.
+    * $x, y$: Posizione cartesiana corrente.
+    * $\alpha$: Orientamento (angolo) corrente rispetto a un asse di riferimento.
+* **Parametri Globali:**
+    * $d$: Passo di avanzamento (step size).
+    * $\delta$: Passo angolare (angle increment).
+
+#### Comandi Fondamentali
+Ecco come i simboli modificano lo stato $(x, y, \alpha)$:
+
+| Simbolo | Azione | Descrizione | Nuovo Stato Matematico |
+| :--- | :--- | :--- | :--- |
+| **F** | Move & Draw | Avanza di $d$ disegnando una linea. | $\begin{cases} x' = x + d \cdot \cos(\alpha) \\ y' = y + d \cdot \sin(\alpha) \\ \alpha' = \alpha \end{cases}$ |
+| **f** | Move (No Draw) | Avanza di $d$ **senza** disegnare (salto). | *Idem come sopra (cambiano x,y ma non traccia linea).* |
+| **+** | Turn Left | Ruota a sinistra (senso antiorario) di $\delta$. | $\alpha' = \alpha + \delta$ |
+| **-** | Turn Right | Ruota a destra (senso orario) di $\delta$. | $\alpha' = \alpha - \delta$ |
+
+---
+
+![[Pasted image 20260202202009.png]]ù
+![[Pasted image 20260202202018.png]]
