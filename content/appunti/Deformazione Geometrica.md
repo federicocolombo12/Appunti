@@ -79,13 +79,12 @@ Dove:
 ### Dati (Scenario Tipico)
 1.  **Situazione Iniziale (Griglia indeformata):**
     * La griglia è un quadrato $20 \times 20$ (esempio). Origine in $(0,0)$.
-    * Punto $A$ si trova esattamente al centro.
-    * Quindi coordinate globali di A: $(10, 10)$.
-    * Estremi griglia: $X \in [0, 20], Y \in [0, 20]$.
+    * Quindi coordinate globali di A: $(24,5, 15,3)$.
+    * Estremi griglia: $X \in [20, 28], Y \in [12, 16]$.
 
 2.  **Passo 1: Calcolo Coordinate Locali ($s,t$)**
-    * $s = (10 - 0) / (20 - 0) = 0.5$
-    * $t = (10 - 0) / (20 - 0) = 0.5$
+    * $s = (24,5 - 20) / (28 - 20) = 0.5625$
+    * $t = (15.3 - 12) / (16 - 12) =0.825$
     * Il punto $A$ si trova a $(0.5, 0.5)$ nello spazio parametrico.
 
 3.  **Situazione Deformata (Griglia modificata):**
