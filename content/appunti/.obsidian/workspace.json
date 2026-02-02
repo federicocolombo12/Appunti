@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Computer Animation.md",
+                "file": "ComputerAnimation/L-Systems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Animation"
+              "title": "L-Systems"
             }
           }
         ]
@@ -196,6 +196,7 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Pipeline di Rendering.md",
     "ComputerAnimation/Definizione di Oggetti 3D.md",
@@ -214,7 +215,6 @@
     "Immagini/Pasted image 20260202202018.png",
     "Immagini/Pasted image 20260202202009.png",
     "Immagini/Pasted image 20260202201945.png",
-    "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Flocking e Comportamenti Emergenti.md",
     "ComputerAnimation/Sistemi Particellari.md",
     "ComputerAnimation/Morphing.md",
