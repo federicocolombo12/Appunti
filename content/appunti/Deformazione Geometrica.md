@@ -157,92 +157,75 @@ Il punto deformato $A'$ si trova alle coordinate:
 ### Interpretazione
 * **Coordinata X (24.5 -> 24.71):** Il punto si è spostato verso destra. Questo è corretto perché si trovava nella parte destra della griglia ($s > 0.5$) che è stata "stirata" verso l'esterno. Essendo però molto in alto ($t=0.825$), risente fortemente dell'allargamento della cima.
 * **Coordinata Y (15.3 -> 15.3):** La coordinata Y non è cambiata. Questo accade perché i punti di controllo non si sono spostati verticalmente (la base è rimasta a Y=12 e la cima a Y=16).
-# Deformazione tramite Polyline
+# Lezione 4: Deformazione Polyline (Metodo Scalare Semplificato)
 
-## 1. Concetto e Similitudini con la Griglia 2D
-La **Polyline Deformation** è una semplificazione dimensionale della FFD (Free-Form Deformation).
-* **FFD (Griglia):** Mappa un punto rispetto a un'area 2D (coordinate $s, t$).
-* **Polyline:** Mappa un punto rispetto a una linea 1D (un segmento).
+## 1. Il Concetto: Proiezione e Distanza
+Per mappare un punto $P$ su un segmento (linea o "osso") che va da $Q_1$ a $Q_2$, non servono vettori complessi. Ci servono solo due numeri (scalari) che rispondono a due domande semplici:
 
-**Perché sono simili?**
-Entrambe definiscono un **Sistema di Riferimento Locale**. Invece di dire "Il punto è a X=100", diciamo "Il punto è al 50% della lunghezza del segmento e distante 10 unità da esso".
+1.  **$u$ (Il Rapporto Lungo la Linea):** Se proietto il punto sulla linea, a che percentuale del percorso tra l'inizio e la fine mi trovo?
+2.  **$v$ (La Distanza dalla Linea):** Quanto è distante il punto dalla linea?
 
----
+### L'Algoritmo Geometrico (Slide 14)
+Immagina di tracciare una linea perpendicolare dal punto $P$ fino a toccare il segmento. Chiamiamo quel punto di contatto $K$ (la proiezione).
 
-## 2. Algoritmo di Mapping (Bind Pose)
-Il processo di collegare un vertice a una polyline si chiama **Mapping** o *Binding*.
-Dato un segmento definito dai punti estremi $Q_1$ (inizio) e $Q_2$ (fine), e un vertice $P$ da mappare.
+1.  **Calcolo di $u$ (La posizione relativa):**
+    Misuriamo la distanza tra l'inizio ($Q_1$) e la proiezione ($K$). Dividiamo questa distanza per la lunghezza totale del segmento ($L$).
+    $$u = \frac{\text{Distanza}(Q_1, K)}{\text{Lunghezza Totale}(Q_1, Q_2)}$$
 
-### Sistema di Coordinate Locali $(u, v)$
-Dobbiamo trovare due valori scalari:
-1.  **$u$ (Lunghezza):** La posizione proiettata lungo il segmento (spesso normalizzata tra 0 e 1).
-2.  **$v$ (Distanza):** La distanza perpendicolare dal segmento.
-
-### Algoritmo Matematico Passo-Passo
-Per calcolare $(u, v)$ matematicamente:
-
-1.  **Definire i Vettori:**
-    * Vettore del segmento: $\vec{D} = Q_2 - Q_1$
-    * Vettore dal punto all'inizio: $\vec{V} = P - Q_1$
-    * Lunghezza del segmento: $L = ||\vec{D}||$
-    * Versore (direzione) del segmento: $\hat{t} = \frac{\vec{D}}{L}$
-
-2.  **Calcolo di $u$ (Proiezione):**
-    Si usa il **prodotto scalare** (dot product) per proiettare $\vec{V}$ su $\hat{t}$.
-    $$u_{dist} = \vec{V} \cdot \hat{t}$$
-    Se vogliamo $u$ normalizzato ($0 \dots 1$):
-    $$u = \frac{u_{dist}}{L} = \frac{\vec{V} \cdot \vec{D}}{||\vec{D}||^2}$$
-
-3.  **Calcolo di $v$ (Distanza Perpendicolare):**
-    Possiamo usare il teorema di Pitagora o il vettore normale.
-    Il punto proiettato sulla linea è: $P_{proj} = Q_1 + u_{dist} \cdot \hat{t}$
-    La distanza $v$ è la lunghezza del vettore differenza:
-    $$v = ||P - P_{proj}||$$
-    *(Nota: In 2D, $v$ può avere segno per indicare se è sopra o sotto la linea, usando il prodotto vettoriale).*
+2.  **Calcolo di $v$ (Lo scostamento):**
+    È semplicemente la distanza fisica tra il punto $P$ e la sua proiezione $K$.
+    $$v = \text{Distanza}(P, K)$$
 
 ---
 
-## 3. Deformazione da parte dell'Utente
-Una volta calcolati $u$ e $v$ (che restano costanti, come il DNA del vertice):
-1.  L'utente sposta i vertici della Polyline ($Q_1 \to Q'_1$ e $Q_2 \to Q'_2$).
-2.  Il sistema ricalcola la posizione globale $P'$ usando la formula inversa:
-    $$P' = Q'_1 + (u \cdot L_{new}) \cdot \hat{t}' + v \cdot \hat{n}'$$
-    *Dove $\hat{t}'$ è la nuova direzione e $\hat{n}'$ è la nuova normale.*
-
----
-
-## Esercizio Pratico: Mapping del Punto A
-**Obiettivo:** Determinare le coordinate di mapping $(u, v)$ del punto $A$ rispetto a una Polyline di riferimento, utilizzando i dati assegnati precedentemente.
+## Esercizio Pratico (Risoluzione Semplificata)
+Risolviamo lo stesso esercizio di prima, ma usando **solo** sottrazioni e divisioni, senza vettori.
 
 ### Dati Assegnati
-* **Punto A:** $(24.5, 15.3)$
-* **Polyline di Riferimento:** Assumiamo come "osso" il lato inferiore della griglia precedente (la base su cui poggia la struttura).
-    * $Q_1$ (Inizio): $(20, 12)$
-    * $Q_2$ (Fine): $(28, 12)$
+* **Punto $A$:** $(24.5, 15.3)$
+* **Segmento di Riferimento (Base della griglia):**
+    * Inizio ($Q_1$): $(20, 12)$
+    * Fine ($Q_2$): $(28, 12)$
 
-### Risoluzione (Calcolo di $u$ e $v$)
+### Passo A: Analisi Geometrica
+Osserviamo i dati: il segmento giace sulla linea orizzontale $Y = 12$.
+Questo semplifica tutto drasticamente!
+* La **Lunghezza Totale** del segmento è semplicemente la differenza delle X:
+    $$L = 28 - 20 = 8$$
 
-**Passo 1: Definizione Vettori**
-* Vettore Segmento $\vec{D} = (28-20, 12-12) = (8, 0)$
-* Lunghezza Segmento $L = 8$
-* Vettore Punto $\vec{V} = A - Q_1 = (24.5 - 20, 15.3 - 12) = (4.5, 3.3)$
+### Passo B: Trovare la Proiezione ($K$)
+Poiché il segmento è orizzontale, per "proiettare" il punto $A(24.5, 15.3)$ sul segmento, basta abbassarlo fino alla coordinata Y del segmento.
+* Il punto proiettato $K$ avrà la stessa $X$ di $A$ e la stessa $Y$ del segmento.
+* **$K = (24.5, 12)$**
 
-**Passo 2: Calcolo di $u$ (Coordinata longitudinale)**
-Proiettiamo il vettore punto sul vettore segmento (che è orizzontale, semplificando i calcoli).
-Essendo $\vec{D}$ allineato all'asse X:
-* Proiezione $u_{dist} = 4.5$ (la componente X di $\vec{V}$)
-* **Parametro normalizzato $u$:**
-    $$u = \frac{4.5}{8} = \mathbf{0.5625}$$
+### Passo C: Calcolo di $u$ (Rapporto)
+Quanto dista l'inizio ($Q_1$) dalla proiezione ($K$)?
+Basta guardare le coordinate $X$:
+* $\text{Distanza}(Q_1, K) = 24.5 - 20 = 4.5$
 
-**Passo 3: Calcolo di $v$ (Distanza perpendicolare)**
-Essendo il segmento orizzontale sull'asse $Y=12$:
-* La distanza è semplicemente la differenza di quota $Y$.
-* $v = 15.3 - 12 = \mathbf{3.3}$
+Ora calcoliamo il rapporto rispetto alla lunghezza totale:
+$$u = \frac{4.5}{8} = \mathbf{0.5625}$$
 
-### Risultato Mapping
-Il punto $A$ è mappato sulla Polyline con coordinate locali:
-# $$(u, v) = (0.5625, 3.3)$$
+*(Significato: Il punto si trova al 56.25% della lunghezza del segmento)*
 
-> **Osservazione del Professore:**
-> Notate qualcosa di familiare? Il valore **$u = 0.5625$** è identico alla coordinata **$s$** dell'esercizio sulla griglia!
-> Questo dimostra che mappare su una Polyline (1D) o sulla base di una Griglia (2D) è matematicamente analogo per la coordinata lungo l'asse principale. La differenza è che la Polyline ignora l'altezza massima della griglia ($Y_{max}$) e considera solo la distanza assoluta ($v=3.3$), mentre la griglia considerava la posizione relativa ($t=0.825$) rispetto all'altezza totale.
+### Passo D: Calcolo di $v$ (Distanza)
+Quanto dista il punto $A$ dalla sua proiezione $K$?
+Basta guardare la differenza di altezza ($Y$):
+* $A$ è a $Y=15.3$
+* $K$ è a $Y=12$
+
+$$v = 15.3 - 12 = \mathbf{3.3}$$
+
+---
+
+## Risultato Finale
+Le coordinate di mapping per la Polyline sono:
+# $u = 0.5625$
+# $v = 3.3$
+
+### Nota per l'Esame
+Se all'esame il segmento è **orizzontale** (come spesso accade per semplificare i calcoli a mano), puoi calcolare:
+* $u = \frac{X_{punto} - X_{inizio}}{X_{fine} - X_{inizio}}$
+* $v = Y_{punto} - Y_{inizio}$
+
+È esattamente quello che abbiamo fatto qui: geometria pura, zero vettori. Molto più chiaro così?
