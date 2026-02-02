@@ -1,13 +1,11 @@
 
-
-
 La modellazione della vegetazione è una sfida unica in [[Computer Animation]]. Le piante esibiscono una **complessità arbitraria** (migliaia di foglie, rami intricati) pur mantenendo una **struttura ramificata vincolata**.
 
 ### Caratteristiche fondamentali:
 * **Sorgente singola:** Una pianta cresce partendo da un unico punto.
 * **Sviluppo temporale:** La struttura si ramifica e gli elementi si allungano nel tempo.
 * **Self-similarity:** Spesso i rami più piccoli assomigliano all'intera pianta (frattali).
-
+![[Pasted image 20260202195203.png]]
 ### Tecniche di Modellazione
 Per rappresentare questa complessità si utilizzano tre approcci principali:
 1. **[[Frattali]]**: Utili per la natura auto-similare, ma a volte geometricamente troppo rigidi.
@@ -17,8 +15,8 @@ Per rappresentare questa complessità si utilizzano tre approcci principali:
 ---
 
 ## 2. Morfologia delle Piante (Componenti Strutturali)
-Per scrivere un L-System credibile, dobbiamo conoscere l'anatomia che stiamo simulando (riferimento **Slide 4**).
-
+Per scrivere un L-System credibile, dobbiamo conoscere l'anatomia che stiamo simulando 
+![[Pasted image 20260202195216.png]]
 ### Componenti Base
 I moduli fondamentali che compongono la pianta sono:
 * **Radice (Root):** Tipicamente invisibile e ignorata nel rendering, a meno che non sia esposta.
