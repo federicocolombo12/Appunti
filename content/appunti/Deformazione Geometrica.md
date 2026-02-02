@@ -157,3 +157,92 @@ Il punto deformato $A'$ si trova alle coordinate:
 ### Interpretazione
 * **Coordinata X (24.5 -> 24.71):** Il punto si è spostato verso destra. Questo è corretto perché si trovava nella parte destra della griglia ($s > 0.5$) che è stata "stirata" verso l'esterno. Essendo però molto in alto ($t=0.825$), risente fortemente dell'allargamento della cima.
 * **Coordinata Y (15.3 -> 15.3):** La coordinata Y non è cambiata. Questo accade perché i punti di controllo non si sono spostati verticalmente (la base è rimasta a Y=12 e la cima a Y=16).
+# Deformazione tramite Polyline
+
+## 1. Concetto e Similitudini con la Griglia 2D
+La **Polyline Deformation** è una semplificazione dimensionale della FFD (Free-Form Deformation).
+* **FFD (Griglia):** Mappa un punto rispetto a un'area 2D (coordinate $s, t$).
+* **Polyline:** Mappa un punto rispetto a una linea 1D (un segmento).
+
+**Perché sono simili?**
+Entrambe definiscono un **Sistema di Riferimento Locale**. Invece di dire "Il punto è a X=100", diciamo "Il punto è al 50% della lunghezza del segmento e distante 10 unità da esso".
+
+---
+
+## 2. Algoritmo di Mapping (Bind Pose)
+Il processo di collegare un vertice a una polyline si chiama **Mapping** o *Binding*.
+Dato un segmento definito dai punti estremi $Q_1$ (inizio) e $Q_2$ (fine), e un vertice $P$ da mappare.
+
+### Sistema di Coordinate Locali $(u, v)$
+Dobbiamo trovare due valori scalari:
+1.  **$u$ (Lunghezza):** La posizione proiettata lungo il segmento (spesso normalizzata tra 0 e 1).
+2.  **$v$ (Distanza):** La distanza perpendicolare dal segmento.
+
+### Algoritmo Matematico Passo-Passo
+Per calcolare $(u, v)$ matematicamente:
+
+1.  **Definire i Vettori:**
+    * Vettore del segmento: $\vec{D} = Q_2 - Q_1$
+    * Vettore dal punto all'inizio: $\vec{V} = P - Q_1$
+    * Lunghezza del segmento: $L = ||\vec{D}||$
+    * Versore (direzione) del segmento: $\hat{t} = \frac{\vec{D}}{L}$
+
+2.  **Calcolo di $u$ (Proiezione):**
+    Si usa il **prodotto scalare** (dot product) per proiettare $\vec{V}$ su $\hat{t}$.
+    $$u_{dist} = \vec{V} \cdot \hat{t}$$
+    Se vogliamo $u$ normalizzato ($0 \dots 1$):
+    $$u = \frac{u_{dist}}{L} = \frac{\vec{V} \cdot \vec{D}}{||\vec{D}||^2}$$
+
+3.  **Calcolo di $v$ (Distanza Perpendicolare):**
+    Possiamo usare il teorema di Pitagora o il vettore normale.
+    Il punto proiettato sulla linea è: $P_{proj} = Q_1 + u_{dist} \cdot \hat{t}$
+    La distanza $v$ è la lunghezza del vettore differenza:
+    $$v = ||P - P_{proj}||$$
+    *(Nota: In 2D, $v$ può avere segno per indicare se è sopra o sotto la linea, usando il prodotto vettoriale).*
+
+---
+
+## 3. Deformazione da parte dell'Utente
+Una volta calcolati $u$ e $v$ (che restano costanti, come il DNA del vertice):
+1.  L'utente sposta i vertici della Polyline ($Q_1 \to Q'_1$ e $Q_2 \to Q'_2$).
+2.  Il sistema ricalcola la posizione globale $P'$ usando la formula inversa:
+    $$P' = Q'_1 + (u \cdot L_{new}) \cdot \hat{t}' + v \cdot \hat{n}'$$
+    *Dove $\hat{t}'$ è la nuova direzione e $\hat{n}'$ è la nuova normale.*
+
+---
+
+## Esercizio Pratico: Mapping del Punto A
+**Obiettivo:** Determinare le coordinate di mapping $(u, v)$ del punto $A$ rispetto a una Polyline di riferimento, utilizzando i dati assegnati precedentemente.
+
+### Dati Assegnati
+* **Punto A:** $(24.5, 15.3)$
+* **Polyline di Riferimento:** Assumiamo come "osso" il lato inferiore della griglia precedente (la base su cui poggia la struttura).
+    * $Q_1$ (Inizio): $(20, 12)$
+    * $Q_2$ (Fine): $(28, 12)$
+
+### Risoluzione (Calcolo di $u$ e $v$)
+
+**Passo 1: Definizione Vettori**
+* Vettore Segmento $\vec{D} = (28-20, 12-12) = (8, 0)$
+* Lunghezza Segmento $L = 8$
+* Vettore Punto $\vec{V} = A - Q_1 = (24.5 - 20, 15.3 - 12) = (4.5, 3.3)$
+
+**Passo 2: Calcolo di $u$ (Coordinata longitudinale)**
+Proiettiamo il vettore punto sul vettore segmento (che è orizzontale, semplificando i calcoli).
+Essendo $\vec{D}$ allineato all'asse X:
+* Proiezione $u_{dist} = 4.5$ (la componente X di $\vec{V}$)
+* **Parametro normalizzato $u$:**
+    $$u = \frac{4.5}{8} = \mathbf{0.5625}$$
+
+**Passo 3: Calcolo di $v$ (Distanza perpendicolare)**
+Essendo il segmento orizzontale sull'asse $Y=12$:
+* La distanza è semplicemente la differenza di quota $Y$.
+* $v = 15.3 - 12 = \mathbf{3.3}$
+
+### Risultato Mapping
+Il punto $A$ è mappato sulla Polyline con coordinate locali:
+# $$(u, v) = (0.5625, 3.3)$$
+
+> **Osservazione del Professore:**
+> Notate qualcosa di familiare? Il valore **$u = 0.5625$** è identico alla coordinata **$s$** dell'esercizio sulla griglia!
+> Questo dimostra che mappare su una Polyline (1D) o sulla base di una Griglia (2D) è matematicamente analogo per la coordinata lungo l'asse principale. La differenza è che la Polyline ignora l'altezza massima della griglia ($Y_{max}$) e considera solo la distanza assoluta ($v=3.3$), mentre la griglia considerava la posizione relativa ($t=0.825$) rispetto all'altezza totale.
