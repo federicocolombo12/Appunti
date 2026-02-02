@@ -85,7 +85,7 @@ Dove:
 2.  **Passo 1: Calcolo Coordinate Locali ($s,t$)**
     * $s = (24,5 - 20) / (28 - 20) = 0.5625$
     * $t = (15.3 - 12) / (16 - 12) =0.825$
-    * Il punto $A$ si trova a $(0.5, 0.5)$ nello spazio parametrico.
+    * Il punto $A$ si trova a $(0.5625, 0.825)$ nello spazio parametrico.
 
 3.  **Situazione Deformata (Griglia modificata):**
     * Supponiamo che i vertici superiori della griglia vengano allargati (effetto trapezio).
