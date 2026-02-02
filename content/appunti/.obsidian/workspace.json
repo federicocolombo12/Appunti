@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Computer Animation.md",
+                "file": "Flocking e Comportamenti Emergenti.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Animation"
+              "title": "Flocking e Comportamenti Emergenti"
             }
           }
         ]
@@ -196,8 +196,9 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
-    "Sistemi Particellari.md",
     "ComputerAnimation/Computer Animation.md",
+    "Flocking e Comportamenti Emergenti.md",
+    "Sistemi Particellari.md",
     "Morphing.md",
     "Pasted image 20260202190221.png",
     "Pasted image 20260202190208.png",
