@@ -224,9 +224,97 @@ Le coordinate di mapping per la Polyline sono:
 # $u = 0.5625$
 # $v = 3.3$
 
-### Nota per l'Esame
-Se all'esame il segmento è **orizzontale** (come spesso accade per semplificare i calcoli a mano), puoi calcolare:
+### 
+Se il segmento è **orizzontale** (come spesso accade per semplificare i calcoli a mano), puoi calcolare:
 * $u = \frac{X_{punto} - X_{inizio}}{X_{fine} - X_{inizio}}$
 * $v = Y_{punto} - Y_{inizio}$
 
-È esattamente quello che abbiamo fatto qui: geometria pura, zero vettori. Molto più chiaro così?
+# Deformazioni Globali e FFD 3D
+
+## 1. Deformazioni Globali (Metodo Alan Barr)
+A differenza delle trasformazioni affini standard (dove la matrice è costante per tutti i punti), nelle deformazioni globali la trasformazione dipende dalla posizione del punto stesso nello spazio.
+
+### Il Concetto Chiave
+$$P' = M(P) \cdot P$$
+* **$P$**: Il punto originale.
+* **$M(P)$**: Una matrice di trasformazione che **varia** in funzione delle coordinate di $P$.
+
+Vediamo due operatori classici introdotti da Alan Barr, applicati lungo l'asse $Z$.
+
+### A. Tapering (Rastremazione)
+Rimpicciolisce o ingrandisce l'oggetto man mano che ci si sposta lungo l'asse $Z$.
+* L'idea è applicare uno **scalamento** su $X$ e $Y$ che dipende dal valore di $z$.
+* Funzione di rastremazione $r = f(z)$.
+
+La matrice di trasformazione diventa:
+$$
+M(z) = \begin{bmatrix} 
+r(z) & 0 & 0 & 0 \\
+0 & r(z) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 
+\end{bmatrix}
+$$
+
+### B. Twist (Torsione)
+Ruota le "fette" dell'oggetto attorno all'asse $Z$, con un angolo che aumenta progressivamente.
+* L'angolo di rotazione $\theta$ è funzione di $z$: $\theta = f(z)$.
+* Esempio classico: $\theta = k \cdot z$ (torsione lineare).
+
+La matrice (una rotazione Z modificata) è:
+$$
+M(z) = \begin{bmatrix} 
+\cos(\theta) & -\sin(\theta) & 0 & 0 \\
+\sin(\theta) & \cos(\theta) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 
+\end{bmatrix}
+$$
+*Dove $\theta$ varia per ogni vertice in base alla sua altezza $z$.*
+
+---
+
+## 2. Free-Form Deformation (FFD) 3D
+Estendiamo il concetto di griglia 2D a un volume tridimensionale (Lattice).
+
+### Setup del Lattice
+1.  Si sovrappone all'oggetto un reticolo tridimensionale (parallelepipedo).
+2.  Definiamo un sistema di coordinate locale $(s, t, u)$ tramite un'origine $P_0$ e tre vettori asse $S, T, U$.
+
+### Mapping: Come trovare (s, t, u)?
+Dato un punto $P$ nello spazio globale, dobbiamo trovare le sue coordinate locali $(s, t, u)$ tali che:
+$$P = P_0 + s \cdot S + t \cdot T + u \cdot U$$
+*(Dove $0 \le s,t,u \le 1$ se il punto è dentro il lattice)*.
+
+Per isolare le singole coordinate scalari ($s, t, u$) usiamo il **Prodotto Vettoriale** (Cross Product).
+L'intuizione è: per trovare la coordinata $s$ (lungo l'asse $S$), dobbiamo proiettare il punto su una direzione che sia perpendicolare agli altri due assi ($T$ e $U$).
+
+I vettori "normali" alle facce del lattice sono:
+* $$N_S = T \times U$$ (Perpendicolare al piano $TU$, serve a trovare $s$)
+* $$N_T = S \times U$$ (Perpendicolare al piano $SU$, serve a trovare $t$)
+* $$N_U = S \times T$$ (Perpendicolare al piano $ST$, serve a trovare $u$)
+
+La formula per trovare la coordinata locale $s$ è:
+$$s = \frac{(P - P_0) \cdot (T \times U)}{S \cdot (T \times U)}$$
+*(Similmente per $t$ e $u$ permutando i vettori).*
+
+> **Nota per l'Esame:** Questo passaggio serve **solo** all'inizio (Bind Pose) per "registrare" il vertice nel sistema lattice. Una volta trovati $s, t, u$, questi valori restano fissi per quel vertice.
+
+---
+
+## 3. Deformazione tramite Interpolazione
+Una volta che abbiamo $(s, t, u)$, l'utente sposta i punti di controllo del lattice ($P_{ijk}$). Come calcoliamo la nuova posizione $P'$?
+
+### Interpolazione Tricubica (Bernstein)
+Se la griglia ha dimensioni $L \times M \times N$ (es. $3 \times 3 \times 3$), usiamo una sommatoria tripla con i polinomi di Bernstein ($B$) per garantire continuità e curve morbide.
+
+$$P'(s,t,u) = \sum_{i=0}^{L} \sum_{j=0}^{M} \sum_{k=0}^{N} P_{ijk} \cdot B_i(s) \cdot B_j(t) \cdot B_k(u)$$
+
+* **$P_{ijk}$**: Le nuove posizioni dei punti di controllo.
+* **$B_i(s)$**: Quanto pesa l'i-esimo piano lungo l'asse S.
+* **$B_j(t)$**: Quanto pesa il j-esimo piano lungo l'asse T.
+* **$B_k(u)$**: Quanto pesa il k-esimo piano lungo l'asse U.
+
+### Griglie Non Uniformi
+La griglia non deve essere necessariamente composta da cubi perfetti. I punti di controllo possono essere distribuiti in modo non uniforme (es. più densi dove serve più dettaglio nella deformazione).
+La formula rimane valida perché lavoriamo nello spazio parametrico normalizzato $[0,1]$.
