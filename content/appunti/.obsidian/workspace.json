@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Flocking e Comportamenti Emergenti.md",
+                "file": "L-Systems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flocking e Comportamenti Emergenti"
+              "title": "L-Systems"
             }
           }
         ]
@@ -196,9 +196,10 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
-    "Pasted image 20260202192355.png",
     "ComputerAnimation/Computer Animation.md",
+    "L-Systems.md",
     "Flocking e Comportamenti Emergenti.md",
+    "Pasted image 20260202192355.png",
     "Sistemi Particellari.md",
     "Morphing.md",
     "Pasted image 20260202190221.png",
@@ -211,7 +212,6 @@
     "Pasted image 20260202170153.png",
     "Deformazione Geometrica.md",
     "Pasted image 20260202163914.png",
-    "Pasted image 20260202163837.png",
     "Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
     "Collisione piano-particella e forze di Impulso.md",
     "Tensore d'Inerzia.md",
