@@ -386,3 +386,5 @@ Si utilizzano speciali **Moduli di Query** (spesso indicati con `?P` o simili) n
 1. La tartaruga interpreta la stringa.
 2. Quando incontra il modulo di query, interroga l'ambiente (es. "C'è un ostacolo alle coordinate x,y?").
 3. L'ambiente restituisce un valore che diventa parametro per le regole successive.
+
+qwdasd
