@@ -143,3 +143,30 @@ Ecco come i simboli modificano lo stato $(x, y, \alpha)$:
 
 ![[Pasted image 20260202202009.png]]ù
 ![[Pasted image 20260202202018.png]]
+# Bracketed L-Systems: Ramificazioni Complesse
+
+## 1. Il Problema della Continuità
+Negli L-System semplici (lineari), la tartaruga disegna una linea continua. Una volta disegnato un segmento, lo stato si è spostato.
+* **Limite:** Impossibile disegnare un albero dove da un singolo nodo partono due o più rami distinti, perché la tartaruga non saprebbe come "tornare indietro" al nodo dopo aver disegnato il primo ramo.
+
+## 2. La Soluzione: Stack (Pila)
+Si introducono due nuovi simboli nell'alfabeto che agiscono sulla memoria della Tartaruga.
+
+* **`[` (Push - Inserzione):**
+    * Salva lo stato corrente della tartaruga $(x, y, \alpha, color, width)$ in cima a uno **Stack** (Pila LIFO - Last In First Out).
+    * *Significato biologico:* "Inizia una diramazione da questo punto".
+* **`]` (Pop - Estrazione):**
+    * Recupera (toglie) l'ultimo stato salvato dallo Stack e teletrasporta la tartaruga a quelle coordinate e orientamento.
+    * *Significato biologico:* "Ho finito di disegnare questo ramo, torno al punto di attaccatura per continuare il fusto principale o fare un altro ramo".
+
+### Struttura Logica
+L'uso delle parentesi trasforma la struttura da lineare a **gerarchica/ricorsiva**.
+* Una stringa bilanciata di parentesi rappresenta un albero topologico.
+* **Esempio:** `F[+F]F`
+    1. `F`: Disegna fusto.
+    2. `[`: Salva posizione (NODO).
+    3. `+F`: Ruota e disegna ramo laterale.
+    4. `]`: Torna al NODO (senza disegnare, salta indietro).
+    5. `F`: Continua il fusto principale.
+
+---
