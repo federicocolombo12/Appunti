@@ -214,7 +214,7 @@ Per disegnare la struttura (o descriverla all'esame), dobbiamo indentare mentalm
 **Risultato Visivo:**
 
 È una pianta a forma di **Y**. Ha un tronco basso (`FF`) che si divide in due grossi rami principali (uno a sx, uno a dx). Entrambi i rami sono "pelosi" o complessi, avendo a loro volta ramificazioni interne.
-
+![[Pasted image 20260202204558.png]]
 ---
 
 ### ✍️ Esercizio 2: Derivazione e Disegno
