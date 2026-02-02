@@ -170,3 +170,132 @@ L'uso delle parentesi trasforma la struttura da lineare a **gerarchica/ricorsiva
     5. `F`: Continua il fusto principale.
 
 ---
+### Esercizio 1: Interpretazione della Stringa
+
+**Stringa:** `FF[+F[-F[-F[+F]F]F]FF][-FF[+F[-F]F[-F]]F]`
+
+Per disegnare la struttura (o descriverla all'esame), dobbiamo indentare mentalmente ogni volta che vediamo una `[` e tornare indietro quando vediamo una `]`.
+
+**Analisi Strutturale:**
+
+1. **`FF`**: Fusto iniziale (lunghezza 2 unità), verticale.
+    
+2. **`[ ... ]` (Primo Blocco - Ramo Sinistro)**:
+    
+    - Al termine del fusto, la tartaruga salva la posizione (Nodo principale).
+        
+    - `+`: Ruota a Sinistra.
+        
+    - `F`: Disegna segmento.
+        
+    - `[-F[-F[+F]F]F]`: Da qui parte una sotto-ramificazione verso destra (`-`) complessa (nidificata).
+        
+    - `FF`: Il ramo sinistro principale prosegue per 2 unità.
+        
+    - _`]` Fine Ramo Sinistro: Si torna al Nodo principale sul fusto._
+        
+3. **`[ ... ]` (Secondo Blocco - Ramo Destro)**:
+    
+    - Siamo tornati al Nodo principale.
+        
+    - `-`: Ruota a Destra.
+        
+    - `FF`: Disegna ramo lungo 2 unità.
+        
+    - `[+F[-F]F[-F]]`: Da qui parte una sotto-ramificazione a sinistra (`+`) con varie foglie/spine.
+        
+    - `F`: Il ramo destro termina con un ultimo segmento.
+        
+    - _`]` Fine Ramo Destro: Si torna al Nodo principale._
+        
+4. (Fine della stringa): La pianta finisce qui. Non c'è crescita apicale ulteriore oltre il nodo di biforcazione.
+    
+
+**Risultato Visivo:**
+
+È una pianta a forma di **Y**. Ha un tronco basso (`FF`) che si divide in due grossi rami principali (uno a sx, uno a dx). Entrambi i rami sono "pelosi" o complessi, avendo a loro volta ramificazioni interne.
+
+---
+
+### ✍️ Esercizio 2: Derivazione e Disegno
+
+**Dati:**
+
+- Assioma $S = FFABFACFF$
+    
+- $A = [+FBF]$
+    
+- $B = [-FFCF]$
+    
+- $C = F$
+    
+
+**Obiettivo:** Trovare la geometria finale sostituendo i simboli logici ($A, B, C$) con i comandi di disegno ($F, +, -, [, ]$).
+
+**Passo 1: Risoluzione delle dipendenze (Sostituzione)**
+
+Sostituiamo le regole partendo dalle più interne per capire cosa sono i moduli A e B.
+
+- Dato che $C = F$, allora $B$ diventa: `[-FFFF]`
+    
+- Dato che $B = [-FFFF]$ e $C = F$, allora $A$ diventa: `[+F[-FFFF]F]`
+    
+
+**Passo 2: Espansione dell'Assioma S**
+
+Sostituiamo nell'assioma:
+
+`S` = `FF` + `A` + `B` + `F` + `A` + `C` + `FF`
+
+Diventa:
+
+`FF` `[+F[-FFFF]F]` `[-FFFF]` `F` `[+F[-FFFF]F]` `F` `FF`
+
+**Passo 3: Analisi del Disegno (Layout)**
+
+Immaginiamo di percorrerla:
+
+1. **`FF`**: Tronco base (2 unità).
+    
+2. **`[+F[-FFFF]F]` (Ex Modulo A)**:
+    
+    - Salva posizione.
+        
+    - Gira a SX (`+`), avanza 1 (`F`).
+        
+    - Da lì, spara un ramo laterale a DX lungo 4 (`[-FFFF]`).
+        
+    - Avanza ancora 1 (`F`).
+        
+    - _Chiude ramo, torna al tronco._
+        
+3. **`[-FFFF]` (Ex Modulo B)**:
+    
+    - Salva posizione (siamo ancora sul tronco principale, allo stesso punto di prima!).
+        
+    - Gira a DX (`-`), avanza 4 (`FFFF`).
+        
+    - _Chiude ramo, torna al tronco._
+        
+4. **`F`**: Il tronco principale cresce di 1 unità verso l'alto.
+    
+5. **`[+F[-FFFF]F]` (Ex Modulo A)**:
+    
+    - Ripete la struttura del punto 2 (ramo a sinistra con sotto-ramo).
+        
+6. **`F`**: Tronco cresce di 1 unità (Ex Modulo C).
+    
+7. **`FF`**: Tronco cresce di 2 unità finali.
+    
+
+**Risultato Visivo:**
+
+Un fusto alto e dritto.
+
+- Al nodo basso: escono un ramo complesso a sinistra e un ramo lungo e dritto a destra.
+    
+- Poi il fusto sale.
+    
+- Al nodo alto: esce solo un ramo complesso a sinistra.
+    
+- Il fusto termina con una punta dritta.
