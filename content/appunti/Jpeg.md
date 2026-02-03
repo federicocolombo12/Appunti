@@ -190,8 +190,9 @@ $$
 ![[Screenshot 2026-02-03 alle 18.12.42.png | 300]]
 ---
 ![[Screenshot 2026-02-03 alle 18.12.58.png | 300]]
-![[Screenshot 2026-02-03 alle 18.13.38.png]]
+
+![[Screenshot 2026-02-03 alle 18.13.38.png | 400]]
 ## 4. Simmetria del JPEG
 Il JPEG standard è definito un algoritmo **Simmetrico**.
 * **Significato:** La complessità computazionale e il tempo richiesto per la compressione sono approssimativamente uguali a quelli richiesti per la decompressione.
-* **Funzionamento:** Le operazioni di decodifica sono matematicamente l'inverso esatto di quelle di codifica (IDCT vs DCT, Dequantizzazione vs Quantizzazione).
+* **Funzionamento:** Le operazioni di decodifica sono matematicamente l'inverso esatto di quelle di codifica (IDCT vs DCT, Dequantizzazione vs Quantizzazione).![[Screenshot 2026-02-03 alle 18.14.15.png]]

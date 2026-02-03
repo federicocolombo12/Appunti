@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jpeg.md",
+                "file": "Formati Video.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Jpeg"
+              "title": "Formati Video"
             }
           }
         ]
@@ -198,6 +198,10 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Computer Animation.md",
+    "Formati Video.md",
+    "Jpeg.md",
+    "Screenshot 2026-02-03 alle 18.14.15.png",
     "Screenshot 2026-02-03 alle 18.13.38.png",
     "Screenshot 2026-02-03 alle 18.12.58.png",
     "Screenshot 2026-02-03 alle 18.12.42.png",
@@ -206,15 +210,11 @@
     "Screenshot 2026-02-03 alle 18.10.49.png",
     "Screenshot 2026-02-03 alle 18.09.41.png",
     "Screenshot 2026-02-03 alle 18.09.16.png",
-    "ComputerAnimation/Computer Animation.md",
     "Metodi di Compressione.md",
     "Screenshot 2026-02-03 alle 18.07.16.png",
-    "Jpeg.md",
     "Rappresentazione dei Colori.md",
     "Analogico e Digitale.md",
-    "Screenshot 2026-02-03 alle 16.50.46.png",
     "Frattali e Caos.md",
-    "Screenshot 2026-02-03 alle 16.13.56.png",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/L-Systems.md",
     "ComputerAnimation/Pipeline di Rendering.md",

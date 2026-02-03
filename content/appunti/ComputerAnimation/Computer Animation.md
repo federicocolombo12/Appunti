@@ -64,7 +64,8 @@ _Tecniche specifiche per strutture organiche e frattali._
 _L'output finale dell'animazione._
 
 - [[Analogico e Digitale]], [[Rappresentazione dei Colori]], [[Metodi di Compressione]] ([[Jpeg]] è il più importante e da ricordare)
-    
+	
+- [[Formati Video]]
 - [[Pipeline di Rendering]]: Transformer, Clipper, Projector e Rasterizer.
     
 - [[Compositing]]:
