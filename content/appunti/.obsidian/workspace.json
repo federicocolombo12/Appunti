@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rappresentazione dei Colori.md",
+                "file": "Metodi di Compressione.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rappresentazione dei Colori"
+              "title": "Metodi di Compressione"
             }
           }
         ]
@@ -199,6 +199,7 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "Metodi di Compressione.md",
     "Rappresentazione dei Colori.md",
     "Analogico e Digitale.md",
     "Screenshot 2026-02-03 alle 16.50.46.png",
@@ -234,7 +235,6 @@
     "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
     "ComputerAnimation/Smoothing con Kernel di Convoluzione.md",
     "ComputerAnimation/Riprogrammazione della Velocità.md",
-    "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
     "Untitled.base"
   ]
 }
