@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Frattali e Caos.md",
+                "file": "Formati Immagine e Video.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Frattali e Caos"
+              "title": "Formati Immagine e Video"
             }
           }
         ]
@@ -198,11 +198,12 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Computer Animation.md",
+    "Formati Immagine e Video.md",
+    "Frattali e Caos.md",
     "Screenshot 2026-02-03 alle 16.13.56.png",
     "Screenshot 2026-02-03 alle 16.13.35.png",
     "Screenshot 2026-02-03 alle 16.13.07.png",
-    "ComputerAnimation/Computer Animation.md",
-    "Frattali e Caos.md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/L-Systems.md",
     "ComputerAnimation/Pipeline di Rendering.md",
@@ -218,7 +219,6 @@
     "Immagini/Pasted image 20260202205944.png",
     "Immagini/Pasted image 20260202204857.png",
     "Immagini/Pasted image 20260202204558.png",
-    "Immagini/Pasted image 20260202202018.png",
     "ComputerAnimation/Flocking e Comportamenti Emergenti.md",
     "ComputerAnimation/Sistemi Particellari.md",
     "ComputerAnimation/Morphing.md",
