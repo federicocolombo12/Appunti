@@ -58,22 +58,22 @@ Per codificare (Encoder) e visualizzare (Decoder) i dati, si usano due strategie
 ### Famiglia MPEG (Moving Picture Experts Group)
 Lo standard MPEG è strutturato in **Parti** (specifiche aree dello standard) e ogni parte in **Layer**.
 
-| Standard | Utilizzo Principale | Note |
-| :--- | :--- | :--- |
-| **MPEG-1** | Video CD (VCD) | Qualità simile al VHS. |
-| **MPEG-2** | DVD, TV Satellitare (DVB) | Le prime 5 parti sono identiche a MPEG-1, ma ne aggiunge altre 5 per gestire interlacciamento e qualità broadcast. |
-| **MPEG-4** | Internet, Streaming | Evoluzione per bitrate bassi e oggetti multimediali. Implementazioni note: **DivX, Xvid, FFmpeg**. |
-| **MPEG-4 Part 10** | Alta definizione | Noto anche come **AVC** o **H.264**. Standard attuale per Blu-ray e Streaming HD. |
+| Standard           | Utilizzo Principale       | Note                                                                                                               |
+| :----------------- | :------------------------ | :----------------------------------------------------------------------------------------------------------------- |
+| **MPEG-1**         | Video CD (VCD)            | Qualità simile al VHS.                                                                                             |
+| **MPEG-2**         | DVD, TV Satellitare (DVB) | Le prime 5 parti sono identiche a MPEG-1, ma ne aggiunge altre 5 per gestire interlacciamento e qualità broadcast. |
+| **MPEG-4**         | Internet, Streaming       | Evoluzione per bitrate bassi e oggetti multimediali. Implementazioni note: **DivX, Xvid, FFmpeg**.                 |
+| **MPEG-4 Part 10** | Alta definizione          | Noto anche come **AVC** o **H.264**. Standard attuale per Blu-ray e Streaming HD.                                  |
 
 ### Famiglia ITU-T (Telecommunication Standardization Sector)
 Standard nati specificamente per le telecomunicazioni (videoconferenze).
 
-| Standard | Utilizzo | Note |
-| :--- | :--- | :--- |
-| **H.261** | Videoconferenza (ISDN) | Obsoleto. Primo standard pratico. |
-| **H.263** | Streaming, Videochiamate | Ottimizzato per bitrate molto bassi. |
-| **H.264** | HD, Streaming, Conf. | Identico a MPEG-4 Part 10 (progetto congiunto JVT). |
-| **H.265 (HEVC)**| 4K/UHD | Evoluzione di H.264 (non citato nel prompt ma successore logico). |
+| Standard         | Utilizzo                 | Note                                                              |
+| :--------------- | :----------------------- | :---------------------------------------------------------------- |
+| **H.261**        | Videoconferenza (ISDN)   | Obsoleto. Primo standard pratico.                                 |
+| **H.263**        | Streaming, Videochiamate | Ottimizzato per bitrate molto bassi.                              |
+| **H.264**        | HD, Streaming, Conf.     | Identico a MPEG-4 Part 10 (progetto congiunto JVT).               |
+| **H.265 (HEVC)** | 4K/UHD                   | Evoluzione di H.264 (non citato nel prompt ma successore logico). |
 
 ### Altri Codec Proprietari e Open
 * **Microsoft:** WMV7 (Windows Media Video), VC-1 (Standardizzato SMPTE).
