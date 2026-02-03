@@ -13,9 +13,11 @@ Le trasformate scompongono il segnale in una somma pesata di **Funzioni Base** (
 ---
 
 ## 2. La DCT (Discrete Cosine Transform)
+![[Screenshot 2026-02-03 alle 18.09.16.png]]
 Nel JPEG si utilizza la **DCT Bidimensionale (2D-DCT)**.
 * **Funzione:** Converte i valori di pixel (Dominio Spaziale) in coefficienti di **Frequenza Spaziale**.
 * **Perché la DCT?** Ha un'ottima proprietà di "compattazione dell'energia": concentra la maggior parte dell'informazione visiva in pochi coefficienti (basse frequenze), a cui l'occhio umano è più sensibile.
+
 
 > [!INFO] Matrice delle Funzioni Base (8x8)
 > La DCT scompone un blocco di immagine in 64 pattern (funzioni base), che vanno da una frequenza nulla (colore uniforme) a frequenze via via più alte (scacchiere fitte), come visibile nelle slide di riferimento (es. Slide 41).
@@ -46,6 +48,7 @@ L'immagine (ogni canale separatamente) viene divisa in blocchi di **8x8 pixel**.
 ### Fase 4: Forward DCT (Trasformazione)
 Ogni blocco 8x8 di valori $pixel(x,y)$ viene trasformato in una matrice 8x8 di coefficienti $F(u,v)$.
 * **Coefficiente DC (0,0):** L'angolo in alto a sinistra. Rappresenta la media dei valori del blocco (frequenza zero). Ha il valore energetico più alto.
+![[Screenshot 2026-02-03 alle 18.09.41.png|200]]
 * **Coefficienti AC:** I restanti 63 valori. Rappresentano i dettagli a frequenza crescente (verso il basso a destra).
 
 ### Fase 5: Quantizzazione (Lossy Step)
@@ -65,9 +68,10 @@ $$F_{quant}(u,v) = \text{Round} \left( \frac{F(u,v)}{Q(u,v)} \right)$$
 > [!WARNING] Risultato della Quantizzazione
 > Dopo questa fase, la matrice risultante (principalmente sparsa, cioè piena di zeri nell'area delle alte frequenze) è pronta per essere codificata in modo efficiente (Zig-Zag, RLE, Huffman), di cui parleremo nel prossimo step.
 
+![[Screenshot 2026-02-03 alle 18.10.49.png |300]]
 
 Dopo la fase di quantizzazione (che è *lossy*), i dati vengono compressi ulteriormente utilizzando tecniche **Lossless** (senza perdita) basate sulla statistica e l'entropia dell'informazione.
-
+![[Screenshot 2026-02-03 alle 18.11.13.png | 300]]
 ### Fase 6. Lettura a Zig-Zag (Linearizzazione)
 La matrice quantizzata $8 \times 8$ deve essere convertita in un vettore monodimensionale ($1 \times 64$) per essere elaborata serialmente.
 
@@ -75,7 +79,7 @@ La matrice quantizzata $8 \times 8$ deve essere convertita in un vettore monodim
     * Poiché la quantizzazione tende ad azzerare le alte frequenze (situate in basso a destra nella matrice), una lettura per righe classiche interromperebbe le sequenze di zeri.
     * La lettura a **Zig-Zag** scansiona la matrice partendo dalle basse frequenze (angolo in alto a sinistra) verso le alte frequenze.
 * **Risultato:** Si ottiene un vettore in cui i valori significativi (non nulli) sono concentrati all'inizio, seguiti da una lunga sequenza continua di zeri alla fine.
-
+![[Screenshot 2026-02-03 alle 18.11.29.png|200]]
 
 
 ---
@@ -183,9 +187,10 @@ $$
 > * Valori più **alti** indicano una qualità migliore.
 > * Tipicamente per JPEG: $30 \text{ dB} < PSNR < 50 \text{ dB}$.
 > * Sotto i 30 dB la degradazione è visibilmente evidente.
-
+![[Screenshot 2026-02-03 alle 18.12.42.png | 300]]
 ---
-
+![[Screenshot 2026-02-03 alle 18.12.58.png | 300]]
+![[Screenshot 2026-02-03 alle 18.13.38.png]]
 ## 4. Simmetria del JPEG
 Il JPEG standard è definito un algoritmo **Simmetrico**.
 * **Significato:** La complessità computazionale e il tempo richiesto per la compressione sono approssimativamente uguali a quelli richiesti per la decompressione.
