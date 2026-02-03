@@ -85,6 +85,7 @@ La simulazione non è solo geometrica ma simula processi biologici. La crescita 
 4. **Ostacoli:** Collision detection con l'ambiente o con la pianta stessa (self-collision).
 ![[Pasted image 20260202195754.png]]
 
+
 # L-System: Logica Formale e Turtle Graphics
 
 ## 1. Definizione e Classificazione
