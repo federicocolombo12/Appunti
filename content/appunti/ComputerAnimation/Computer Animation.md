@@ -63,7 +63,7 @@ _Tecniche specifiche per strutture organiche e frattali._
 
 _L'output finale dell'animazione._
 
-- [[Analogico e Digitale]], [[Rappresentazione dei Colori]], [[Metodi di Compressione]]: Analogico vs Digitale, campionamento e quantizzazione.
+- [[Analogico e Digitale]], [[Rappresentazione dei Colori]], [[Metodi di Compressione]] ([[Jpe]]): Analogico vs Digitale, campionamento e quantizzazione.
     
 - [[Pipeline di Rendering]]: Transformer, Clipper, Projector e Rasterizer.
     
