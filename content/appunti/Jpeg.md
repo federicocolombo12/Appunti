@@ -1,3 +1,5 @@
+
+
 ## 1. Fondamenti: La Trasformata
 Una trasformata è un'operazione matematica che consente il passaggio da un dominio a un altro (es. dal dominio del Tempo/Spazio al dominio della Frequenza).
 Matematicamente, per segnali discreti, corrisponde alla moltiplicazione tra un vettore (segnale) e una matrice di trasformazione.
@@ -62,3 +64,53 @@ $$F_{quant}(u,v) = \text{Round} \left( \frac{F(u,v)}{Q(u,v)} \right)$$
 
 > [!WARNING] Risultato della Quantizzazione
 > Dopo questa fase, la matrice risultante (principalmente sparsa, cioè piena di zeri nell'area delle alte frequenze) è pronta per essere codificata in modo efficiente (Zig-Zag, RLE, Huffman), di cui parleremo nel prossimo step.
+
+
+Dopo la fase di quantizzazione (che è *lossy*), i dati vengono compressi ulteriormente utilizzando tecniche **Lossless** (senza perdita) basate sulla statistica e l'entropia dell'informazione.
+
+### Fase 6. Lettura a Zig-Zag (Linearizzazione)
+La matrice quantizzata $8 \times 8$ deve essere convertita in un vettore monodimensionale ($1 \times 64$) per essere elaborata serialmente.
+
+* **Obiettivo:** Raggruppare i coefficienti nulli (zeri).
+    * Poiché la quantizzazione tende ad azzerare le alte frequenze (situate in basso a destra nella matrice), una lettura per righe classiche interromperebbe le sequenze di zeri.
+    * La lettura a **Zig-Zag** scansiona la matrice partendo dalle basse frequenze (angolo in alto a sinistra) verso le alte frequenze.
+* **Risultato:** Si ottiene un vettore in cui i valori significativi (non nulli) sono concentrati all'inizio, seguiti da una lunga sequenza continua di zeri alla fine.
+
+
+
+---
+
+### Fase 7. Run-Length Encoding (RLE)
+Il vettore linearizzato viene compresso utilizzando una variante dell'RLE ottimizzata per i coefficienti AC (componenti alternate).
+
+* **Logica:** Invece di memorizzare ogni zero singolarmente, si codificano le sequenze di zeri che precedono un valore non nullo.
+* **Coppie (Skip, Value):**
+    I dati vengono rappresentati come coppie di simboli:
+    $$(Skip, Value)$$
+    * **Skip:** Numero di zeri consecutivi prima del prossimo coefficiente non nullo.
+    * **Value:** Il valore del coefficiente non nullo successivo.
+* **EOB (End of Block):** Se i restanti coefficienti del vettore sono tutti zeri, si inserisce un marcatore speciale *EOB*, troncando di fatto la sequenza e risparmiando notevole spazio.
+
+> [!EXAMPLE] Esempio RLE
+> Vettore Zig-Zag: `52, 10, 0, 0, 3, 0, 0, 0, 0, -2, 0, 0, ... (tutti 0)`
+> Codifica:
+> * `(0, 52)` $\rightarrow$ 0 zeri prima del 52
+> * `(0, 10)` $\rightarrow$ 0 zeri prima del 10
+> * `(2, 3)`  $\rightarrow$ 2 zeri prima del 3
+> * `(4, -2)` $\rightarrow$ 4 zeri prima del -2
+> * `EOB`     $\rightarrow$ Fine blocco (tutto il resto è zero)
+
+---
+
+### Fase 8. Codifica di Huffman
+L'ultimo passaggio trasforma le coppie generate dall'RLE in un flusso di bit (bitstream) finale, utilizzando la Codifica a Lunghezza Variabile (VLC).
+
+* **Principio:** Assegnare codici binari brevi ai simboli più probabili (frequenti) e codici lunghi a quelli meno probabili.
+* **Funzionamento:**
+    1.  Si analizza la statistica delle frequenze di apparizione delle coppie `(Skip, Value)`.
+    2.  Si costruisce un **Albero di Huffman** (o si usano tabelle standard predefinite nel JPEG).
+    3.  Ogni coppia viene sostituita dalla corrispondente stringa di bit.
+* **Efficienza:** Questo massimizza la densità di informazione, riducendo al minimo la dimensione finale del file su disco.
+
+> [!SUMMARY] Riepilogo Pipeline JPEG
+> RGB $\xrightarrow{\text{YUV}}$ Sottocampionamento $\xrightarrow{\text{4:2:0}}$ DCT $\xrightarrow{\text{Freq}}$ Quantizzazione $\xrightarrow{\text{Lossy}}$ Zig-Zag $\xrightarrow{\text{Vector}}$ RLE $\xrightarrow{\text{Pairs}}$ Huffman $\xrightarrow{\text{Bitstream}}$
