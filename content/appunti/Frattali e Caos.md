@@ -61,3 +61,38 @@ $$D = \frac{\log(N)}{\log(1/r)}$$
 *Esempio (Koch Curve):* Si divide il segmento in 4 parti ($N=4$), ma la scala è 1/3 ($r=1/3$).
 $$D = \frac{\log(4)}{\log(3)} \approx 1.2618$$
 La curva di Koch è "più di una linea" ma "meno di un piano". Riempie lo spazio in modo più efficiente di una linea retta.
+
+
+## Gli Attrattori 
+In un sistema dinamico (qualcosa che si muove o cambia nel tempo), un "attrattore" è lo stato verso cui il sistema tende naturalmente a stabilizzarsi.
+
+### I 3 Attrattori "Classici" (Prevedibili)
+Per secoli abbiamo pensato esistessero solo questi:
+1.  **Punto Fisso:** Il sistema si ferma in uno stato di equilibrio statico (es. un pendolo che smette di oscillare e si ferma al centro).
+2.  **Ciclo Limite:** Il sistema ripete per sempre lo stesso movimento periodico (es. il battito cardiaco regolare o un orologio).
+3.  **Toro:** Una combinazione di più moti periodici (un movimento complesso ma comunque ripetitivo e "chiuso").
+
+### L'Attrattore "Strano" (Caotico)
+Scoperto da Lorenz. È l'attrattore tipico del **Caos**.
+* Il sistema non si ferma mai (no punto fisso) e non si ripete mai uguale (no ciclo).
+* **Forma:** Disegna una traiettoria che rimane confinata in una zona limitata ma non passa mai due volte per lo stesso punto (es. la forma a "farfalla" di Lorenz).
+* **Natura Frattale:** Se ingrandiamo un pezzo della traiettoria, ritroviamo la stessa complessità dell'insieme. Ha dimensione frattale (frazionaria).
+
+---
+
+## 2. L'Esempio delle Coste (Il Paradosso di Richardson/Mandelbrot)
+È l'esempio classico per spiegare perché la **Dimensione Frattale** serve a descrivere la natura.
+
+### Il Problema
+"Quanto è lunga la costa della Gran Bretagna?"
+La risposta dipende dalla lunghezza del righello che usi per misurarla.
+
+* **Righello di 100 km:** Misuri solo le grandi insenature. Lunghezza totale = $L_1$.
+* **Righello di 1 km:** Il righello entra in baie più piccole che prima avevi "tagliato". La lunghezza totale aumenta ($L_2 > L_1$).
+* **Righello di 1 metro:** Misuri ogni scoglio. La lunghezza esplode.
+
+### La Conclusione
+Se il righello tende a zero, **la lunghezza della costa tende all'infinito**.
+Tuttavia, la costa racchiude un'area finita (l'isola non è infinita!).
+* Questo è possibile solo perché la costa **non è una linea 1D** (troppo frastagliata) ma non è nemmeno una superficie 2D.
+* È un oggetto frattale con dimensione $D \approx 1.25$ (per la Gran Bretagna). Più la costa è frastagliata (es. i fiordi norvegesi), più $D$ si avvicina a 2.
