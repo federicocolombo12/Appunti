@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Formati Immagine e Video.md",
+                "file": "Rappresentazione dei Colori.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Formati Immagine e Video"
+              "title": "Rappresentazione dei Colori"
             }
           }
         ]
@@ -199,7 +199,9 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
-    "Formati Immagine e Video.md",
+    "Rappresentazione dei Colori.md",
+    "Analogico e Digitale.md",
+    "Screenshot 2026-02-03 alle 16.50.46.png",
     "Frattali e Caos.md",
     "Screenshot 2026-02-03 alle 16.13.56.png",
     "Screenshot 2026-02-03 alle 16.13.35.png",
@@ -218,7 +220,6 @@
     "Immagini/Pasted image 20260202205953.png",
     "Immagini/Pasted image 20260202205944.png",
     "Immagini/Pasted image 20260202204857.png",
-    "Immagini/Pasted image 20260202204558.png",
     "ComputerAnimation/Flocking e Comportamenti Emergenti.md",
     "ComputerAnimation/Sistemi Particellari.md",
     "ComputerAnimation/Morphing.md",
@@ -234,7 +235,6 @@
     "ComputerAnimation/Smoothing con Kernel di Convoluzione.md",
     "ComputerAnimation/Riprogrammazione della Velocità.md",
     "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
-    "ComputerAnimation/Trasformazioni Geometriche.md",
     "Untitled.base"
   ]
 }
