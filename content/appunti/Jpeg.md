@@ -114,3 +114,79 @@ L'ultimo passaggio trasforma le coppie generate dall'RLE in un flusso di bit (bi
 
 > [!SUMMARY] Riepilogo Pipeline JPEG
 > RGB $\xrightarrow{\text{YUV}}$ Sottocampionamento $\xrightarrow{\text{4:2:0}}$ DCT $\xrightarrow{\text{Freq}}$ Quantizzazione $\xrightarrow{\text{Lossy}}$ Zig-Zag $\xrightarrow{\text{Vector}}$ RLE $\xrightarrow{\text{Pairs}}$ Huffman $\xrightarrow{\text{Bitstream}}$
+# JPEG 2000 e Valutazione degli Algoritmi
+
+## 1. JPEG 2000
+Il JPEG 2000 è un'evoluzione dello standard JPEG che introduce un approccio matematico differente per ottenere prestazioni superiori e funzionalità avanzate.
+
+### Caratteristiche Principali
+* **Trasformata Wavelet (DWT):** Sostituisce la DCT (Discrete Cosine Transform) con la **DWT (Discrete Wavelet Transform)**.
+    * La DWT opera su segnali a risoluzione multipla, analizzando sia il tempo (spazio) che la frequenza.
+    * Viene applicata solitamente su blocchi più grandi (es. **64x64** pixel) o sull'intera immagine (tiling), riducendo gli artefatti "a blocchi" tipici del JPEG standard.
+* **Quantizzazione e Codifica:** I coefficienti prodotti dalla DWT vengono quantizzati e poi codificati.
+* **Complessità:** Richiede una potenza di calcolo circa **un ordine di grandezza superiore** (10x) rispetto al JPEG standard, sia in codifica che in decodifica.
+
+### Funzionalità Avanzate
+* **Region of Interest (ROI):** Permette di codificare zone specifiche dell'immagine (es. un volto o una targa) con qualità superiore rispetto allo sfondo.
+* **Robustezza:** Include codici di risincronizzazione per gestire errori di trasmissione.
+* **Scalabilità:** Consente di estrarre versioni a bassa risoluzione o bassa qualità direttamente dallo stesso bitstream compresso.
+
+
+
+---
+
+## 2. Confronto degli Algoritmi di Compressione
+
+Per valutare un algoritmo di compressione si analizza il **Rapporto di Compressione ($C_R$)**:
+
+$$
+C_R = \frac{\text{Dimensione Originale}}{\text{Dimensione Codificata}}
+$$
+
+### 🟢 Lossless (Senza Perdita)
+In questo caso la qualità non è un parametro (è identica all'originale). Si valuta solo la capacità di ridurre la ridondanza.
+* **Rapporto Tipico:** $1,5 : 1$ fino a $2 : 1$ (o poco più per immagini semplici).
+* **Focus:** Efficienza dell'algoritmo entropico (es. LZW, Deflate).
+
+### 🔴 Lossy (Con Perdita)
+Il solo rapporto di compressione non basta, poiché potrei comprimere infinitamente distruggendo l'immagine. Bisogna bilanciare il $C_R$ con la **qualità visiva**.
+La valutazione della qualità avviene in due modi:
+1.  **Prove Soggettive:** Test visivi con osservatori umani (costosi e lenti).
+2.  **Metriche Oggettive:** Algoritmi matematici che calcolano la differenza tra l'immagine originale $I$ e quella ricostruita $K$ (di dimensioni $M \times N$).
+
+---
+
+## 3. Metriche Oggettive (Lossy)
+
+### MSE (Mean Square Error)
+Calcola l'errore quadratico medio tra i pixel originali e quelli compressi. Più è basso, migliore è la qualità.
+
+$$
+MSE = \frac{1}{MN} \sum_{i=0}^{M-1} \sum_{j=0}^{N-1} [I(i,j) - K(i,j)]^2
+$$
+
+### SNR (Signal-to-Noise Ratio)
+Rapporto segnale-rumore. Misura la potenza del segnale rispetto al rumore introdotto dalla compressione.
+
+$$
+SNR_{db} = 10 \cdot \log_{10} \left( \frac{\sum I(i,j)^2}{\sum [I(i,j) - K(i,j)]^2} \right)
+$$
+
+### PSNR (Peak Signal-to-Noise Ratio)
+È la metrica più utilizzata per le immagini. Rapporto tra il massimo valore possibile di un pixel (es. 255 per 8 bit) e l'errore (MSE).
+
+$$
+PSNR = 10 \cdot \log_{10} \left( \frac{(2^b - 1)^2}{MSE} \right)
+$$
+
+> [!TIP] Interpretazione PSNR
+> * Valori più **alti** indicano una qualità migliore.
+> * Tipicamente per JPEG: $30 \text{ dB} < PSNR < 50 \text{ dB}$.
+> * Sotto i 30 dB la degradazione è visibilmente evidente.
+
+---
+
+## 4. Simmetria del JPEG
+Il JPEG standard è definito un algoritmo **Simmetrico**.
+* **Significato:** La complessità computazionale e il tempo richiesto per la compressione sono approssimativamente uguali a quelli richiesti per la decompressione.
+* **Funzionamento:** Le operazioni di decodifica sono matematicamente l'inverso esatto di quelle di codifica (IDCT vs DCT, Dequantizzazione vs Quantizzazione).

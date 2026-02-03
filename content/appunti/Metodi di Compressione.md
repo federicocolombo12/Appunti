@@ -14,7 +14,7 @@ La RLE è una tecnica di compressione **Lossless** molto semplice, basata sulla 
 
 ## 2. GIF (Graphics Interchange Format)
 Formato storico progettato per il trasferimento di immagini su reti (CompuServe).
-
+![[Screenshot 2026-02-03 alle 18.07.16.png | 300]]
 * **Algoritmo:** Utilizza la compressione **LZW (Lempel-Ziv-Welch)**.
     * È una compressione *basata su dizionario*: sostituisce sequenze ripetute di dati con riferimenti a un dizionario costruito dinamicamente.
 * **Caratteristiche:**
