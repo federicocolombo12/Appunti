@@ -73,11 +73,11 @@ Per evitare calcoli pesanti a ogni frame, pre-calcoliamo una **Look-up Table** $
 
 ### A. Costruzione della Tabella (Pre-processing)
 | Indice ($i$) | Parametro ($u_i$) | Lunghezza ($s_i$) |
-| :--- | :--- | :--- |
-| 0 | $0.0$ | $0.0$ |
-| 1 | $u_1$ | $s_1$ |
-| ... | ... | ... |
-| N | $1.0$ | $L_{tot}$ |
+| :----------- | :---------------- | :---------------- |
+| 0            | $0.0$             | $0.0$             |
+| 1            | $u_1$             | $s_1$             |
+| ...          | ...               | ...               |
+| N            | $1.0$             | $L_{tot}$         |
 
 ### B. Riparametrizzazione a Runtime (Inverse Mapping)
 Durante l'animazione, dato un valore di distanza desiderata $s_{target}$, dobbiamo trovare $u$ (invertire la funzione: $u = G^{-1}(s)$).
