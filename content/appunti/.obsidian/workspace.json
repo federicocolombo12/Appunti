@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Modello Pinhole Camera.md",
+                "file": "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Modello Pinhole Camera"
+              "title": "Definizione Della Scena e Pipeline di Visualizzazione"
             }
           }
         ]
@@ -196,9 +196,10 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Hardware e Software Graphics.md",
     "ComputerAnimation/Frame Buffer.md",
-    "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Modello Pinhole Camera.md",
     "Domande esame.pdf",
     "Domande Esempio Cap 5.md",
     "Domande Esempio Cap 4.md",
@@ -232,7 +233,6 @@
     "ComputerAnimation/Definizione di Oggetti 3D.md",
     "ComputerAnimation/Frame di Frenet.md",
     "ComputerAnimation/Prodotto Vettoriale.md",
-    "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
     "Immagini",
     "Untitled.base"
   ]
