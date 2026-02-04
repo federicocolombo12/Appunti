@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Trasformazioni Geometriche.md",
+                "file": "ComputerAnimation/Rappresentazione delle Curve.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Trasformazioni Geometriche"
+              "title": "Rappresentazione delle Curve"
             }
           }
         ]
@@ -197,6 +197,7 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Trasformazioni Geometriche.md",
     "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "ComputerAnimation/Hardware e Software Graphics.md",
     "ComputerAnimation/Frame Buffer.md",
@@ -232,7 +233,6 @@
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Pipeline di Rendering.md",
     "ComputerAnimation/Definizione di Oggetti 3D.md",
-    "ComputerAnimation/Frame di Frenet.md",
     "Immagini",
     "Untitled.base"
   ]
