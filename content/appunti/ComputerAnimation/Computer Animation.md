@@ -13,7 +13,7 @@ _In questa sezione inseriamo le basi su cui poggia tutto il rendering 3D._
 - [[Rappresentazione delle Curve]]:
     
     - Curve di Bezier e B-Spline.
-
+- [[Domande Esempio]]
 ## 2. Controllo del Moto e Animazione
 
 _Come facciamo muovere gli oggetti nel tempo in modo fluido?_

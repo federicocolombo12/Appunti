@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Computer Animation.md",
+                "file": "Domande Esempio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Animation"
+              "title": "Domande Esempio"
             }
           }
         ]
@@ -198,8 +198,11 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
-    "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "ComputerAnimation/Computer Animation.md",
+    "Domande Esempio.md",
+    "ComputerAnimation/Rappresentazione delle Curve.md",
+    "ComputerAnimation/Trasformazioni Geometriche.md",
+    "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "Compositing.md",
     "Screenshot 2026-02-04 alle 16.59.52.png",
     "Screenshot 2026-02-04 alle 16.59.31.png",
@@ -232,9 +235,6 @@
     "ComputerAnimation/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
     "ComputerAnimation/Tensore d'Inerzia.md",
     "ComputerAnimation/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
-    "ComputerAnimation/Quantità di Moto.md",
-    "ComputerAnimation/Sistema Molla Smorzatore.md",
-    "ComputerAnimation/Gestione delle Collisioni..md",
     "Untitled.base"
   ]
 }
