@@ -50,7 +50,7 @@ _Oltre il corpo rigido: muscoli, tessuti e fenomeni naturali._
 - [[Deformazione Geometrica]] e [[Morphing]]: Seed vertex, funzioni di attenuazione e Squash & Stretch.
     
 - [[Sistemi Particellari]] e  [[Flocking e Comportamenti Emergenti]]:: Simulazione di fuoco, fumo, esplosioni, Algoritmi per stormi e folle (Regole di Reynolds)..
-  
+[[Domande Esempio Cap 4]]
 ## 5. Modellazione Avanzata e Natura
 
 _Tecniche specifiche per strutture organiche e frattali._
@@ -59,7 +59,7 @@ _Tecniche specifiche per strutture organiche e frattali._
     
 - [[Frattali e Caos]]: Attrattori strani e autosomiglianza nella natura.
     
-
+[[Domande Esempio Cap 5]]
 ## 6. Rendering, Immagini e Post-Produzione
 
 _L'output finale dell'animazione._
