@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -197,9 +197,10 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
+    "ComputerAnimation/Rappresentazione delle Curve.md",
     "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
     "Pasted image 20260204212401.png",
-    "ComputerAnimation/Rappresentazione delle Curve.md",
     "ComputerAnimation/Trasformazioni Geometriche.md",
     "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "ComputerAnimation/Hardware e Software Graphics.md",
@@ -232,7 +233,6 @@
     "Analogico e Digitale.md",
     "ComputerAnimation/L-Systems.md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
-    "ComputerAnimation/Pipeline di Rendering.md",
     "Immagini",
     "Untitled.base"
   ]
