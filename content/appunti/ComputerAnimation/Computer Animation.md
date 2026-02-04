@@ -42,7 +42,7 @@ _Passiamo dall'animazione manuale a quella assistita dalla fisica._
 		 
 	- [[Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali)]]
 
-
+[[Domande Esempio Cap 3]]
 ## 4. Oggetti Deformabili e Sistemi Complessi
 
 _Oltre il corpo rigido: muscoli, tessuti e fenomeni naturali._
