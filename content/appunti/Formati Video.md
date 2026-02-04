@@ -97,3 +97,69 @@ Il Container è un "pacchetto" che sincronizza e ingloba flussi diversi:
 * **OGM** (Ogg Media).
 * **RealMedia** (.rm).
 * **DMF** (DivX Media Format).
+# MPEG: Overview e Tipologie di Frame
+
+Lo standard MPEG utilizza tecniche sofisticate per sfruttare la ridondanza spaziale e temporale del video. La codifica si basa sulla suddivisione dell'immagine in **Macroblocchi**:
+* **Luminanza (Y):** $16 \times 16$ pixel.
+* **Crominanza (U, V):** $8 \times 8$ pixel per ciascun componente (data la minore sensibilità dell'occhio al colore).
+
+---
+
+## 1. Tipologie di Frame (GOP Structure)
+MPEG definisce tre tipi di fotogrammi (Frames) per bilanciare la necessità di compressione elevata con quella di accesso rapido e qualità.
+
+### 🟢 I-Frames (Intra-coded Frames)
+* **Definizione:** Sono frame "self-contained" (autonomi), codificati senza fare riferimento ad altre immagini.
+* **Tecnica:** Usano una compressione **Intra-frame** simile al JPEG:
+    1.  Suddivisione del macroblocco in blocchi $8 \times 8$.
+    2.  Applicazione della **DCT**.
+    3.  **Quantizzazione:** Utilizza un valore costante per ogni coefficiente DCT.
+* **Scopo:**
+    * Punti di accesso casuale (Random Access) per lo scorrimento del video.
+    * Blocco di riferimento per la risincronizzazione in caso di errori.
+    * Hanno il rapporto di compressione più basso (file più grande).
+
+### 🔵 P-Frames (Predictive-coded Frames)
+* **Definizione:** Frame predittivi che utilizzano la ridondanza temporale **causale** (guardano indietro).
+* **Dipendenze:** Richiedono il precedente *I-frame* o *P-frame* per la codifica/decodifica.
+* **Motion Estimation:** Si basano sulla stima del movimento. Solo le differenze (residui) e i vettori di moto vengono salvati.
+* **Compressione:** Migliore rispetto agli I-Frames.
+
+### 🟡 B-Frames (Bidirectionally-predictive Frames)
+* **Definizione:** Frame che sfruttano la ridondanza temporale **non causale** (bidirezionale).
+* **Dipendenze:** Richiedono informazioni sia dal frame **precedente** (passato) che da quello **successivo** (futuro).
+* **Caratteristiche:**
+    * Massimo tasso di compressione (poiché interpolano informazioni già note).
+    * Non possono essere usati come riferimento per altri frame (in standard base).
+
+
+
+---
+
+## 2. Motion Estimation (Stima del Movimento)
+Per i frame P e B, l'algoritmo cerca dove si sono spostati i macroblocchi rispetto al frame di riferimento.
+
+> [!IMPORTANT] Filosofia dello Standard
+> MPEG **non specifica** l'algoritmo di stima del movimento (che può essere proprietario e variare per performance/qualità), ma specifica rigorosamente come **codificare il risultato** (i vettori di moto e l'errore residuo) affinché qualsiasi decoder standard possa leggerlo.
+
+**Algoritmi di Matching più diffusi:**
+Sono computazionalmente intensivi e cercano di minimizzare l'errore tra il blocco attuale e quello di riferimento:
+1.  **SAD (Sum of Absolute Differences):** Più veloce.
+    $$SAD = \sum |Block_{curr} - Block_{ref}|$$
+2.  **SSD (Sum of Squared Differences):** Più preciso ma oneroso (penalizza maggiormente i grandi errori).
+    $$SSD = \sum (Block_{curr} - Block_{ref})^2$$
+
+---
+
+## 3. Ordine di Codifica vs. Visualizzazione
+L'uso dei **B-Frames** (che necessitano del futuro per essere costruiti) introduce una complessità fondamentale: l'ordine dei frame nel flusso dati (Bitstream) non coincide con l'ordine in cui li vediamo a schermo.
+
+* **Display Order (Ordine Temporale):** $I_1, B_2, B_3, P_4, B_5, \dots$
+* **Transmission/Decoding Order:**
+    Per decodificare $B_2$ e $B_3$, il decoder deve conoscere prima $P_4$.
+    Quindi l'ordine di trasmissione sarà: $I_1, P_4, B_2, B_3, \dots$
+
+> [!SUMMARY] Motivazioni dell'Architettura MPEG
+> 1.  **Accesso Rapido:** Garantito dagli I-Frames.
+> 2.  **Efficienza di Codifica:** Massimizzata dai P-Frames.
+> 3.  **Sfruttamento Ridondanza Temporale:** Portata all'estremo dai B-Frames.

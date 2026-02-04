@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Formati Video.md",
+                "file": "Compositing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Formati Video"
+              "title": "Compositing"
             }
           }
         ]
@@ -181,7 +181,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,6 +199,7 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "Compositing.md",
     "Formati Video.md",
     "Jpeg.md",
     "Screenshot 2026-02-03 alle 18.14.15.png",
@@ -233,7 +235,6 @@
     "ComputerAnimation/Sistema Molla Smorzatore.md",
     "ComputerAnimation/Gestione delle Collisioni..md",
     "ComputerAnimation/Simulazione di Corpi Rigidi.md",
-    "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
     "Untitled.base"
   ]
 }

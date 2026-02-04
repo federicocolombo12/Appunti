@@ -72,6 +72,4 @@ _L'output finale dell'animazione._
     
     - Alpha Blending e Z-Buffer.
         
-    - Nodi di Blender (Input, Output, Intermediate).
-        
     - Double Buffering per il real-time.
