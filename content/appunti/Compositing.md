@@ -7,7 +7,7 @@ In contesti come i videogiochi o le simulazioni interattive, la fluidità è ess
 * **Front Buffer**: Il buffer di memoria attualmente visualizzato a video.
 * **Back Buffer**: Una porzione di memoria nascosta dove l'hardware esegue il rendering del fotogramma successivo.
 * **Swap**: Una volta completato il rendering nel Back Buffer, i due buffer vengono scambiati, garantendo una transizione pulita tra i fotogrammi.
-
+![[Screenshot 2026-02-04 alle 16.58.06.png]]
 ## 2. Fondamenti del Compositing
 
 Il principio base è che combinare i render di due scene separate dovrebbe produrre lo stesso risultato del rendering della scena completa:
@@ -23,7 +23,7 @@ $$Compositing(render(scena_1), render(scena_2)) = render(merge(scena_1, scena_2)
 Per gestire la trasparenza e l'occlusione, si introduce il **canale Alpha ($\alpha$)**, tipicamente a 8 bit (256 livelli di grigio). 
 
 L'operatore fondamentale è l'**Over**, che definisce come un pixel di foreground ($F$) si sovrappone a uno di background ($B$):
-
+![[Screenshot 2026-02-04 alle 16.59.05.png | 400]]
 * **Opacità risultante:**
     $$\alpha_{F \ over \ B} = \alpha_F + (1 - \alpha_F) \alpha_B$$
 * **Colore risultante (RGB):**
@@ -32,6 +32,7 @@ L'operatore fondamentale è l'**Over**, che definisce come un pixel di foregroun
 > [!TIP] Terminology
 > Spesso i valori RGB sono memorizzati come **pre-moltiplicati** per l'alfa per ottimizzare i calcoli computazionali.
 
+![[Screenshot 2026-02-04 alle 16.58.25.png | 500]]
 ## 3. Gestione della Profondità: Z-Value e Operatore Comp
 
 Quando le scene non sono disgiunte, è necessario utilizzare l'informazione di profondità contenuta nello **[[Z-Buffer]]**.
@@ -47,20 +48,17 @@ Esistono 4 casi geometrici derivanti dall'interpolazione della $Z$ sui lati del 
 2. **Corner**: Un angolo di un'immagine occlude l'altra.
 3. **Split**: Una linea divide il pixel tra le due immagini.
 4. **Two opposite corners**: Due angoli opposti appartengono a layer diversi.
-
+![[Screenshot 2026-02-04 alle 16.59.31.png | 500]]
 Il risultato finale è un **blend lineare** pesato sulla frazione $\beta$:
 $$C = \beta (F \ over \ B) + (1 - \beta) (B \ over \ F)$$
 
 ## 4. [[Motion Blur]] e Aliasing Temporale
 
 L'aliasing non è solo spaziale ma anche temporale. Se la frequenza di campionamento (frame rate) è insufficiente rispetto alla velocità degli oggetti, si verifica l'effetto **strobing**.
-
+![[Screenshot 2026-02-04 alle 16.59.52.png |400]]
 * **Tecniche Tradizionali**: Uso di "linee di velocità" o deformazioni dell'oggetto lungo la traiettoria (tecnica dello *Squash & Stretch* applicata al moto).
 * **Computer Animation**: Il Motion Blur può essere simulato campionando la posizione dell'oggetto in più istanti temporali all'interno dello stesso frame (campionamento discreto) o calcolando analiticamente la scia (continuo).
 
 ---
 
-### Collegamenti Correlati
-* [[Z-Buffer]]
-* [[Aliasing e Filtrazione]]
-* [[Pipeline di Rendering]]
+
