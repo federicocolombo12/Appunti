@@ -243,52 +243,6 @@ $$
 s(t) = 1 - \frac{V_{max}}{2 \cdot (1 - t_2)} \cdot (1 - t)^2
 $$
 
----
-
-### 5. Implementazione (Pseudocodice)
-
-Questa funzione prende in input il tempo corrente $t$, la durata dell'accelerazione $t_1$ e la fine del tratto costante $t_2$. Restituisce la distanza percorsa normalizzata (0.0 a 1.0).
-
-```cpp
-float PiecewiseEase(float t, float t1, float t2) {
-    // Clamp dell'input per sicurezza
-    if (t <= 0) return 0.0f;
-    if (t >= 1) return 1.0f;
-
-    // 1. Calcolo della Velocità Massima necessaria per coprire dist=1
-    // Area trapezio = (BaseMaggiore + BaseMinore) * Altezza / 2
-    // 1 = (1 + (t2 - t1)) * Vmax / 2  --> Vmax = 2 / (1 + t2 - t1)
-    float Vmax = 2.0f / (1.0f + t2 - t1);
-
-    // 2. Fase Accelerazione
-    if (t < t1) {
-        // Formula: 1/2 * a * t^2. Qui a = Vmax/t1
-        return (Vmax / (2.0f * t1)) * (t * t);
-    }
-    
-    // 3. Fase Velocità Costante
-    else if (t <= t2) {
-        // Distanza accumulata alla fine della fase 1
-        float dist_phase1 = (Vmax * t1) / 2.0f;
-        
-        // Aggiungo il tratto lineare
-        return dist_phase1 + Vmax * (t - t1);
-    }
-    
-    // 4. Fase Decelerazione
-    else {
-        // Calcolo "all'indietro" dalla fine (1.0) per semplificare la formula parabolica
-        float t_rem = 1.0f - t;      // Tempo rimanente
-        float t_dec = 1.0f - t2;     // Durata totale decelerazione
-        
-        // Formula: DistanzaTotale - (spazio non ancora percorso)
-        // Spazio non percorso è un triangolo di velocità: 1/2 * base * altezza
-        // Altezza corrente = Vmax * (t_rem / t_dec)
-        return 1.0f - (Vmax * t_rem * t_rem) / (2.0f * t_dec);
-    }
-}
-
-```
 ### 6. Controllo della Velocità ad Accelerazione Costante (Parabolic Ease)
 ![[Pasted image 20260201115621.png]]
 Mentre l'interpolazione sinusoidale (Sine Ease) offre un'accelerazione che varia continuamente (molto naturale/organica), in alcuni contesti (robotica, macchinari, movimenti di camera specifici) si preferisce avere un'**accelerazione costante**.
