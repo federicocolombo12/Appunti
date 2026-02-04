@@ -13,7 +13,7 @@ _In questa sezione inseriamo le basi su cui poggia tutto il rendering 3D._
 - [[Rappresentazione delle Curve]]:
     
     - Curve di Bezier e B-Spline.
-- [[Domande Esempio]]
+- [[Domande Esempio Cap 1]]
 ## 2. Controllo del Moto e Animazione
 
 _Come facciamo muovere gli oggetti nel tempo in modo fluido?_
@@ -23,7 +23,8 @@ _Come facciamo muovere gli oggetti nel tempo in modo fluido?_
 - [[Lunghezza d'arco, Look Up Table e Interpolazione]]: Lunghezza d'arco e controllo della velocità lungo una curva.
 - [[Frame di Frenet]], [[Smoothing con Kernel di Convoluzione]] 
 - [[Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta)]]
-
+	
+- [[Domande Esempio Cap 2]]
 ## 3. Cinematica e Dinamica (Corpi Rigidi)
 
 _Passiamo dall'animazione manuale a quella assistita dalla fisica._

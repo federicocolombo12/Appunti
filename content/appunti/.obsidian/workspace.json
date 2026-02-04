@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Computer Animation.md",
+                "file": "Domande Esempio Cap 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Animation"
+              "title": "Domande Esempio Cap 2"
             }
           }
         ]
@@ -198,8 +198,9 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
-    "Domande Esempio.md",
     "ComputerAnimation/Computer Animation.md",
+    "Domande Esempio Cap 2.md",
+    "Domande Esempio.md",
     "ComputerAnimation/Rappresentazione delle Curve.md",
     "ComputerAnimation/Trasformazioni Geometriche.md",
     "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
@@ -234,7 +235,6 @@
     "ComputerAnimation/Deformazione Geometrica.md",
     "ComputerAnimation/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
     "ComputerAnimation/Tensore d'Inerzia.md",
-    "ComputerAnimation/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
     "Untitled.base"
   ]
 }
