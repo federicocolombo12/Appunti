@@ -272,7 +272,7 @@ Dividiamo il lavoro in 3 macro-fasi:
         
     - _NLE (Non-Linear Editing):_ Montaggio video finale (Premiere, Avid, Final Cut).
         
-
+![[Pasted image 20260204212401.png]]
 ### Cos'è l'NLE (Non-Linear Editing)?
 
 - A differenza del montaggio su pellicola (fisico e lineare, devi tagliare e incollare in ordine) o su nastro magnetico, l'**NLE** è digitale.

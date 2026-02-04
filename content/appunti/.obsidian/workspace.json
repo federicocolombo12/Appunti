@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Rappresentazione delle Curve.md",
-                "mode": "preview",
+                "file": "ComputerAnimation/Computer Animation.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rappresentazione delle Curve"
+              "title": "Computer Animation"
             }
           }
         ]
@@ -196,7 +196,10 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
+    "Pasted image 20260204212401.png",
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Rappresentazione delle Curve.md",
     "ComputerAnimation/Trasformazioni Geometriche.md",
     "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "ComputerAnimation/Hardware e Software Graphics.md",
@@ -211,7 +214,6 @@
     "Domande Esempio Cap 1.md",
     "Compositing.md",
     "Domande Esempio Cap 2.md",
-    "ComputerAnimation/Rappresentazione delle Curve.md",
     "Screenshot 2026-02-04 alle 16.59.52.png",
     "Screenshot 2026-02-04 alle 16.59.31.png",
     "Screenshot 2026-02-04 alle 16.59.05.png",
@@ -221,7 +223,6 @@
     "Screenshot 2026-02-03 alle 18.13.38.png",
     "Screenshot 2026-02-03 alle 18.12.58.png",
     "Screenshot 2026-02-03 alle 18.12.42.png",
-    "Screenshot 2026-02-03 alle 18.11.29.png",
     "Rappresentazione dei Colori.md",
     "Metodi di Compressione.md",
     "Jpeg.md",
@@ -232,7 +233,6 @@
     "ComputerAnimation/L-Systems.md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Pipeline di Rendering.md",
-    "ComputerAnimation/Definizione di Oggetti 3D.md",
     "Immagini",
     "Untitled.base"
   ]
