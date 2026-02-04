@@ -1,130 +1,129 @@
-## Capitolo 2: Controllo del Moto e Animazione
+### 2.1 Riparametrizzazione e Lunghezza d'Arco
 
-### 2.1 Il Problema della Riparametrizzazione
+_Concetti chiave: Parametro u vs Distanza s, Look-Up Table (LUT)._
 
-Quando interpoliamo una curva (es. una Spline), spostarci di un incremento costante del parametro Δu _non_ corrisponde a spostarsi di una distanza costante nello spazio 3D.
+**Domande Base e Discorsive**
 
-- **Il Problema:** Se animiamo linearmente il parametro u, l'oggetto accelererà dove i punti di controllo sono distanti e rallenterà dove sono vicini.
+- **D1:** Spiegare la differenza tra il parametro geometrico $u$ di una curva e la lunghezza d'arco $s$. Perché incrementare $u$ in modo costante non garantisce una velocità costante dell'oggetto lungo la curva?
     
-- **La Soluzione:** Dobbiamo legare il movimento alla **Lunghezza d'Arco** (s), ovvero la distanza fisica percorsa lungo la curva, e non al parametro matematico u.
-    
-
-### 2.2 Lunghezza d'Arco (Arc Length) e Look-Up Tables
-
-Per ottenere una velocità costante, dobbiamo trovare una relazione s=G(u) e, soprattutto, la sua inversa u=G−1(s). Poiché l'integrale analitico della lunghezza d'arco è spesso irrisolvibile per curve complesse, usiamo metodi numerici:
-
-- **Differenze Dirette (Campionamento):** Campioniamo la curva in molti punti e calcoliamo le distanze lineari tra essi.
-    
-- **Look-Up Table (LUT):** Costruiamo una tabella che mappa:
-    
-    - u (parametro) → s (distanza accumulata).
-        
-- **Utilizzo:**
-    
-    1. Dato un tempo t, calcoliamo la distanza desiderata starget​.
-        
-    2. Cerchiamo starget​ nella colonna delle distanze della LUT.
-        
-    3. Troviamo il corrispondente u (interpolando linearmente tra i due valori più vicini in tabella).
-        
-
-### 2.3 Funzioni di Controllo Velocità (Ease-In / Ease-Out)
-
-Una volta che sappiamo muoverci a velocità costante (velocità lineare), possiamo decidere "artisticamente" di alterarla.
-
-- **Ease-In:** L'oggetto parte da fermo e accelera gradualmente (evita lo scatto iniziale robotico).
-    
-- **Ease-Out:** L'oggetto rallenta dolcemente prima di fermarsi.
-    
-- **Tecniche:**
-    
-    - **Interpolazione Sinusoidale:** Usa parte di una curva seno/coseno per modulare la velocità. Semplice ma limita il controllo.
-        
-    - **Accelerazione Parabolica:** Integrare un'accelerazione costante produce segmenti parabolici nel grafico distanza/tempo.
-        
-
-### 2.4 Orientamento e Frame di Frenet
-
-Mentre l'oggetto si muove, dove guarda?
-
-- **Frame di Frenet:** È un sistema di coordinate locale (u,v,w) costruito istantaneamente sulla curva.
-    
-    - **Tangente (w o T):** La direzione del moto (P′(u)).
-        
-    - **Binormale (u o B):** Perpendicolare al piano della curva (P′(u)×P′′(u)).
-        
-    - **Normale (v o N):** Perpendicolare agli altri due.
-        
-- **Problemi del Frenet:**
-    
-    1. **Indefinito** se la curvatura è zero (es. tratti rettilinei, dove P′′=0).
-        
-    2. **Flipping:** Nei punti di flesso (cambio di curvatura), il vettore normale inverte bruscamente direzione di 180°, capovolgendo l'oggetto.
-        
-- **Soluzione - Centro di Interesse (COI):** Si forza l'asse "frontale" a puntare verso un punto specifico (target) e si calcolano gli altri assi con prodotti vettoriali, ignorando la curvatura della linea.
+- **D2:** Cos'è una _Look-Up Table_ (LUT) nel contesto del controllo del moto e qual è il suo scopo principale?
     
 
-### 2.5 Smoothing e Convoluzione
+**Esercizio (Procedurale)**
 
-Spesso i dati di animazione (es. da Motion Capture) sono rumorosi. Per pulirli usiamo il **Filtraggio**.
+- **D3:** Descrivere passo dopo passo l'algoritmo per costruire una tabella di riparametrizzazione (LUT) mediante il metodo delle _differenze dirette_ (campionamento).
+    
+    - _Input:_ Una curva $P(u)$ e un numero di campioni.
+        
+    - _Output:_ Tabella coppie $(u, s)$.
+        
+- **D4:** Data una LUT e una distanza target $s_{target}$ che cade tra due valori registrati nella tabella ($s_i$ e $s_{i+1}$), scrivere la formula per trovare il valore approssimato di $u$ (interpolazione lineare inversa).
+    
 
-- **Convoluzione:** Ogni punto della curva viene ricalcolato come media pesata dei suoi vicini.
-    
-- **Kernel:** È la "finestra" di pesi usata per la media.
-    
-    - Deve essere **simmetrico**, centrato nell'origine, e avere **area unitaria** (la somma dei pesi = 1) per non alterare la scala dell'animazione.
-        
-    - Esempio: Una gaussiana smussa il segnale mantenendo la forma generale.
-        
+**Approfondimenti**
 
-### 2.6 Integrazione Numerica
-
-Per simulazioni fisiche o calcolo preciso della lunghezza d'arco, dobbiamo integrare funzioni (passare da accelerazione →velocità → posizione).
-
-- **Quadratura Gaussiana:** Metodo avanzato per calcolare integrali definiti (es. lunghezza arco) sommando pochi campioni ben scelti. È molto preciso.
+- **D5:** Perché non è sempre possibile calcolare la lunghezza d'arco risolvendo analiticamente l'integrale della curva? Qual è il vantaggio dell'approccio numerico (es. Quadratura Gaussiana) rispetto al semplice campionamento?
     
-- **Metodo di Eulero:**
-    
-    - xt+Δt​=xt​+vt​⋅Δt
-        
-    - Semplice ma **instabile**: l'errore si accumula rapidamente, portando l'animazione a "esplodere" (l'oggetto parte per la tangente).
-        
-- **Runge-Kutta (RK4):**
-    
-    - Lo standard de facto. Calcola la pendenza in 4 punti diversi all'interno del passo Δt e ne fa una media.
-        
-    - Molto più stabile e preciso di Eulero, ideale per simulazioni fisiche.
-        
 
 ---
 
-### 🏛️ Simulazione Esame: Le Domande del Professore
+### 2.2 Controllo della Velocità (Speed Control)
 
-Ecco come questi concetti si trasformano in domande d'esame. Prova a rispondere prima di leggere i suggerimenti.
+_Concetti chiave: Ease-in/Ease-out, Funzioni Distanza-Tempo._
 
-#### Domanda 1 (Teoria + Pratica)
+**Domande Base e Discorsive**
 
-**"Spiegare perché l'uso diretto del parametro u in una curva spline cubica non garantisce un movimento a velocità costante. Descrivere la tecnica della Look-Up Table per risolvere il problema."**
-
-- _Il punto chiave:_ Devi menzionare che la densità dei punti di controllo altera la relazione tra Δu e la distanza spaziale. Per la LUT, descrivi i due passaggi: 1) Costruzione (campionamento u→s) e 2) Utilizzo inverso (dato strovo u).
+- **D6:** Definire i concetti di _Ease-in_ e _Ease-out_. Come influenzano la percezione del peso e dell'inerzia di un oggetto animato?
+    
+- **D7:** Qual è la differenza tra modificare la geometria della curva e modificare la funzione distanza-tempo $s(t)$?
     
 
-#### Domanda 2 (Specifico da "Domande Esame.pdf")
+**Esercizio**
 
-**"Presentare il frame di Frenet per la gestione dell'orientamento ed evidenziarne pregi e difetti."**
-
-- _Risposta Modello:_ Il frame di Frenet è un sistema di riferimento locale definito dalla tangente (derivata prima) e dalla curvatura (legata alla derivata seconda).
+- **D8:** Disegnare qualitativamente il grafico Distanza/Tempo ($s$ su asse Y, $t$ su asse X) per un movimento che prevede: partenza lenta (ease-in), tratto a velocità costante, e arrivo brusco (nessun ease-out).
     
-    - _Pregio:_ È automatico, segue perfettamente la geometria della curva.
+
+**Approfondimenti**
+
+- **D9:** Confrontare l'interpolazione sinusoidale con quella parabolica (accelerazione costante) per generare l'effetto di ease-in/ease-out. Quali sono i limiti della prima?
+    
+
+---
+
+### 2.3 Orientamento e Frame di Frenet
+
+_Concetti chiave: Terna T-N-B, Problemi di stabilità, Centro di Interesse._
+
+**Domande Base e Discorsive (Dal file "Domande esame.pdf")**
+
+- **D10:** Presentare il Frame di Frenet per la gestione dell'orientamento. Come viene costruita la terna di vettori (Tangente, Normale, Binormale) a partire dalla curva?
+    
+- **D11:** Qual è il ruolo del _prodotto vettoriale_ (cross product) nella costruzione di un frame di orientamento locale?
+    
+
+**Esercizio**
+
+- **D12:** Scrivere le formule per derivare i vettori $W$ (Tangente), $U$ (Binormale) e $V$ (Normale) dato il vettore posizione $P(u)$ e le sue derivate.
+    
+
+**Approfondimenti (Criticità)**
+
+- **D13:** Discutere dettagliatamente i difetti del Frame di Frenet evidenziando:
+    
+    1. Il problema dei tratti rettilinei (curvatura nulla).
         
-    - _Difetti:_ Soffre di discontinuità (flipping) nei punti di flesso dove la curvatura cambia segno, ed è indefinito nei tratti rettilinei dove la derivata seconda è nulla.
+    2. Il problema del _flipping_ nei punti di flesso.
         
-
-#### Domanda 3 (Confronto Tecnico)
-
-**"Nel contesto della simulazione fisica, confrontare il metodo di integrazione di Eulero con quello di Runge-Kutta (RK4). Quale sceglieresti per una simulazione di tessuti e perché?"**
-
-- _Suggerimento:_ Eulero è O(Δt) (errore lineare), RK4 è O(Δt4). Eulero tende a divergere (il tessuto esploderebbe), RK4 è stabile.
+- **D14:** Spiegare come l'introduzione di un "Centro di Interesse" (COI) o di un vettore "Up" fisso risolve le instabilità del Frame di Frenet.
     
 
-**Esercizio per casa:** Se volessi applicare un effetto di "Slow Motion" a metà animazione usando una Look-Up Table, come dovresti modificare la funzione di input s(t) (distanza-tempo)? Dovrebbe essere più ripida o più piatta nella zona dello slow motion?
+---
+
+### 2.4 Smoothing e Convoluzione
+
+_Concetti chiave: Filtraggio dati, Kernel, Motion Capture._
+
+**Domande Base e Discorsive**
+
+- **D15:** A cosa serve l'operazione di _Smoothing_ applicata a una traiettoria (spesso derivante da dati rumorosi di Motion Capture)?
+    
+- **D16:** Cos'è un _Kernel di convoluzione_?
+    
+
+**Esercizio**
+
+- **D17:** Elencare le quattro proprietà fondamentali che un Kernel di smoothing deve possedere (es. simmetria, area unitaria...). Spiegare perché l'area sottesa deve essere pari a 1.
+    
+
+**Approfondimenti**
+
+- **D18:** Cosa succede alla traiettoria originale se applichiamo un kernel di smoothing troppo "largo" (supporto ampio)?
+    
+
+---
+
+### 2.5 Integrazione Numerica e Simulazione
+
+_Concetti chiave: Eulero vs Runge-Kutta, Ciclo di simulazione._
+
+**Domande Base e Discorsive (Dal file "Domande esame.pdf")**
+
+- **D19:** Descrivere il **ciclo di simulazione** di un corpo rigido. (Quali sono gli step logici che si ripetono ad ogni frame?)
+    
+- **D20:** Cosa significa "integrare un'equazione differenziale ordinaria (ODE)" nel contesto dell'animazione fisica?
+    
+
+**Esercizio**
+
+- **D21:** Scrivere la formula di aggiornamento della posizione secondo il **Metodo di Eulero**.
+    
+    - $x_{t+\Delta t} = \dots$
+        
+
+**Approfondimenti**
+
+- **D22:** Confrontare il metodo di Eulero con il metodo di **Runge-Kutta (RK4)**.
+    
+    - Perché Eulero è considerato instabile per passi temporali ($\Delta t$) grandi?
+        
+    - Cosa fa il metodo RK4 per ottenere una maggiore precisione?
