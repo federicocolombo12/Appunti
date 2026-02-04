@@ -74,3 +74,4 @@ _L'output finale dell'animazione._
     - Alpha Blending e Z-Buffer.
         
     - Double Buffering per il real-time.
+![[Domande esame.pdf]]
