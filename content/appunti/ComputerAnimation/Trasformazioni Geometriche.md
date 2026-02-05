@@ -1,5 +1,111 @@
 Le trasformazioni geometriche sono operazioni matematiche che permettono di modificare la posizione, l'orientamento e la dimensione degli oggetti nello spazio 3D. In CG, queste operazioni vengono eseguite tramite il **prodotto tra matrici e vettori**.
+# Fondamenti Teorici: Scena, Vettori e Coordinate
 
+Prima di manipolare i vertici con le matrici, è fondamentale comprendere la struttura matematica dello spazio in cui operiamo, partendo dalla definizione della scena fino alla necessità algebrica delle coordinate omogenee.
+
+---
+
+## 1. Definizione della Scena e Trasformazioni
+In Computer Graphics, una scena è composta da oggetti posizionati in un mondo virtuale.
+Ogni oggetto è definito inizialmente nel proprio **spazio locale** e deve essere posizionato nello spazio della scena (World Space).
+
+### Trasformazioni Affini
+Le operazioni utilizzate per posizionare e deformare gli oggetti (Traslazione, Rotazione, Scalamento) appartengono alla famiglia delle **Trasformazioni Affini**.
+* **Definizione:** Una trasformazione è affine se **conserva le linee rette**.
+  * Trasformando una retta, si ottiene ancora una retta.
+  * *Nota:* Il parallelismo tra rette viene conservato, ma gli angoli e le lunghezze possono cambiare (es. nello scalamento non uniforme).
+
+---
+
+## 2. La Fase di Visualizzazione (Viewing)
+Una volta composta la scena, avviene il processo di visualizzazione, che richiede specifici cambi di sistema di riferimento.
+
+1.  **Visualizzazione (Viewing):** La scena viene osservata da un punto di vista ($COP$) e con una certa direzione.
+2.  **Trasformazioni Rigide:** Per portare gli oggetti nel sistema di riferimento della camera, si usano trasformazioni che spostano e ruotano il mondo. Queste sono dette **Rigide** perché conservano:
+    * Le linee rette (sono affini).
+    * Le **distanze** tra i punti (la forma non cambia).
+    * Gli **angoli**.
+3.  **Proiezioni:** Il volume di vista 3D viene infine proiettato in 2D tramite trasformazioni **Proiettive** (Ortogonali o Prospettiche).
+
+---
+
+## 3. Basi e Spazi Vettoriali
+Per rappresentare matematicamente lo spazio 3D, utilizziamo l'algebra vettoriale lineare.
+
+### Base Vettoriale
+Uno spazio vettoriale è definito da una **Base**, ovvero tre vettori linearmente indipendenti $\{v_1, v_2, v_3\}$.
+Un vettore generico $w$ si esprime univocamente come combinazione lineare della base:
+
+$$
+w = a_1v_1 + a_2v_2 + a_3v_3
+$$
+
+I coefficienti scalari formano la rappresentazione matriciale del vettore:
+$$
+a = \begin{bmatrix} a_1 \\ a_2 \\ a_3 \end{bmatrix}
+$$
+
+---
+
+## 4. Il Sistema di Riferimento (Frame)
+Qui risiede il concetto teorico cruciale. Una base vettoriale definisce direzioni e distanze, ma **non ha una posizione** nello spazio (i vettori sono invarianti per traslazione).
+Per definire la posizione di un punto, serve un **punto fisso di riferimento**: l'**Origine** ($P_0$).
+
+### Definizione di Frame
+Un Sistema di Riferimento (Frame) è definito da una quaterna composta da tre vettori base e un punto origine:
+
+$$
+\text{Frame} = \{v_1, v_2, v_3, P_0\}
+$$
+
+### L'Ambiguità Punto/Vettore
+All'interno di un Frame, la rappresentazione matematica di punti e vettori differisce concettualmente:
+
+* **Vettore ($w$):** È una differenza tra punti. Non dipende dall'origine.
+    $$
+    w = a_1v_1 + a_2v_2 + a_3v_3
+    $$
+* **Punto ($P$):** È definito come uno spostamento partendo dall'origine.
+    $$
+    P = P_0 + a_1v_1 + a_2v_2 + a_3v_3
+    $$
+
+Entrambi, però, sembrano usare gli stessi tre coefficienti $(a_1, a_2, a_3)$, creando un'ambiguità se usassimo solo vettori $3 \times 1$.
+
+---
+
+## 5. Coordinate Omogenee: La Soluzione Formale
+Per risolvere l'ambiguità e rappresentare algebricamente la differenza tra punto e vettore, manipoliamo le equazioni precedenti rendendo esplicito il coefficiente dell'Origine $P_0$.
+
+### La Derivazione Matematica
+Riscriviamo le equazioni come prodotto scalare fittizio:
+
+1.  **Vettore:** L'origine non c'è, quindi il suo coefficiente è **0**.
+    $$
+    w = a_1v_1 + a_2v_2 + a_3v_3 + \mathbf{0} \cdot P_0
+    $$
+2.  **Punto:** L'origine c'è, quindi il suo coefficiente è **1**.
+    $$
+    P = a_1v_1 + a_2v_2 + a_3v_3 + \mathbf{1} \cdot P_0
+    $$
+
+### La 4ª Coordinata ($w$)
+Da questa distinzione nasce la rappresentazione a **4 coordinate omogenee**. Ogni entità geometrica è rappresentata da una matrice colonna $4 \times 1$:
+
+**Rappresentazione del Punto ($w=1$):**
+$$
+\mathbf{p} = \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+$$
+
+**Rappresentazione del Vettore ($w=0$):**
+$$
+\mathbf{v} = \begin{bmatrix} x \\ y \\ z \\ 0 \end{bmatrix}
+$$
+
+### Conclusione
+Questo formalismo giustifica l'uso delle matrici $4 \times 4$ in Computer Graphics:
+* Permette di trattare punti e vettori in modo unificato.
+* Permette di includere la **Traslazione** (che agisce sui punti ma non sui vettori) come una semplice moltiplicazione matriciale.
 ## Coordinate Omogenee e Matrici
 
 ## 1. La Matrice di Trasformazione 4x4 Generica
