@@ -63,9 +63,9 @@ Con la Disney, l'animazione diventa industria. La comprensione di questa _pipel
     
 2. **Layout:** Definizione precisa degli sfondi e delle posizioni dei personaggi.
     
-3. **Key Animation (Keyframe):** L'animatore _Senior_ disegna solo i fotogrammi estremi (chiavi) che definiscono l'azione (es. inizio e fine salto).
+3. **Key Animation (Keyframe):** L'animatore disegna solo i fotogrammi estremi (chiavi) che definiscono l'azione (es. inizio e fine salto).
     
-4. **In-betweening (Intercalazione):** L'assistente (_Junior_) disegna tutti i frame intermedi per fluidificare il moto. Oggi questo lo fa il computer!.
+4. **In-betweening (Intercalazione):** L'assistente disegna tutti i frame intermedi per fluidificare il moto. 
     
 5. **Ink & Paint:** I disegni vengono trasferiti su fogli di acetato trasparente (**Cels**) e colorati sul retro.
     
