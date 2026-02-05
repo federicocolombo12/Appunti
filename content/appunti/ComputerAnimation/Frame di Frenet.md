@@ -3,7 +3,7 @@ Questo sistema è definito da tre vettori ortogonali unitari: **u, v, w**.
 
 * **Posizione:** $P(t)$
 * **Orientamento:** Matrice di rotazione definita dai versori $\{u, v, w\}$.
-
+![[Screenshot 2026-02-05 alle 16.52.02.png]]
 ---
 
 ## Frenet Frame
@@ -19,7 +19,7 @@ Definiamo i tre vettori $\{u, v, w\}$ sfruttando le derivate della curva:
 
 3.  **Vettore v (Normale):** Completa la terna (punta verso il centro di curvatura) ed è il prodotto vettoriale dei due vettori precedenti
     $$v(t) = w(t) \times u(t)$$
-
+![[Screenshot 2026-02-05 alle 16.54.18.png]]
 ### Matrice di Orientamento (Frenet)
 $$
 M_{Frenet} = \begin{bmatrix} 
