@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Modello Pinhole Camera.md",
+                "file": "ComputerAnimation/Trasformazioni Geometriche.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Modello Pinhole Camera"
+              "title": "Trasformazioni Geometriche"
             }
           }
         ]
@@ -198,9 +198,10 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
-    "Screenshot 2026-02-05 alle 10.52.35.png",
     "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
+    "ComputerAnimation/Modello Pinhole Camera.md",
+    "Screenshot 2026-02-05 alle 10.52.35.png",
     "ComputerAnimation/Rappresentazione delle Curve.md",
     "Domande Esempio Cap 2.md",
     "Pasted image 20260204212401.png",
@@ -222,7 +223,6 @@
     "Screenshot 2026-02-03 alle 18.14.15.png",
     "Screenshot 2026-02-03 alle 18.13.38.png",
     "Screenshot 2026-02-03 alle 18.12.58.png",
-    "Screenshot 2026-02-03 alle 18.12.42.png",
     "Metodi di Compressione.md",
     "Rappresentazione dei Colori.md",
     "Analogico e Digitale.md",
