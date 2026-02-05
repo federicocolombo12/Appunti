@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
-                "mode": "preview",
+                "file": "Domande Esempio Cap 2.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lunghezza d'arco, Look Up Table e Interpolazione"
+              "title": "Domande Esempio Cap 2"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "78808a0b13ed9615",
@@ -180,7 +181,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,44 +198,44 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
-    "ComputerAnimation/Computer Animation.md",
-    "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
-    "ComputerAnimation/Rappresentazione delle Curve.md",
-    "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
     "Pasted image 20260204212401.png",
-    "ComputerAnimation/Trasformazioni Geometriche.md",
-    "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
-    "ComputerAnimation/Hardware e Software Graphics.md",
-    "ComputerAnimation/Frame Buffer.md",
-    "ComputerAnimation/Modello Pinhole Camera.md",
     "Domande esame.pdf",
     "Domande Esempio Cap 5.md",
     "Domande Esempio Cap 4.md",
-    "ComputerAnimation/Morphing.md",
-    "ComputerAnimation/Deformazione Geometrica.md",
     "Domande Esempio Cap 3.md",
     "Domande Esempio Cap 1.md",
-    "Compositing.md",
+    "ComputerAnimation/Computer Animation.md",
     "Domande Esempio Cap 2.md",
+    "Domande Esempio.md",
+    "ComputerAnimation/Rappresentazione delle Curve.md",
+    "ComputerAnimation/Trasformazioni Geometriche.md",
+    "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
+    "Compositing.md",
     "Screenshot 2026-02-04 alle 16.59.52.png",
     "Screenshot 2026-02-04 alle 16.59.31.png",
     "Screenshot 2026-02-04 alle 16.59.05.png",
     "Screenshot 2026-02-04 alle 16.58.25.png",
     "Screenshot 2026-02-04 alle 16.58.06.png",
+    "Formati Video.md",
+    "Jpeg.md",
     "Screenshot 2026-02-03 alle 18.14.15.png",
     "Screenshot 2026-02-03 alle 18.13.38.png",
     "Screenshot 2026-02-03 alle 18.12.58.png",
     "Screenshot 2026-02-03 alle 18.12.42.png",
-    "Rappresentazione dei Colori.md",
+    "Screenshot 2026-02-03 alle 18.11.29.png",
     "Metodi di Compressione.md",
-    "Jpeg.md",
-    "Frattali e Caos.md",
-    "Formati Video.md",
-    "Domande Esempio.md",
+    "Rappresentazione dei Colori.md",
     "Analogico e Digitale.md",
-    "ComputerAnimation/L-Systems.md",
+    "Frattali e Caos.md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
+    "ComputerAnimation/L-Systems.md",
+    "ComputerAnimation/Pipeline di Rendering.md",
+    "ComputerAnimation/Definizione di Oggetti 3D.md",
+    "ComputerAnimation/Frame di Frenet.md",
+    "ComputerAnimation/Prodotto Vettoriale.md",
+    "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
     "Immagini",
+    "ComputerAnimation/Flocking e Comportamenti Emergenti.md",
     "Untitled.base"
   ]
 }
