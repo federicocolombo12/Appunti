@@ -40,7 +40,7 @@ Il risultato è la curva rossa liscia che vedi nelle slide. La forma della curva
 
 ![[Pasted image 20260201123038.png]]
 ### A. Box Filter (Filtro a Scatola)
-* **Forma nelle slide:** Un rettangolo (una linea orizzontale che cade a zero bruscamente).
+* **Forma :** Un rettangolo (una linea orizzontale che cade a zero bruscamente).
 * **Matematica:** Pesi tutti uguali. Es. `[0.33, 0.33, 0.33]`.
 * **Significato:** È la **Media Semplice**.
     * *"Prendi i miei vicini e trattali esattamente come me."*
