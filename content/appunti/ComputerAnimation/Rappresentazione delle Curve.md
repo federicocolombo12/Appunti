@@ -109,11 +109,17 @@ P(u) =
 \begin{bmatrix} P_0 \\ P_3 \\ R_0 \\ R_3 \end{bmatrix}
 $$
 
-<!-- ... existing content ... -->
-### Spiegazione della Matrice
-Se guardiamo le colonne della matrice moltiplicate per $G$, stiamo definendo quattro polinomi di base ($H_1, H_2, H_3, H_4$):
-* Le prime due colonne pesano i punti $P_0$ e $P_3$.
-* Le ultime due colonne pesano le tangenti $R_0$ e $R_3$.
+### Le 4 Funzioni di Base di Hermite
+Moltiplicando il vettore $U$ per la matrice $M_H$, otteniamo i quattro polinomi che fungono da pesi (Blending Functions):
+$$P(u) = P_0 H_1(u) + P_3 H_2(u) + R_0 H_3(u) + R_3 H_4(u)$$
+
+Dove:
+1.  **$H_1(u) = 2u^3 - 3u^2 + 1$**: Parte da 1 e scende a 0. (Controlla la vicinanza a $P_0$).
+2.  **$H_2(u) = -2u^3 + 3u^2$**: Parte da 0 e sale a 1. (Controlla la vicinanza a $P_3$).
+3.  **$H_3(u) = u^3 - 2u^2 + u$**: Pesa la tangente iniziale $R_0$.
+4.  **$H_4(u) = u^3 - u^2$**: Pesa la tangente finale $R_3$.
+
+> **Nota:** La somma $H_1 + H_2$ è sempre uguale a 1 (partizione dell'unità per le posizioni), mentre $H_3$ e $H_4$ gestiscono l'influenza vettoriale della direzione.
 
 ### Continuità e Giunzioni
 Un vantaggio di Hermite è il controllo diretto sulla continuità quando si uniscono più segmenti (*piecewise*):
@@ -124,7 +130,6 @@ Un vantaggio di Hermite è il controllo diretto sulla continuità quando si unis
 ### Limiti di Hermite
 Nonostante sia potente, l'approccio di Hermite non è intuitivo per l'interazione umana (Computer Aided Design):
 * È difficile per un designer immaginare e inserire numericamente le componenti $x, y, z$ di un vettore tangente ($R$).
-<!-- ... existing content ... -->
 * Modificare la "lunghezza" del vettore tangente cambia la forma della curva in modo drastico (overshooting), ma non è visivamente prevedibile come spostare un punto.
 * **Soluzione:** Si preferiscono sistemi dove le tangenti sono definite indirettamente tramite altri punti (es. Catmull-Rom o Bezier).![[Screenshot 2026-01-30 alle 17.27.01.png|500]]
 
