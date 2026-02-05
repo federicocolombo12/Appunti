@@ -104,12 +104,21 @@ Durante l'animazione, dato un valore di distanza desiderata $s_{target}$, dobbia
     $$
 
 ---
+
 ## 2.Controllo della Velocità (Velocity Control)
 
 ### 1. La Funzione Tempo-Distanza
-Dopo aver risolto il problema geometrico con la riparametrizzazione per lunghezza d'arco ($s = G(u)$), ora possiamo muoverci a velocità costante. Tuttavia, per un'animazione realistica, vogliamo controllare l'accelerazione.
+Dopo aver risolto il problema geometrico con la riparametrizzazione per lunghezza d'arco ($s = G(u)$), teoricamente potremmo muoverci a velocità costante. Tuttavia, per un'animazione realistica, la velocità costante appare robotica. Vogliamo controllare **l'accelerazione**.
 
-Introduciamo la **Funzione Tempo-Distanza** $s = T(t)$, che mappa il tempo normalizzato alla distanza percorsa.
+> **Il Concetto Chiave:** Separare la **Forma** dal **Movimento**.
+> 1.  La curva $P(u)$ definisce solo la "forma" del binario.
+> 2.  La lunghezza d'arco $s$ definisce i "metri" lungo il binario.
+> 3.  La funzione **Tempo-Distanza** $s = T(t)$ è il "pilota" che decide quanto gas dare.
+
+**Obiettivo:** Vogliamo definire una funzione $s = T(t)$ che risponda alla domanda: *"Al tempo $t$ (es. 50% dell'animazione), quanti metri $s$ ho percorso?"*
+*   Se $s = t$ (lineare) $\to$ Velocità costante.
+*   Se la curva $s(t)$ è piatta all'inizio $\to$ Velocità bassa (Ease-In).
+
 ![[Pasted image 20260201113152.png]]
 ### La Pipeline Completa di Valutazione
 Per calcolare la posizione di un oggetto al tempo $t$, concateniamo le funzioni:
