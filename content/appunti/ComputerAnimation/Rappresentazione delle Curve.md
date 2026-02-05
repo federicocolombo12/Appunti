@@ -139,7 +139,7 @@ Nonostante sia potente, l'approccio di Hermite non è intuitivo per l'interazion
 * **Soluzione:** Si preferiscono sistemi dove le tangenti sono definite indirettamente tramite altri punti (es. Catmull-Rom o Bezier).![[Screenshot 2026-01-30 alle 17.27.01.png|500]]
 
 ## 6. Curve di Catmull-Rom
-Le curve di Hermite sono potenti ma scomode perché richiedono di definire manualmente le tangenti. La **Catmull-Rom Spline** risolve questo problema automatizzando il calcolo delle tangenti in base alla posizione dei punti vicini.
+Le curve di Hermite sono potenti ma scomode perché richiedono di definire manualmente le tangenti. La **Catmull-Rom Spline** risolve questo problema automatizzando il calcolo delle tangenti in base alla posizione  dei punti vicini.
 ![[Screenshot 2026-01-30 alle 17.40.36.png|500]]
 
 ### A. Calcolo Automatico del Vettore Tangente
