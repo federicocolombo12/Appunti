@@ -121,6 +121,11 @@ Dove:
 
 > **Nota:** La somma $H_1 + H_2$ è sempre uguale a 1 (partizione dell'unità per le posizioni), mentre $H_3$ e $H_4$ gestiscono l'influenza vettoriale della direzione.
 
+**Nota Fondamentale: Interpretazione Vettoriale**
+> *   **$P(u)$** non è un singolo numero, ma un punto 3D $\begin{bmatrix} x(u) & y(u) & z(u) \end{bmatrix}$. L'equazione matriciale va applicata **tre volte separatamente** (una per la X, una per la Y, una per la Z).
+> *   **$R_0$ e $R_3$** sono **vettori** tangenti (velocità) con componenti $(x', y', z')$.
+>     *   *Intuizione:* Se $P_0$ è la posizione di partenza di una macchina, $R_0$ è la direzione e la potenza con cui premi l'acceleratore alla partenza.
+
 ### Continuità e Giunzioni
 Un vantaggio di Hermite è il controllo diretto sulla continuità quando si uniscono più segmenti (*piecewise*):
 * **$C^0$ (Posizione):** È garantita ponendo il punto finale del segmento $i$ coincidente con il punto iniziale del segmento $i+1$ ($P_{3, i} = P_{0, i+1}$).

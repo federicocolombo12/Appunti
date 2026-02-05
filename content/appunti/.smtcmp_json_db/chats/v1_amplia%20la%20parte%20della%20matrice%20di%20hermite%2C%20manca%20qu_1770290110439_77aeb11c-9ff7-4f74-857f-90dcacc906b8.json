@@ -1,0 +1,196 @@
+{
+  "id": "77aeb11c-9ff7-4f74-857f-90dcacc906b8",
+  "title": "amplia la parte della matrice di hermite, manca qu",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "amplia la parte della matrice di hermite, manca qualcosa?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\namplia la parte della matrice di hermite, manca qualcosa?\n\n"
+        }
+      ],
+      "id": "dcb0b8dc-064c-49f2-ade3-6f1844426d09",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "ComputerAnimation/Rappresentazione delle Curve.md"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "amplia la parte della matrice di hermite, manca qualcosa?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\namplia la parte della matrice di hermite, manca qualcosa?\n\n"
+        }
+      ],
+      "id": "97e92509-d1dd-4949-8ec0-0520d4bcc34d",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "ComputerAnimation/Rappresentazione delle Curve.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Certamente. Nella sezione sulla matrice di Hermite manca spesso il dettaglio sulle **Funzioni di Base (Blending Functions)** esplicite.\n\nÈ utile mostrare come il prodotto $U \\cdot M$ generi quattro polinomi specifici che \"pesano\" i quattro vincoli geometrici. Ho aggiunto anche un accenno alla derivazione per capire da dove escono quei numeri.\n\nEcco le modifiche:\n\n<smtcmp_block filename=\"ComputerAnimation/Rappresentazione delle Curve.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n### Forma Matriciale ($U \\cdot M \\cdot G$)\nRisolvendo il sistema di equazioni cubiche con i vincoli sopra, otteniamo la matrice fondamentale di Hermite ($M_H$).\n\n* **$U$:** $[u^3, u^2, u, 1]$\n* **$G$ (Vettore Geometrico):** $\\begin{bmatrix} P_0 \\\\ P_3 \\\\ R_0 \\\\ R_3 \\end{bmatrix}$ (Attenzione: include vettori tangenti!)\n\n$$\nP(u) = \n\\begin{bmatrix} u^3 & u^2 & u & 1 \\end{bmatrix} \n\\cdot \n\\begin{bmatrix}\n2 & -2 & 1 & 1 \\\\\n-3 & 3 & -2 & -1 \\\\\n0 & 0 & 1 & 0 \\\\\n1 & 0 & 0 & 0\n\\end{bmatrix}\n\\cdot \n\\begin{bmatrix} P_0 \\\\ P_3 \\\\ R_0 \\\\ R_3 \\end{bmatrix}\n$$\n\n### Le 4 Funzioni di Base di Hermite\nMoltiplicando il vettore $U$ per la matrice $M_H$, otteniamo i quattro polinomi che fungono da pesi (Blending Functions):\n$$P(u) = P_0 H_1(u) + P_3 H_2(u) + R_0 H_3(u) + R_3 H_4(u)$$\n\nDove:\n1.  **$H_1(u) = 2u^3 - 3u^2 + 1$**: Parte da 1 e scende a 0. (Controlla la vicinanza a $P_0$).\n2.  **$H_2(u) = -2u^3 + 3u^2$**: Parte da 0 e sale a 1. (Controlla la vicinanza a $P_3$).\n3.  **$H_3(u) = u^3 - 2u^2 + u$**: Pesa la tangente iniziale $R_0$.\n4.  **$H_4(u) = u^3 - u^2$**: Pesa la tangente finale $R_3$.\n\n> **Nota:** La somma $H_1 + H_2$ è sempre uguale a 1 (partizione dell'unità per le posizioni), mentre $H_3$ e $H_4$ gestiscono l'influenza vettoriale della direzione.\n\n### Continuità e Giunzioni\nUn vantaggio di Hermite è il controllo diretto sulla continuità quando si uniscono più segmenti (*piecewise*):\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "6c0d294c-cf7c-49c0-aa31-d1e72011b0d5",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 4368,
+          "completion_tokens": 729,
+          "total_tokens": 6241
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "CiUBjz1rX9WfrXZBV8Fn6LNaVWkuebUI6zrd+egGrmjPsn88BMzICm8Bjz1rX4l+iDj5kg0UMFcRQ3d3l3AQAWJ3TEtgVXd/PgxlTgCSuAOAEjY7UX0aFECAlLJR4uOmnyKej04hwZ9FddSgpB62+/z69GgtPBQk6StrS4taU2nPQmYfyXUJXbjIqup3kt5CkbIqBAfVU4IKVwGPPWtfjE0CtR/nfpFUhOGjcp1fN/JbWPVx9Att2RdluEoYhwM79bd+DYK5J9eTklKZTXFA+zA2nCWJ5J2qfOjJyCB+1eEXXaHcI4PNjcUXyhUXpNeIyQqwAQGPPWtfRLLRpBQoXAR9XsyC5mGvbsWUMbkaolZNSMaWs7fFV9os+sdd+u6RG3FlB5qbmNrh5T7xewCRzQgzv3XdFiXG4+Es1Z/1yoZT4+16Ae1//naQfOxEjxodqMTDZjxIKkI5azrPrDQEeSQMSZKZhnuWf6bSsL6bcQml6eqHJRIE+HaVcBDAt5PmydOTPL1j1A5OLAfM1yPxXFMOSIicfeLYLuwzIDjqtbmMHL+sCqgBAY89a1/Yt/figXmyz2zFGrUoglTxXVPo7BDpKmXm0k1d8cd+uXJ67HJg/1zi70Hj9pXIzXjgFb1qkF4wNRFpbrRa4GHDZNwl5+Y+YNiScvYpDhUUxSxsOZTgsVMC4aRFnAh9bWHZVeE2v5JmKXFje3rP/F4SEStIS09TCccsWuduQ7CyV6WiXnQXbrGmftqH5zrz4EQt+u32IDivQ4bijhaRi5hGvlU9Cu0BAY89a18L55308cJk2kREHSNQIz+32jBBX8ljaIP8QJLlHVdEH3GE9Np5OhZDunESL1ejGzAu10pO/8J+va9q8O3BPDVi8iAcyOVUizqP5QzWs6jwxFx0mhs8yyuRa6kYrNgekvO8+AufOfZm7T096p4gtW2txBoY/EdoPxFvEUoGeAf2/+L9+5ZpUSWxK3UWXHejelZ4aU3iKZFGqBYrXQmkvaJS9mLCvldjj3ib8RgCDpEd25L25GctOUeHwvdG+6qFLzgabxvgVw2J6Yq9Tt+awiJ2XYbatrVZgWlnN0im9/FkLFrplwHF12+UCngBjz1rXwub9eVfgTwCdMpgWGPsxgb1ykHY+tYgKDH57/ixkoLn5DWWqpne8zk9AiQWVGV5DAPcrw9bYlX71dW3ktHngKR+vQht0D0/iqdcA6XQqOIh41GeTC8KnsnHH7G0/Ghurc3Qcbitk+Z1BVDgGaJipWqS73gKqQIBjz1rX4F9N5zfhbYD9gbWxByfQPVIMVReKEyPvEVmB0pOCWl1dJ49PC4tTDOrg082b2O3Zremr+mzgGEQwDI7jFKM2NPA1EblLqrK9gvw1XmHPbR/Y9QA/LA6rQHnrCsPm863K+jgasyazthjVXSzzPPqRV8Hps3Ujb4kxbzEmLv2GkwILYG9T3w38AurRmSkJKgxcZE6KgodmLTqdbxjmzlQQEeN/KD+H4IXPhF5BAap27zXlQUHvT9sk6AmeHg55JXapR4Gyn4xS/HwIUNQw0tIw3ylWKXqemkhF2JAnQa0Q06k7jrB8qTAlQa4+wCGd+6GTWh+gU7C1sdNtCcadm1Of6f1sWfXO3f/coJ/tiLqVxY/JUFEZhPfEVd6UwZkYe3rGv87Js0K7wEBjz1rX9FvrfNLCCgJn624etsvU/1jzOnfm+cdO16Ty1NOxPmNwJbyHB4a+beY1qXSgvzEA7h/7fY5Q6kUw6UUWxLj/5MHE0NntDp0k0AwR6KWhyDHRK1t6IgWT8wFVhb2tKPxEuE4lOkrjm/+RxxQ87BM9zEhPFE1+zBrUF8qRUB4532zM3qtz8TeKdoX4DkkbnbBKSyypGn+rWD4uPz44UFgLhj+o2zTaYhmN2gESHjEyBW5ip03WYSa0uxiSsaEgBkOtoPjbETjcxnPdV1BbHXR4rQkoibhaIgxRvCIvZSxJDkYTL5G5vkbbmelRAqEAgGPPWtfM24W5uNVWtzsnZhXmfBrOqcPgQWNuYQriyGzYkBBACrQMoW9GmKGu2qJ/l+hCmTrGh/futfxhTE+2HD7lGd9ZNYdmv1NE9dWxms4VECGCl58NFjhppmgNUM6myDOe3zh3UTGrBlcUpqtlqG2qhbw5UOlkr1/4tsHWE8uuVlM73pZlY4ipY8+YEfKs3jeV/tHvDyaKLLCBiLhuQc8SerfBcKm0C7S9A5SrL44b1CIbJ49JV2Y8TFYrWeG/Udk8av5Xeyx4rO0h0W57z0TXqmA7Wkle91P2Z/sAw/Zbmg6+/WzVCNTSnsF1zpqzGLVmovpxddp9dw+ZMPywvOMKeL6CsUBAY89a1+f8ZIMbbTQENyvaiv54neQ3Ol/r0lOJwOVF8gZwr1fx9bFObGZOlwmwLg63+L2wMmCgJmnQM73+XmR7WuMPVYUSKoRSeLPlNOOEIqolk/Hil/XMMNerrct2hjH2KVueuRzcMDIJj7fFqrz9gpaIsIO75pF54LLU+NS0d4B0TwqP3yabAMHIXccvJu/y29YL4Ylw37HtN3dZkExVIRDk3kdHXZht9pu6DA7zfwy/Y1zilk2Z82thoBuirjMRr7YwkMK6AEBjz1rX4uIJoIp/doxHvT8VFV+A/on+f7r2Uo05z7NxGnfGp4FvGNuGUZnQY1Q+hAZBlFn7OKttbOQaYV80or6tVueGGs0XYdkkhuP2BsjE9sw6jLBBur6srWibkSBYypQENA5HOgmLO+3m5r/AxG+GckG2/iXY0llZphXyVxMlHHxPjtpw1ZU5DUSepLyvuhcRA06J++L1YOynBG2dxgnbwEkUJqvEA+2Sy4gMxhBO+0B1m+l8opzMGCamB6DmCj0kYwR4ICVi8OU5NFmnEUtP+LnynJZZTnpL5l5feWLJQVuE+a3146tCo0BAY89a1/zw0OMDwNjfbURIzQTY0aEXGh5pHdOwNDSce5imB0CaWA3tPkOAeml3S9LtWpihTAXq8rl108SwAkKb8rSfJpITgFbgUbnqLiZzmIbQLREEU9VQrvlCZQk/HMhAoRtt+A52BURSw8Qq+0o/7Zn+cqaH3kn3QrIB8KlKHghSQkjFkUEPN4Z9GnOCt0BAY89a1/AP94SocDq0Tilzl5nDtk2fyqws2lnKZpv+umEx3Wj/zcJDzfuHyFNIspYvTmFlEdIOrlBEHLT57FWTI8RyZY3AXCAm4e2AXh/OiMRwwxfJth+Se5Ey7gkUJtq0k0Ot8DQQh4IB9uy+4h6hGTz/EQLYRJEZ824J1W374UhUeqgXpYlPgvnLmFz4/NLuScjkf6NK7YGh/G2zJtDiJpbNiICG0hYZwxcUeCVfmUuf+PnpR8l0XIUbvmcg/14Vh/i38MCaM/lrDwsNY/UXUQGH+cgj841myzbmN8KnQIBjz1rX370HbuEDWqn/JVkVi1gbcr0t1h/zMMHNhsJKmvmZCSaF5hiLgzaeOCp/gsritU3cSkSoFCjaROh9SMQDkeKMK0W/+7sRrduYFZcgvWH3bZERrjvuELaD9MHE/u7fv5kPl5HJjVemfHm/PpF2cIC7rRp+SGYJ03ip7SFSpuftAI/qYm/68gf5qXGrdkd5yBfpZHTFPQZIRVsx9Rzo5bLSAcnXhVq7nzJYs8kBaSAp9PdWWq+CPEstPIeF8QyVTs4phvHSOI2OzTEiSwP2kl34Ic2gFDXPig6skK9SF2esjFpCPM0ShOqEoZcBUpZD9+nzr0sBZ6u+/TJhcr/gpiidfiS4e8aV5v7g91oqLWE2n6o2czi+RKCnbcKrAIBjz1rX5VmKwpfIvsobgR1waXt4klNWFhvrcEWxLJfUI3MEh5OUcBtcsIUiSYwIQsWb4PUCvTYFjFZF+udts9h5s/FYyQsMTWHmYSYr/uFAhtFVrwhNIeeWTqR2NgQfFPc5/y6bGk8H6oyrmeEPB9aCka8c+h6Qgk41f9Z88vH4oxgyZITS6mK++dm/8zbXUohcj1y02Isbiu2K8J8+iA+7sPkJFNkZw08Uy2giBME91Tcl3IAa5viSPSrsqg8WdxBv9S5D7T8M2l6kELCbEjpoMCuQcLPyxTlzJ10gspTPHLcn1uzACetHtzJzJkpBtNSuoMRe0aa8se0oyQ9xoB0pGzXAw6jGvq026Kmx2njsE96p0ipGjnxn/PY/RNGPYINUcfPyYOF+YDH2FcKjAIBjz1rX6bh/9BC8DU34kXR3MMRGC32myWFawIttUxyzD5VVmMaTiiqUWUbf6pKe3RbPeWOrc0jocM5VRHybFigjVrDgYEuIZTHGWuC1i5JciMfpvZxgQaVPNrw7xlL0alm9pzRuh0AAQCReuTTZ6KGmS9a6ejg424IoD9fTTQfkqtNgi55uZ338fZSpPvWGvo1eKvaGpx4ywuK49HI4feo1iN+PkPzksDXuy69DjXXhbUcRskH0EZH+hyK3hMCcVjZ5L4L4WMglugiFTYKYVkmOnssT/t/GrVLrBuws+VTHeljqOFCVpvXeF1B2tZk8vZi22iba7K8j3iLxFENSBTypci2QX5n8X13sNusCuoBAY89a1/6D/rgJ+HHaV0RECV3RjdPrkVTWZotrm3Lph2BKHLi6OZzJUGN+tedUCkwuL2gAiAQv++8wXm6ar14IhBFQzHUCwIrMr2EKZIgvOsHVkheWwDJmGZivd2tLCn+Ef34qRzMbNl0trptCHgk/gI7FDGvpaKwCvtXUmE7gseEGCGnzdrhv/6c8oxdmlmWQhLSaNzaobr2bdHLfzMJDIYN0Eth+hYeC2+3OD3QMjDqawTqsZWHfevIZUcN+77B5d6ovRqD6IXsVri9DiB6YRIBrTeqcVgAUZ0oI6kiFa+xRNw3GJeGgSIrCpoCAY89a19GuOCz+L1ZYdkuR7RyRd6oYoP+6DaGA0jtcIRrLEKR6S6/PYU4R5awYzZBmXhXJdOYRpP/gSZccnlqE3ym2zpQk5XGmypf/o/2Wvgth/olCo/qcH/C2KoouISY5SqB4zWMo6qRru8J5ZsICsUlRyuDmydPJJ71Odl1Cu3LUF6b+wjgXsYbtyinF1DDPFWKEcl7N3UvZUS8/vtv56FK1ep3N5ehc2h/jUypmIiZIPZpx3WAljRwndPYDzsm3GsP6s/HFOJ2eq8l+n18OsWN4mlrX7F73l2/KxR93/PMkAxpl2NCHtpluNCsuIH2UJUpWZEP6ivp+0NDfYi+9EtCcS5xDDvK/CcpkptWEH7FGGuI0uqUvhqTCokCAY89a19Dqjz4iU1au0J5JveGW5dADyzKDkTmo4O7kQuWactmiWLiaO7jydBlMG9z+wYfHEebL7SpRekNdotvyjhLd4r3HNlVF8AM5F5SdBk9b1iyKixy+qx2RTiPqYDfVermvkOtmF6HfdxMtB5PytiCClZmGEqxiE4tFDwgG0vzoU5V2FkrrUmDyWJvO0aPk+LF2M9fr10/NXb96zhf7GulBiwX+BlMiXffoiau0Nk4CNF8P9nv3JXV2oHnd6IOvVgJV+IlhYBvkinhO/tsLwT97f7lfLF+vo+HLO59Ux95xDdezOGx/dqSb3PEhHw8etplOGoVU9Jhl3kcEPFrwY1ffVMj9G25lQqeAgGPPWtfcZhd+gxcwj2MNTkpWN0I19uDyEdcYoyQvhvBviozWu86UCU1I738n2vpRMwWvc+vO5qzY4OFWIY15DgawwrrtMmBjSKPJEu+kMMknHCBANFQ7kSM/CC01YmzCzoJ5Zd3pI7DMotPqxsDuzn8pYly1hNqtMG2OI+e5HuPmH4WZEyf2s7A1vO6cVmeDue+5zpsGFc4vAsy1yXTMtdOsEKC2rl6VF64sHEkhXVWZJ8TOxKv5AeTy0/G/CDGA1ujCBA9zbFxgKrYVZAuUH2YFy343IZ2FnZhjPgR3DF925lLA1n9FbDpgTd+Wpf46xy1no5e5VBYgmYV8O5JgEKj9RG/hcbhhiFBc/9bnjap81AHxlN/H1x4RQk/JaYKxAEBjz1rX7LsISAe01HmM8KiSjH6AiFpBDJOLIkWpE8DHkNr18GKJBOUedhwyyn/mVIC7Ptc6ZOSAqPAaL+Z36xbhtgrwofFJLob2Vo3bcRhu+Unugus00CKg4WLYHAEF3fDgALA4IKlSaFpBdKD6yDoPw7QOaD21GGNMshTDuA0HN6Lt10ed4fzaGhDkHtwTsEPnDnZiM1rIzFFDyiw4synWdfaP3d/WKqHv8+/4pcgY29Jhwbi/0o77XZYe24yQTJ2semq"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "ma in questo caso P(u) sta per ognuna delle tre componenti x,y,z o per cosa sta? in termini proprio intuitivi, perchè il mio dubbio è, r0 e r3 dovrebbero essere le ccordinate del vettore tangente giusto?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nma in questo caso P(u) sta per ognuna delle tre componenti x,y,z o per cosa sta? in termini proprio intuitivi, perchè il mio dubbio è, r0 e r3 dovrebbero essere le ccordinate del vettore tangente giusto?\n\n"
+        }
+      ],
+      "id": "d9060241-9831-4a9f-90ce-6cbe6a842d30",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "ComputerAnimation/Rappresentazione delle Curve.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "È un dubbio giustissimo ed è il punto che confonde più spesso.\n\n**In breve:**\n1.  **Sì, l'equazione vale per tutte e tre le componenti.** L'equazione matriciale è una scrittura \"compatta\". In pratica, devi fare quel calcolo tre volte separate: una per trovare la $x(u)$, una per la $y(u)$ e una per la $z(u)$.\n2.  **$R_0$ e $R_3$ sono vettori.** Intuitivamente sono le frecce della velocità. Se $R_0 = (5, 0, 0)$, significa che all'inizio la curva viene \"sparata\" fortissimo verso destra (X positiva).\n\nHo aggiunto una nota esplicativa nel file per chiarire questo concetto:\n\n<smtcmp_block filename=\"ComputerAnimation/Rappresentazione delle Curve.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n$$\nP(u) = \n\\begin{bmatrix} u^3 & u^2 & u & 1 \\end{bmatrix} \n\\cdot \n\\begin{bmatrix}\n2 & -2 & 1 & 1 \\\\\n-3 & 3 & -2 & -1 \\\\\n0 & 0 & 1 & 0 \\\\\n1 & 0 & 0 & 0\n\\end{bmatrix}\n\\cdot \n\\begin{bmatrix} P_0 \\\\ P_3 \\\\ R_0 \\\\ R_3 \\end{bmatrix}\n$$\n\n> **Nota Fondamentale: Interpretazione Vettoriale**\n> *   **$P(u)$** non è un singolo numero, ma un punto 3D $\\begin{bmatrix} x(u) & y(u) & z(u) \\end{bmatrix}$. L'equazione matriciale va applicata **tre volte separatamente** (una per la X, una per la Y, una per la Z).\n> *   **$R_0$ e $R_3$** sono **vettori** tangenti (velocità) con componenti $(x', y', z')$.\n>     *   *Intuizione:* Se $P_0$ è la posizione di partenza di una macchina, $R_0$ è la direzione e la potenza con cui premi l'acceleratore alla partenza.\n\n### Le 4 Funzioni di Base di Hermite\nMoltiplicando il vettore $U$ per la matrice $M_H$, otteniamo i quattro polinomi che fungono da pesi (Blending Functions):\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "e6faa736-cc23-46c7-a635-ed89c1639b06",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 5383,
+          "completion_tokens": 569,
+          "total_tokens": 7488
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    }
+  ],
+  "createdAt": 1770290088295,
+  "updatedAt": 1770290110439,
+  "schemaVersion": 1
+}
