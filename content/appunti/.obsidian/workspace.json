@@ -175,14 +175,23 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "f4e048b58bb3a9b0",
+            "type": "leaf",
+            "state": {
+              "type": "smtcmp-chat-view",
+              "state": {},
+              "icon": "wand-sparkles",
+              "title": "Smart composer chat"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,10 +202,11 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "smart-composer:Open smart composer": false
     }
   },
-  "active": "d9339c31766ad4d9",
+  "active": "f4e048b58bb3a9b0",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Trasformazioni Geometriche.md",
