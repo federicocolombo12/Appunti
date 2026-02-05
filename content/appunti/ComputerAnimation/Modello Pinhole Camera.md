@@ -7,6 +7,7 @@ Il modello della **Pinhole Camera** (o camera a foro stenopeico) rappresenta i
 Il processo di formazione dell'immagine è simulato da una scatola chiusa con un piccolo foro (il **pinhole**) di diametro infinitesimo sul davanti.
 
 - I raggi di luce provenienti dagli oggetti entrano dal foro e colpiscono il fondo della camera, chiamato **piano della pellicola**.
+![[Screenshot 2026-02-05 alle 10.52.35.png]]
     
 - Il pinhole funge da **Centro di Proiezione (COP)**.
     

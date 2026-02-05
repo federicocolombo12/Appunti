@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Domande Esempio Cap 2.md",
+                "file": "ComputerAnimation/Modello Pinhole Camera.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Domande Esempio Cap 2"
+              "title": "Modello Pinhole Camera"
             }
           }
         ]
@@ -198,18 +198,19 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "Screenshot 2026-02-05 alle 10.52.35.png",
+    "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
+    "ComputerAnimation/Rappresentazione delle Curve.md",
+    "Domande Esempio Cap 2.md",
     "Pasted image 20260204212401.png",
     "Domande esame.pdf",
     "Domande Esempio Cap 5.md",
     "Domande Esempio Cap 4.md",
     "Domande Esempio Cap 3.md",
     "Domande Esempio Cap 1.md",
-    "ComputerAnimation/Computer Animation.md",
-    "Domande Esempio Cap 2.md",
     "Domande Esempio.md",
-    "ComputerAnimation/Rappresentazione delle Curve.md",
     "ComputerAnimation/Trasformazioni Geometriche.md",
-    "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "Compositing.md",
     "Screenshot 2026-02-04 alle 16.59.52.png",
     "Screenshot 2026-02-04 alle 16.59.31.png",
@@ -222,7 +223,6 @@
     "Screenshot 2026-02-03 alle 18.13.38.png",
     "Screenshot 2026-02-03 alle 18.12.58.png",
     "Screenshot 2026-02-03 alle 18.12.42.png",
-    "Screenshot 2026-02-03 alle 18.11.29.png",
     "Metodi di Compressione.md",
     "Rappresentazione dei Colori.md",
     "Analogico e Digitale.md",
