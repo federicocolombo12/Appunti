@@ -1,6 +1,4 @@
-# Appunti: Tecniche di Integrazione Numerica
 
-## 1. Introduzione: Due Problemi Diversi
 In Computer Animation usiamo l'integrazione numerica per due scopi ben distinti. È fondamentale non confonderli all'esame.
 
 ### A. Integrazione Definita (Calcolo di un valore fisso)
@@ -17,7 +15,7 @@ In Computer Animation usiamo l'integrazione numerica per due scopi ben distinti.
 
 ---
 
-## 2. Quadratura Gaussiana (Gaussian Quadrature)
+## 1. Quadratura Gaussiana (Gaussian Quadrature)
 
 
 È una tecnica per approssimare il valore di un integrale definito.
@@ -68,19 +66,30 @@ Proiettiamo lo stato futuro seguendo la tangente (derivata) attuale.
 
 
 Per risolvere l'instabilità di Eulero, usiamo la famiglia di metodi Runge-Kutta. Lo standard *de facto* in Computer Graphics è il **RK4 (Quarto Ordine)**.
-
 ### Concetto Chiave
 Invece di fidarsi ciecamente della pendenza all'inizio del passo (come Eulero), RK4 "sonda" la pendenza in **4 punti diversi** all'interno dell'intervallo temporale e ne fa una media ponderata.
 
-Le 4 letture ($k$):
-1.  **$k_1$:** La pendenza all'**inizio** dell'intervallo (Eulero puro).
-2.  **$k_2$:** La pendenza a **metà** intervallo, usando $k_1$ per arrivarci.
-3.  **$k_3$:** Di nuovo a **metà** intervallo, ma usando $k_2$ (correzione della stima centrale).
-4.  **$k_4$:** La pendenza alla **fine** dell'intervallo, usando $k_3$.
+**Definizione dei 4 coefficienti ($k$):**
+Supponiamo che la nostra equazione differenziale sia $\frac{dx}{dt} = f(t, x)$.
+
+1.  **$k_1$ (Pendenza Iniziale):**
+    $$ k_1 = f(t_{old}, x_{old}) $$
+    *È la pendenza esatta all'inizio dell'intervallo (identico a Eulero).*
+
+2.  **$k_2$ (Stima a metà - A):**
+    $$ k_2 = f(t_{old} + \frac{h}{2}, x_{old} + k_1 \frac{h}{2}) $$
+    *Ci spostiamo a metà tempo ($h/2$) e stimiamo la posizione usando la pendenza $k_1$.*
+
+3.  **$k_3$ (Stima a metà - B):**
+    $$ k_3 = f(t_{old} + \frac{h}{2}, x_{old} + k_2 \frac{h}{2}) $$
+    *Ci spostiamo di nuovo a metà tempo, ma questa volta stimiamo la posizione usando la pendenza $k_2$ appena trovata.*
+
+4.  **$k_4$ (Stima Finale):**
+    $$ k_4 = f(t_{old} + h, x_{old} + k_3 h) $$
+    *Ci spostiamo alla fine dell'intervallo ($h$) stimando la posizione tramite l'ultima pendenza calcolata $k_3$.*
 
 ### Formula Finale
 Il passo finale è una media pesata dove i punti centrali contano di più:
-
 $$
 x_{new} = x_{old} + \frac{h}{6} (k_1 + 2k_2 + 2k_3 + k_4)
 $$
