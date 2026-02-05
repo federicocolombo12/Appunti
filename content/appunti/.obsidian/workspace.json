@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Rappresentazione delle Curve.md",
+                "file": "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rappresentazione delle Curve"
+              "title": "Percezione del Moto e Intro all'Animazione"
             }
           }
         ]
@@ -206,10 +206,13 @@
       "smart-composer:Open smart composer": false
     }
   },
-  "active": "f4e048b58bb3a9b0",
+  "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
-    "ComputerAnimation/Rappresentazione delle Curve.md",
+    "Fenomeno Phi.md",
+    "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
+    "ComputerAnimation/Rappresentazione delle Curve.md",
     "ComputerAnimation/Trasformazioni Geometriche.md",
     "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "ComputerAnimation/Modello Pinhole Camera.md",
@@ -242,10 +245,7 @@
     "ComputerAnimation/Pipeline di Rendering.md",
     "ComputerAnimation/Definizione di Oggetti 3D.md",
     "ComputerAnimation/Frame di Frenet.md",
-    "ComputerAnimation/Prodotto Vettoriale.md",
-    "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
     "Immagini",
-    "ComputerAnimation/Flocking e Comportamenti Emergenti.md",
     "Untitled.base"
   ]
 }
