@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Gestione delle Collisioni..md",
-                "mode": "source",
+                "file": "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gestione delle Collisioni."
+              "title": "Collisione piano-particella e forze di Impulso"
             }
           }
         ]
@@ -209,6 +209,8 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
+    "ComputerAnimation/Gestione delle Collisioni..md",
     "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
     "ComputerAnimation/Smoothing con Kernel di Convoluzione.md",
     "ComputerAnimation/Frame di Frenet.md",
@@ -243,8 +245,6 @@
     "Metodi di Compressione.md",
     "Rappresentazione dei Colori.md",
     "Analogico e Digitale.md",
-    "Frattali e Caos.md",
-    "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "Immagini",
     "Untitled.base"
   ]
