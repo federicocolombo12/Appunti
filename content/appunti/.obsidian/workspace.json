@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
+                "file": "ComputerAnimation/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Collisione piano-particella e forze di Impulso"
+              "title": "Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore."
             }
           }
         ],
@@ -211,6 +211,7 @@
   "active": "615ad47345e40595",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Gestione delle Collisioni..md",
     "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
     "Immagini/Screenshot 2026-02-03 alle 16.13.07.png",
@@ -246,7 +247,6 @@
     "Metodi di Compressione.md",
     "Jpeg.md",
     "Frattali e Caos.md",
-    "Formati Video.md",
     "Immagini",
     "Untitled.base"
   ]
