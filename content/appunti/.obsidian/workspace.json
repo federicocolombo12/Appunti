@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Flocking e Comportamenti Emergenti.md",
+                "file": "ComputerAnimation/L-Systems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flocking e Comportamenti Emergenti"
+              "title": "L-Systems"
             }
           }
         ],
@@ -199,7 +199,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -221,6 +221,8 @@
   "active": "615ad47345e40595",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/L-Systems.md",
+    "ComputerAnimation/Flocking e Comportamenti Emergenti.md",
     "ComputerAnimation/Sistemi Particellari.md",
     "ComputerAnimation/Deformazione Geometrica.md",
     "ComputerAnimation/Frame di Frenet.md",
@@ -250,8 +252,6 @@
     "Domande Esempio Cap 5.md",
     "Domande Esempio Cap 4.md",
     "ComputerAnimation/Morphing.md",
-    "Domande Esempio Cap 3.md",
-    "Domande Esempio Cap 1.md",
     "Immagini/Screenshot 2026-02-04 alle 16.59.52.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.31.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.05.png",
