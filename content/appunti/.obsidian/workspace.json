@@ -199,7 +199,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -218,7 +218,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "615ad47345e40595",
+  "active": "74ab024c44d80f54",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Frame di Frenet.md",

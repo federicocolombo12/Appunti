@@ -179,55 +179,6 @@ Immagina di tracciare una linea perpendicolare dal punto $P$ fino a toccare il s
 ![[Pasted image 20260202163040.png]]
 ---
 
-## Esercizio Pratico (Risoluzione Semplificata)
-Risolviamo lo stesso esercizio di prima, ma usando **solo** sottrazioni e divisioni, senza vettori.
-
-### Dati Assegnati
-* **Punto $A$:** $(24.5, 15.3)$
-* **Segmento di Riferimento (Base della griglia):**
-    * Inizio ($Q_1$): $(20, 12)$
-    * Fine ($Q_2$): $(28, 12)$
-
-### Passo A: Analisi Geometrica
-Osserviamo i dati: il segmento giace sulla linea orizzontale $Y = 12$.
-Questo semplifica tutto drasticamente!
-* La **Lunghezza Totale** del segmento è semplicemente la differenza delle X:
-    $$L = 28 - 20 = 8$$
-
-### Passo B: Trovare la Proiezione ($K$)
-Poiché il segmento è orizzontale, per "proiettare" il punto $A(24.5, 15.3)$ sul segmento, basta abbassarlo fino alla coordinata Y del segmento.
-* Il punto proiettato $K$ avrà la stessa $X$ di $A$ e la stessa $Y$ del segmento.
-* **$K = (24.5, 12)$**
-
-### Passo C: Calcolo di $u$ (Rapporto)
-Quanto dista l'inizio ($Q_1$) dalla proiezione ($K$)?
-Basta guardare le coordinate $X$:
-* $\text{Distanza}(Q_1, K) = 24.5 - 20 = 4.5$
-
-Ora calcoliamo il rapporto rispetto alla lunghezza totale:
-$$u = \frac{4.5}{8} = \mathbf{0.5625}$$
-
-*(Significato: Il punto si trova al 56.25% della lunghezza del segmento)*
-
-### Passo D: Calcolo di $v$ (Distanza)
-Quanto dista il punto $A$ dalla sua proiezione $K$?
-Basta guardare la differenza di altezza ($Y$):
-* $A$ è a $Y=15.3$
-* $K$ è a $Y=12$
-
-$$v = 15.3 - 12 = \mathbf{3.3}$$
-
----
-
-## Risultato Finale
-Le coordinate di mapping per la Polyline sono:
-# $u = 0.5625$
-# $v = 3.3$
-
-### 
-Se il segmento è **orizzontale** (come spesso accade per semplificare i calcoli a mano), puoi calcolare:
-* $u = \frac{X_{punto} - X_{inizio}}{X_{fine} - X_{inizio}}$
-* $v = Y_{punto} - Y_{inizio}$
 
 # Deformazioni Globali e FFD 3D
 

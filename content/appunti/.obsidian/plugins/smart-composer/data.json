@@ -11,7 +11,14 @@
     },
     {
       "type": "gemini-plan",
-      "id": "gemini-plan"
+      "id": "gemini-plan",
+      "oauth": {
+        "accessToken": "ya29.a0AUMWg_IgkZ2flUM94lhpbGmA95dJEBqBT6MahJ5QQZeg2ufifjto7gf8boq5vXW6syDpRE3p734H80WZ8Z5v37B-q7CTINwUiIX8qc8wXa7AkXz6JRryvRMmVmPXW1N1M0CwmI8G4QebpjdawU5tkM6sFPe3s6DNiyz5cEet3GPNmLhVLCgoUIOLsQe4LxxvGy6lH-vmnc58aCgYKARsSARASFQHGX2Mi6cp26ktcGUL9gGs3k6QqQw0211",
+        "refreshToken": "1//03XDywHow5ChlCgYIARAAGAMSNwF-L9Ir1PO0uJ2Y6vjLlIv6Tq40Y5bXLHXutuQwXnukP4LeDg7vfd6vfgq-ifN9iRadG25wyGQ",
+        "expiresAt": 1770403597006,
+        "email": "chiccoclub5@gmail.com",
+        "managedProjectId": "kempt-correlate-jpnjq"
+      }
     },
     {
       "type": "anthropic",
@@ -220,7 +227,7 @@
       "dimension": 1024
     }
   ],
-  "chatModelId": "claude-sonnet-4.5",
+  "chatModelId": "gemini-3-pro-preview (plan)",
   "applyModelId": "gpt-4.1-mini",
   "embeddingModelId": "openai/text-embedding-3-small",
   "systemPrompt": "",
