@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
+                "file": "ComputerAnimation/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido)"
+              "title": "Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa"
             }
           }
         ],
@@ -187,6 +187,16 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "74ab024c44d80f54",
+            "type": "leaf",
+            "state": {
+              "type": "smtcmp-chat-view",
+              "state": {},
+              "icon": "wand-sparkles",
+              "title": "Smart composer chat"
+            }
           }
         ],
         "currentTab": 5
@@ -211,10 +221,12 @@
   "active": "615ad47345e40595",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
+    "ComputerAnimation/Smoothing con Kernel di Convoluzione.md",
+    "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
     "ComputerAnimation/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Gestione delle Collisioni..md",
-    "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
     "Immagini/Screenshot 2026-02-03 alle 16.13.07.png",
     "Immagini/Pasted image 20260204212401.png",
     "ComputerAnimation/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
@@ -245,8 +257,6 @@
     "Immagini/Screenshot 2026-02-04 alle 16.58.25.png",
     "Immagini/Screenshot 2026-02-04 alle 16.58.06.png",
     "Rappresentazione dei Colori.md",
-    "Metodi di Compressione.md",
-    "Jpeg.md",
     "Immagini",
     "Untitled.base"
   ]
