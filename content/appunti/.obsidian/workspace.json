@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
+                "file": "ComputerAnimation/Deformazione Geometrica.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali)"
+              "title": "Deformazione Geometrica"
             }
           }
         ],
@@ -221,6 +221,8 @@
   "active": "615ad47345e40595",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Frame di Frenet.md",
+    "ComputerAnimation/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
     "ComputerAnimation/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
     "ComputerAnimation/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
     "ComputerAnimation/Smoothing con Kernel di Convoluzione.md",
@@ -250,13 +252,11 @@
     "Domande Esempio Cap 3.md",
     "Domande Esempio Cap 1.md",
     "Compositing.md",
-    "Domande Esempio Cap 2.md",
     "Immagini/Screenshot 2026-02-04 alle 16.59.52.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.31.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.05.png",
     "Immagini/Screenshot 2026-02-04 alle 16.58.25.png",
     "Immagini/Screenshot 2026-02-04 alle 16.58.06.png",
-    "Rappresentazione dei Colori.md",
     "Immagini",
     "Untitled.base"
   ]
