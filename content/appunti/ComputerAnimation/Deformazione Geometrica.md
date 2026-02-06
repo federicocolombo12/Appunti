@@ -178,8 +178,31 @@ Immagina di tracciare una linea perpendicolare dal punto $P$ fino a toccare il s
     $$v = \text{Distanza}(P, K)$$
 ![[Pasted image 20260202163040.png]]
 ---
+### Esercizio Pratico: Calcolo di $u$ e $v$
+**Dati:**
+*   **Osso (Segmento):** Inizia in $Q_1(2, 3)$ e finisce in $Q_2(10, 3)$.
+*   **Punto da deformare:** $P(6, 7)$.
 
+**Svolgimento:**
 
+1.  **Analisi del Segmento:** Il segmento è orizzontale (Y costante = 3).
+    *   Lunghezza totale $L = 10 - 2 = 8$.
+2.  **Trovare la Proiezione ($K$):**
+    Poiché il segmento è orizzontale, la proiezione ortogonale di $P(6, 7)$ mantiene la stessa X e prende la Y del segmento.
+    *   $K = (6, 3)$.
+3.  **Calcolo di $u$ (Posizione relativa):**
+    Distanza tra l'inizio $Q_1$ e la proiezione $K$: $6 - 2 = 4$.
+    $$u = \frac{4}{8} = \mathbf{0.5}$$
+    *(Il punto si trova esattamente a metà lunghezza del segmento).*
+4.  **Calcolo di $v$ (Distanza):**
+    Distanza tra il punto $P$ e la proiezione $K$: $7 - 3 = 4$.
+    $$v = \mathbf{4}$$
+    *(Il punto dista 4 unità dall'asse dell'osso).*
+
+---
+
+# Deformazioni Globali e FFD 3D
+<!-- ... existing content ... -->
 # Deformazioni Globali e FFD 3D
 
 ## 1. Deformazioni Globali (Metodo Alan Barr)
