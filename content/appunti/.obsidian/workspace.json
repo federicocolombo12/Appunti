@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Deformazione Geometrica.md",
+                "file": "ComputerAnimation/Sistemi Particellari.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Deformazione Geometrica"
+              "title": "Sistemi Particellari"
             }
           }
         ],
@@ -218,9 +218,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "74ab024c44d80f54",
+  "active": "615ad47345e40595",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Deformazione Geometrica.md",
     "ComputerAnimation/Frame di Frenet.md",
     "ComputerAnimation/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
     "ComputerAnimation/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
@@ -248,7 +249,6 @@
     "Domande Esempio Cap 5.md",
     "Domande Esempio Cap 4.md",
     "ComputerAnimation/Morphing.md",
-    "ComputerAnimation/Deformazione Geometrica.md",
     "Domande Esempio Cap 3.md",
     "Domande Esempio Cap 1.md",
     "Compositing.md",

@@ -201,8 +201,7 @@ Immagina di tracciare una linea perpendicolare dal punto $P$ fino a toccare il s
 
 ---
 
-# Deformazioni Globali e FFD 3D
-<!-- ... existing content ... -->
+
 # Deformazioni Globali e FFD 3D
 
 ## 1. Deformazioni Globali (Metodo Alan Barr)
