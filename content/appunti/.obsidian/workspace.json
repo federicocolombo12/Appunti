@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
+                "file": "ComputerAnimation/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore."
+              "title": "Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido)"
             }
           }
         ],
@@ -211,6 +211,7 @@
   "active": "615ad47345e40595",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Gestione delle Collisioni..md",
     "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
@@ -246,7 +247,6 @@
     "Rappresentazione dei Colori.md",
     "Metodi di Compressione.md",
     "Jpeg.md",
-    "Frattali e Caos.md",
     "Immagini",
     "Untitled.base"
   ]
