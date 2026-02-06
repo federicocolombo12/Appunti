@@ -11,26 +11,26 @@
             "id": "d9339c31766ad4d9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "ComputerAnimation/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
-                "mode": "preview",
-                "source": false
+                "file": "Immagini/Pasted image 20260204212401.png"
               },
-              "icon": "lucide-file",
-              "title": "Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260204212401"
             }
           },
           {
-            "id": "c6e343a3c643af7e",
+            "id": "615ad47345e40595",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.11.7"
+                "file": "ComputerAnimation/Computer Animation.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.11.7"
+              "icon": "lucide-file",
+              "title": "Computer Animation"
             }
           }
         ],
@@ -66,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "inverse kin",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -87,8 +87,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -209,17 +208,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c6e343a3c643af7e",
+  "active": "615ad47345e40595",
   "lastOpenFiles": [
+    "Immagini/Screenshot 2026-02-03 alle 16.13.07.png",
+    "Immagini/Pasted image 20260204212401.png",
+    "ComputerAnimation/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
     "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
-    "Screenshot 2026-02-05 alle 16.54.18.png",
-    "Screenshot 2026-02-05 alle 16.52.02.png",
-    "Screenshot 2026-02-05 alle 10.52.35.png",
+    "Immagini/Screenshot 2026-02-05 alle 16.54.18.png",
+    "Immagini/Screenshot 2026-02-05 alle 16.52.02.png",
+    "Immagini/Screenshot 2026-02-05 alle 10.52.35.png",
     "Fenomeno Phi.md",
     "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Rappresentazione delle Curve.md",
     "ComputerAnimation/Percezione del Moto e Intro all'Animazione.md",
-    "Pasted image 20260204212401.png",
     "ComputerAnimation/Trasformazioni Geometriche.md",
     "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "ComputerAnimation/Hardware e Software Graphics.md",
@@ -234,19 +235,18 @@
     "Domande Esempio Cap 1.md",
     "Compositing.md",
     "Domande Esempio Cap 2.md",
-    "Screenshot 2026-02-04 alle 16.59.52.png",
-    "Screenshot 2026-02-04 alle 16.59.31.png",
-    "Screenshot 2026-02-04 alle 16.59.05.png",
-    "Screenshot 2026-02-04 alle 16.58.25.png",
-    "Screenshot 2026-02-04 alle 16.58.06.png",
-    "Screenshot 2026-02-03 alle 18.14.15.png",
+    "Immagini/Screenshot 2026-02-04 alle 16.59.52.png",
+    "Immagini/Screenshot 2026-02-04 alle 16.59.31.png",
+    "Immagini/Screenshot 2026-02-04 alle 16.59.05.png",
+    "Immagini/Screenshot 2026-02-04 alle 16.58.25.png",
+    "Immagini/Screenshot 2026-02-04 alle 16.58.06.png",
+    "Immagini/Screenshot 2026-02-03 alle 18.14.15.png",
     "Rappresentazione dei Colori.md",
     "Metodi di Compressione.md",
     "Jpeg.md",
     "Frattali e Caos.md",
     "Formati Video.md",
     "Domande Esempio.md",
-    "Analogico e Digitale.md",
     "Immagini",
     "Untitled.base"
   ]
