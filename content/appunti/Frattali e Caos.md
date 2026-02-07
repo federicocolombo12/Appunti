@@ -57,7 +57,7 @@ Se dividiamo un oggetto in $N$ parti, ciascuna scalata di un fattore $r$ (dove $
 La relazione è $N = (1/r)^D$.
 Da cui si ricava la **Dimensione Frattale**:
 $$D = \frac{\log(N)}{\log(1/r)}$$
-
+![[Pasted image 20260207143632.png]]
 *Esempio (Koch Curve):* Si divide il segmento in 4 parti ($N=4$), ma la scala è 1/3 ($r=1/3$).
 $$D = \frac{\log(4)}{\log(3)} \approx 1.2618$$
 La curva di Koch è "più di una linea" ma "meno di un piano". Riempie lo spazio in modo più efficiente di una linea retta.
