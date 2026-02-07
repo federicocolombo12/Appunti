@@ -23,7 +23,7 @@ $$Compositing(render(scena_1), render(scena_2)) = render(merge(scena_1, scena_2)
 Per gestire la trasparenza e l'occlusione, si introduce il **canale Alpha ($\alpha$)**, tipicamente a 8 bit (256 livelli di grigio). 
 
 L'operatore fondamentale è l'**Over**, che definisce come un pixel di foreground ($F$) si sovrappone a uno di background ($B$):
-![[Screenshot 2026-02-04 alle 16.59.05.png | 400]]
+![[Screenshot 2026-02-04 alle 16.59.05.png | 700]]
 * **Opacità risultante:**
     $$\alpha_{F \ over \ B} = \alpha_F + (1 - \alpha_F) \alpha_B$$
 * **Colore risultante (RGB):**
