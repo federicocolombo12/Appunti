@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Analogico e Digitale.md",
+                "file": "Rappresentazione dei Colori.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Analogico e Digitale"
+              "title": "Rappresentazione dei Colori"
             }
           }
         ]
@@ -208,6 +208,7 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
+    "Analogico e Digitale.md",
     "Frattali e Caos.md",
     "Pasted image 20260207143632.png",
     "ComputerAnimation/Hardware e Software Graphics.md",
@@ -239,7 +240,6 @@
     "ComputerAnimation/Modello Pinhole Camera.md",
     "Domande esame.pdf",
     "Domande Esempio Cap 5.md",
-    "Domande Esempio Cap 4.md",
     "Immagini/Screenshot 2026-02-04 alle 16.59.52.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.31.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.05.png",
