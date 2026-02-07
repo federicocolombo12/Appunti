@@ -15,8 +15,16 @@ La RLE è una tecnica di compressione **Lossless** molto semplice, basata sulla 
 ## 2. GIF (Graphics Interchange Format)
 Formato storico progettato per il trasferimento di immagini su reti (CompuServe).
 ![[Screenshot 2026-02-03 alle 18.07.16.png | 300]]
+
 * **Algoritmo:** Utilizza la compressione **LZW (Lempel-Ziv-Welch)**.
     * È una compressione *basata su dizionario*: sostituisce sequenze ripetute di dati con riferimenti a un dizionario costruito dinamicamente.
+
+> [!INFO] Focus: LZW (Lempel-Ziv-Welch)
+> A differenza di Huffman (statistico), LZW è **adattivo** e basato su dizionario.
+> * **Funzionamento:** Man mano che legge i dati, costruisce un "vocabolario" di sequenze ricorrenti.
+> * **Processo:** Quando trova una sequenza già nota seguita da un nuovo carattere, crea una nuova voce nel dizionario per questa combinazione più lunga e ne emette il codice.
+> * **Vantaggio:** Non è necessario salvare il dizionario nel file. Il decoder lo ricostruisce autonomamente durante la decompressione seguendo la stessa logica dei dati in ingresso.
+
 * **Caratteristiche:**
     * **Profondità:** Limitata a **8 bit** (Palette di 256 colori).
     * **Efficienza:** Ottima per immagini con **colori omogenei** (grafiche, loghi, disegni animati).
@@ -33,7 +41,10 @@ Sviluppato come rimpiazzo *open* e libero da brevetti (all'epoca su LZW) del GIF
 * **Tipo:** Compressione **Lossless** (senza perdita).
 * **Algoritmo:** Combina due fasi:
     1.  **Predizione (Filtering):** Trasforma i valori dei pixel in differenze rispetto ai vicini (alto, sinistra, ecc.) per aumentare la ridondanza.
-    2.  **Codifica Entropica:** Simile a DEFLATE (LZ77 + Huffman).
+    2.  **Codifica Entropica (DEFLATE):** È la fase finale di compressione vera e propria.
+        * I dati pre-elaborati dal filtro vengono compressi con **DEFLATE**, che combina due tecniche:
+        * **LZ77 (Sliding Window):** Rimuove le ripetizioni sostituendo sequenze di dati già visti con riferimenti (distanza, lunghezza).
+        * **Codifica di Huffman:** Comprime i simboli risultanti assegnando codici binari più corti ai valori statisticamente più frequenti.
 * **Supporto Colore:**
     * *Grayscale* (scala di grigi).
     * *Palette* (come GIF).
