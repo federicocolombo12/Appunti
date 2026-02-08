@@ -186,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -205,7 +205,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d9339c31766ad4d9",
+  "active": "74ab024c44d80f54",
   "lastOpenFiles": [
     "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Modello Pinhole Camera.md",

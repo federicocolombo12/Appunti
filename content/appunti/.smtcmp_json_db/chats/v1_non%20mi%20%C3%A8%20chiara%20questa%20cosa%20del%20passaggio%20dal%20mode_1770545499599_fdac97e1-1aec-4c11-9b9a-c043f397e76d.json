@@ -1,0 +1,219 @@
+{
+  "id": "fdac97e1-1aec-4c11-9b9a-c043f397e76d",
+  "title": "non mi è chiara questa cosa del passaggio dal mode",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "non mi è chiara questa cosa del passaggio dal modello fisico all'oservartore virtuale, in come si ottiene un'immagine non capovolta, e dimmi pure cosa cercare su google per trovare un'immagine che me lo mostri",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nnon mi è chiara questa cosa del passaggio dal modello fisico all'oservartore virtuale, in come si ottiene un'immagine non capovolta, e dimmi pure cosa cercare su google per trovare un'immagine che me lo mostri\n\n"
+        }
+      ],
+      "id": "bc3b99bf-eef1-4744-bc8b-643024e9b61f",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "ComputerAnimation/Modello Pinhole Camera.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Ecco una spiegazione sintetica:\n\nNel modello fisico, i raggi di luce si incrociano nel foro (COP) e finiscono sulla pellicola posta **dietro**, quindi l'immagine si ribalta (alto diventa basso).\nNel modello virtuale (CG), immaginiamo che il \"piano della pellicola\" sia posto **davanti** all'occhio (tra l'occhio e l'oggetto). Il raggio che parte dall'oggetto colpisce questo piano virtuale *prima* di incrociarsi nel centro di proiezione. Non avvenendo l'incrocio prima del piano, l'immagine rimane dritta.\n\n**Cosa cercare su Google Immagini:**\n*   \"Pinhole camera virtual image plane\"\n*   \"Perspective projection view frustum\"\n\nEcco la modifica al file per chiarire il concetto:\n\n<smtcmp_block filename=\"ComputerAnimation/Modello Pinhole Camera.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n### Dal Modello Fisico all'Osservatore Virtuale\n\nSebbene nella realtà l'immagine sia dietro il foro e capovolta, nella Computer Graphics per comodità si utilizza una **convenzione virtuale**:\n\n1.  Si posiziona un **piano di vista virtuale** (Image Plane) a distanza _d_ **davanti** al centro di proiezione (tra l'occhio e l'oggetto), invece che dietro.\n    \n2.  Geometricamente, i raggi proiettati intercettano il piano *prima* di incrociarsi nel centro. Di conseguenza, l'immagine proiettata risulta **ben orientata** (dritta/upright) e i calcoli matematici sono semplificati (evitando segni negativi).\n    \n3.  Questo modello garantisce un **fuoco infinito** (tutti gli oggetti sono nitidi a prescindere dalla distanza) e una luminosità infinitesima.\n    \n\nNelle applicazioni reali (fotocamere fisiche o occhio umano), il pinhole è sostituito da una **lente**, che introduce una [[Profondità di Campo]] limitata e possibili distorsioni.![[Screenshot 2026-01-30 alle 16.07.08.png|500]]\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "aa4525e4-b051-4dcb-8818-d2dd97209ddf",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1332,
+          "completion_tokens": 503,
+          "total_tokens": 3152
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "cosa cambia tra screen space e camera space?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\ncosa cambia tra screen space e camera space?\n\n"
+        }
+      ],
+      "id": "eae6ca74-d200-4485-9e0e-e2a9d915e59f",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Ecco la differenza fondamentale:\n\n*   **Camera Space (Eye Space):** È ancora uno spazio **3D continuo**. Le unità di misura sono geometriche (metri, unità) e definiscono la posizione dell'oggetto rispetto all'occhio dell'osservatore.\n*   **Screen Space:** È uno spazio **2D discreto**. Le unità di misura sono i **pixel**. Definisce le coordinate $x,y$ fisiche sulla finestra del monitor (es. il pixel alla riga 100, colonna 200).\n\nHo aggiunto questa distinzione nel tuo file per chiarezza:\n\n<smtcmp_block filename=\"ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n### C. Camera Space (o Eye Space)\n\nÈ il sistema di riferimento dell'osservatore (la camera). È ancora uno spazio **3D**.\n\n- **Viewing Transformation:** Sposta e ruota l'intero mondo affinché la camera si trovi nell'origine e guardi lungo l'asse Z negativo (o positivo, a seconda della convenzione).\n<!-- ... existing content ... -->\n### E. Screen Space (Spazio Schermo)\n\nLo spazio 2D finale del monitor.\n\n- **Viewport Transformation:** Le coordinate normalizzate vengono scalate per adattarsi alla risoluzione in pixel della finestra (es. 1920×1080).\n- **Differenza col Camera Space:** Mentre il Camera Space è 3D e usa unità geometriche (dove è l'oggetto rispetto all'occhio?), lo Screen Space è 2D e usa coordinate intere (quale **pixel** accendo sul monitor?).\n    \n\n---\n\n## 3. La Fase di Visualizzazione (Rendering Pipeline)\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "eab8c3ca-7ceb-4f58-9b26-9e7dc529c001",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1992,
+          "completion_tokens": 409,
+          "total_tokens": 3816
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "cosa si intende per scan conversion?",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\ncosa si intende per scan conversion?\n\n"
+        }
+      ],
+      "id": "2e3d1ece-2855-4611-a1a3-1703e401bc28",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "La **Scan Conversion** (o Rasterizzazione) è il processo di traduzione delle forme geometriche matematiche (continue) in una griglia discreta di pixel (discreti).\n\nIn pratica, il computer prende un triangolo definito da tre vertici (punti matematici precisi) e calcola quali pixel dello schermo devono accendersi per rappresentare quella forma.\n\nEcco la modifica per integrare questa definizione nel file:\n\n<smtcmp_block filename=\"ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n    - Si trasformano i vertici in _NDC_ (Normalized Device Coordinates).\n        \n4. **Scan Conversion (Rasterizzazione):** \n    - È il passaggio dal mondo \"continuo\" (vettoriale) a quello \"discreto\" (pixel).\n    - Le primitive geometriche (triangoli, linee) vengono analizzate per determinare quali pixel dello schermo coprono.\n    - Il risultato sono i **frammenti** (potenziali pixel con dati associati come colore e profondità) che andranno nel [[Frame Buffer]].\n    \n5. **Visibility (Hidden Surface Removal):** Si determina quali oggetti sono visibili e quali sono coperti da altri (spesso usando lo **Z-Buffer**).\n</smtcmp_block>",
+      "id": "0ea1cfba-7d4d-46ed-a72c-e3d017d33e2c",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 2411,
+          "completion_tokens": 299,
+          "total_tokens": 3223
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "CmABjz1rX3Lhs3hn9v4qcHme7yqv45e7W4YTNf5evkh5l90Oogpn+kzOiJzR0HhMLRUBeu/ujvh1QQq/QoUoC2RjN01exPt+PH7lzuKLLUfTX3aiikSEOZjsi7WlF0tvbd0KdAGPPWtfYetPWqH5jPD0j1Hj5hu19XBBHYKGcvfom1wBk2YEe21HsF0TzUO6ymH9K8AX3RXeSqdIar7vt4pOd639e5BraZiLvasXrc79Tn7cIE/mD1NUeHOYRWivQBugVErcBrSabD2uCZhoxEKlz88TkOZCCrMBAY89a185PooOod+hgV5gGojKXhcetKI+a+XUjz+mSSqTAtFks6K6aZQZqSs+J2i7aplkVcThtfmQu2a/NdTvpZq0dXA+CTK07IGiB42wiy9p1cK+QjIbTkPkiaAB0pXhRTMnrQh5KGtleQcN0Vmx7Zq84QXI72/PjqADryQ3uab0OiMaNUBq791KPJcIe2VHvQWDqcuWdByb1Nv/fap2PKXDd/0V7eV7ol5O0ufXDRgOY/wKpwEBjz1rXxlutKez4lDNO746BH0Y/RkF++a27jb1W5X7c6lrq2nT9hE59ywbkmlXOy693QLJWONxuv2v+ljahkxGdsrxgpdej2unZC6otIIT0UYcKp3V3I+sa+pWHWYTLWlRkZo91Gc9ra5mE12SQTRZYI9oQlRiAquLDZl3sx2vXnvRTe+3+anOrUwGPmdNca3eJtVW+X9bTuDRFAnNlcoEQsUAnmTcDwqgAgGPPWtf5FybM4/BSGYiX4qMboop+HJB8EWdX+k8s4NVez8bEeAE4S1I8KTdNaVrz5fVp6SXfqWyQEaOEIQoKSmnGJGWLcJn4UuhTk7ceL22fbH6iGPmMIwvH2XgbsbLZGWkJK3YD+UPOirT5N2LltHvv8JsOag2pLCFMLZG3SsHNLHpEHM3D/DOv25ofns+kZCtS1ztXNkFYSgPNjoyMiadCLISNj8XkhhFVNr7u/qGHzm/qitn4sC5PGnRc+cQxw68w198kuVorggbvkPGzVn7tgD3a2sVDmoeOVZm8Emo/Xy4zhnyIkCR78fhqrB7vvuX2kZQIrKUPhQZDWGMW9a86nOmb506OY1HZGB1L1uGgEDh0N0scRSUetLozlLQoQqTAgGPPWtfK3e7gOfqoa59PCArlHUR8Jeknkxzr7jSTMTzA4zw2j1SAKZx8Piy9R+WLhVox6rDki9GPPCTkrIODqAtK48uOW913ADP18nxEZdvNMC46fHPq9KjgQqFxHOXnzztGx96cSYzZ32uiGOn6ZiYS8N5KJuZozPQcm3aeJiMulYCAa337JrGmZn+EW8S10nS8uaV9p5LcjlOjZWZf0FVeLMzk+aptA6WPq98M18u0Nmk7kjxD+YSLLE3zxrBHvIWpxEgujiUKFf65waqOmmYF1Hx0XdH1Z7+1yec97YrlBuGteUIbzt0LyWtMgCkfmx/Qq+zLSQroYybLR6SVG8NbyPVXEjwiriRh5LS2WpO+KNwCqgCAY89a1+6tsDhcO82X+BQBUPmjwHr6fIqc0miJL6oLFSjtD8WgGbWQQESxM9zt0mp+PPepuaHU4c6eU1HOdhOA3ofR/JQCVCoUsa7PGfGteuBwGTWsSpfA5YlHh4QnhPbREYkAT7hqoZJhWwq8690St2n6HZhQYOv0gEvYehj9fP8EXroILWuVPp/14xFVaaJjtlP15IUTS/5G+xMrrjz1jz/YfxoZbcL3F/SafMNiN5K5rNLn4AEC55zqH6LxHWGzX7r7CcEJuXnLQh8S1xI1N4Zyi72W70CuCFhvVKSRnLNJaISY/2QooVvbSOhZ9hQYw3xjqua5vxIXgP8tHsTvMtv6ggOdsjlvZcX9dTkrtiaPLo5OFkX5WXjJNofdtD4C8GKbFcOnKEKwQIBjz1rX8bSYHp0bAfqPArGzrJe08iSDGlZkmDnvds2VxhQk9LLEwtWjORqA70YAB6bd4+zCgmKBEJuRCDwtlPXx9VDffpjJDFGBk61ZQXhz+EUwAI/VLWyFMWE3yfWBCda5kqk41g5ASSHKrIcaZlR8zucHXrtofwIPRQd0X5oT9f5cl7UXcWE9za7sRxOzinoIeBh27SsX8fnrB71eeIiEB3A6tbSh8+zgwa59X7lTUwMbvsJuPCxUnGaSc4Ejqh4UYLZzLKu46U4/2SEVBcOERniqJdIHzYPsdbkXkhKF+lm8kIxSU7rQwDF2CWxjlQ2wRxpxAa054cmbgoZB/RMhBbMmFfvaHd5AibkBOaKwlt6XQjS7YVGQXHVN1qv/AqmHE0gXTAu++N5mRu8CjJjqCowh2HlfWN9g2/h2UC7WpgKnAIBjz1rX6rUWQ3WMSFeJ9ZYsdgdDIrI+w6U4Yi4Zr2YqcYlclIo0WEg1xW1xS7n270VnQKC1MNJyjOjD1yAfLIThAzkS2IKmun3sjXgXPTJTHBYK3YN5/0Rk0YOfFHRpzL8LTxiWcxLqkuy5JVp59e5+4meGFymkqZnoV2fZBwCYtwDDZsR+pFAExbf4qZOf/yMRKjsNun+c1k0Q+qRtzXoKRBXtixLSLTI+VYkskxTaf2kqejM4cXhiRdbPYk5XTwAjpjKVrx02bY19kX4vMsbbxOTrRTX8G7uYQ2514yYas2YoKQieZEe4lkpHfiy+hOoJdRoagfunItcqzYcYhTVE7yXyTOOolshTVJvTNVwGsrRhM5AP/ZpHMIDJgrDAgGPPWtf6Yw4f4hCDls1qZxpgmBnCE0ilh9+Pn3LiWmqCOzjqatUvDOiILiL/wm+UwLkqTv8EYmlb2HZY2dkzHh9Qod74JX922i/q+6Ns5H0PutvamAnbUqJRwlwdwyy3VX3lf00oel+aA4/t+L9C3S0yo0DmYm4LpJSj8mPpm15yBA6bE9o1UamD4xZj0DnNUixO4JMo3A6ZujVgRTnZRMz6xW5Zbi3TT7P6dZpLnMqsBw3/ZC2cmrKhU1VC4Tp+UyaYy4/1IMBuFX8hQaCg/pCrorDsa79DiTJx78YPmHxHH20d5jJXbZ54SHJwWv5bhEOVfWwczkc/TBrepUB6K1X2wZZJmREbqer3ok0lI1fC3XYZ6kMNr2CwcH+WMVHOFu/hoJUYwcNv29B8Hf8XPqbMHk7gStKK4D8ETLoNLM3l0HUCuYBAY89a1/dMCz/iwmNUsfHWvDXd61e+WktUOBLNrNBjvMKbf+OGcWf198jJmm4zmvKX+Nt3lqiJoKpDnaFJeoMBh7EdfQERcatW30JeXW77Vq2QKh5AwKfFBJ4TwYZgO81ANsktl/jhUuu8pb1sTnqbRcgxvj/e8D+L9QE7tilMzuAFcY01rwUnCUvtPAL1xCDhTRfJibflsr2SeDL4dIodIIiFiCQDc7A1ULiOgrIwZ59y5wHz3e0xckWt38UdHQi8+Jafv9ffXT54f3lSSAeWF4ef3IkLO2QBdku/ZIqMBfq213oSSY="
+        }
+      }
+    }
+  ],
+  "createdAt": 1770545107052,
+  "updatedAt": 1770545499599,
+  "schemaVersion": 1
+}

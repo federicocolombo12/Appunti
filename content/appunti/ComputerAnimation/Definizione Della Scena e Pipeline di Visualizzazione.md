@@ -30,15 +30,12 @@ Per passare dai dati grezzi del modello 3D ai pixel sul monitor, i dati geometri
 - **Modeling Transformation:** È la trasformazione che porta gli oggetti dall'_Object Space_ al _World Space_. Qui definiamo dove si trovano gli oggetti nel mondo, come sono orientati e quanto sono grandi.
     
 
+
 ### C. Camera Space (o Eye Space)
 
-È il sistema di riferimento dell'osservatore (la camera).
+È il sistema di riferimento dell'osservatore (la camera). È ancora uno spazio **3D**.
 
 - **Viewing Transformation:** Sposta e ruota l'intero mondo affinché la camera si trovi nell'origine e guardi lungo l'asse Z negativo (o positivo, a seconda della convenzione).
-    
-- _Concetto chiave:_ Matematicamente è più semplice calcolare le proiezioni se la camera è ferma all'origine.
-    
-
 ### D. Clip Space e NDC (Normalized Device Coordinates)
 
 Prima della proiezione finale, il volume di vista (Frustum) viene deformato in un cubo unitario canonico (spesso tra −1 e 1su tutti gli assi).
@@ -53,7 +50,7 @@ Prima della proiezione finale, il volume di vista (Frustum) viene deformato in u
 Lo spazio 2D finale del monitor.
 
 - **Viewport Transformation:** Le coordinate normalizzate vengono scalate per adattarsi alla risoluzione in pixel della finestra (es. 1920×1080).
-    
+- **Differenza col Camera Space:** Mentre il Camera Space è 3D e usa unità geometriche (dove è l'oggetto rispetto all'occhio?), lo Screen Space è 2D e usa coordinate intere (quale **pixel** accendo sul monitor?).
 
 ---
 
@@ -73,6 +70,9 @@ La sequenza logica che porta alla visualizzazione segue questi stadi fondamental
         
     - Si trasformano i vertici in _NDC_ (Normalized Device Coordinates).
         
-4. **Scan Conversion (Rasterizzazione):** Le primitive geometriche (triangoli, linee) proiettate vengono convertite in frammenti e poi in pixel nel [[Frame Buffer]].
+4. **Scan Conversion (Rasterizzazione):** 
+    - È il passaggio dal mondo "continuo" (vettoriale) a quello "discreto" (pixel).
+    - Le primitive geometriche (triangoli, linee) vengono analizzate per determinare quali pixel dello schermo coprono.
+    - Il risultato sono i **frammenti** (potenziali pixel con dati associati come colore e profondità) che andranno nel [[Frame Buffer]].
     
 5. **Visibility (Hidden Surface Removal):** Si determina quali oggetti sono visibili e quali sono coperti da altri (spesso usando lo **Z-Buffer**).
