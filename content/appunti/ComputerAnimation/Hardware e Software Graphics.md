@@ -20,7 +20,7 @@ Un sistema grafico moderno separa i compiti tra la CPU (processore centrale) e u
 ## 3. La Pipeline Grafica (Architettura Software)
 
 La pipeline è il processo logico che trasforma una scena 3D astratta in un'immagine 2D sul monitor. Si divide in quattro stadi principali:
-![[Pasted image 20260208105810.png]]
+![[Pasted image 20260208105913.png]]
 ### A. Transformer (Trasformatore)
 
 Applica le **trasformazioni geometriche** ai vertici degli oggetti.

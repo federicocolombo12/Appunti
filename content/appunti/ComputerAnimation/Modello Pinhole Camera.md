@@ -1,6 +1,7 @@
 ## Modello Pinhole Camera
 
 Il modello della **Pinhole Camera** (o camera a foro stenopeico) rappresenta il concetto fondamentale per la comprensione di come un **osservatore virtuale** percepisce una scena 3D e la proietta su un piano 2D. È la base teorica della [[Proiezione Prospettica]].
+![[Pasted image 20260208110225.png]]
 
 ### Concetto Fondamentale
 

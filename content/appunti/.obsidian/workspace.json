@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Hardware e Software Graphics.md",
+                "file": "ComputerAnimation/Modello Pinhole Camera.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hardware e Software Graphics"
+              "title": "Modello Pinhole Camera"
             }
           }
         ]
@@ -207,10 +207,12 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "Pasted image 20260208110225.png",
+    "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Hardware e Software Graphics.md",
+    "Pasted image 20260208105913.png",
     "Pasted image 20260208105810.png",
     "ComputerAnimation/Frame Buffer.md",
-    "ComputerAnimation/Hardware e Software Graphics.md",
-    "ComputerAnimation/Computer Animation.md",
     "Compositing.md",
     "ComputerAnimation/Pipeline di Rendering.md",
     "Formati Video.md",
@@ -242,8 +244,6 @@
     "Domande esame.pdf",
     "Immagini/Screenshot 2026-02-04 alle 16.59.52.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.31.png",
-    "Immagini/Screenshot 2026-02-04 alle 16.59.05.png",
-    "Immagini/Screenshot 2026-02-04 alle 16.58.25.png",
     "Immagini",
     "Untitled.base"
   ]
