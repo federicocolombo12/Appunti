@@ -1,4 +1,3 @@
-
 In [[Computer Animation]], usiamo curve parametriche $P(u)$ per definire le traiettorie nello spazio.
 
 * **Input:** Un parametro adimensionale $u$, tipicamente $u \in [0, 1]$.

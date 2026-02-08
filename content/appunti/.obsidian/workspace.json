@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Computer Animation.md",
+                "file": "ComputerAnimation/Controllo del Moto e Animazione/Lunghezza d'arco, Look Up Table e Interpolazione.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Animation"
+              "title": "Lunghezza d'arco, Look Up Table e Interpolazione"
             }
           }
         ]
@@ -207,8 +207,10 @@
   },
   "active": "0ae20fb7baf881bd",
   "lastOpenFiles": [
-    "ComputerAnimation/Modellazione Avanzata e Natura/L-Systems.md",
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Controllo del Moto e Animazione/Percezione del Moto e Intro all'Animazione.md",
+    "ComputerAnimation/Controllo del Moto e Animazione/Lunghezza d'arco, Look Up Table e Interpolazione.md",
+    "ComputerAnimation/Modellazione Avanzata e Natura/L-Systems.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Hardware e Software Graphics.md",
     "Pasted image 20260208124545.png",
     "Pasted image 20260208114618.png",
@@ -241,8 +243,6 @@
     "ComputerAnimation/Generics/Prassinoscopio.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Trasformazioni Geometriche.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Rappresentazione delle Curve.md",
-    "ComputerAnimation/Fondamenti e Geometria della Visione/Modello Pinhole Camera.md",
-    "ComputerAnimation/Fondamenti e Geometria della Visione/Frame Buffer.md",
     "ComputerAnimation/Domande Esame/Domande esame.pdf",
     "Domande esame.pdf",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione",
