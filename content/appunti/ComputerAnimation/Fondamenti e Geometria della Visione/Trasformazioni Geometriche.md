@@ -125,7 +125,7 @@ Dove:
 - La sottomatrice $3 \times 3$ (gli elementi $r$) definisce **Rotazione** e **Scalamento**.
 - L'ultima colonna $(t_x, t_y, t_z)$ definisce la **Traslazione**.
 - L'ultima riga $[0, 0, 0, 1]$ serve a mantenere la proprietà affine.
-
+![[Pasted image 20260208114618.png]]
 ---
 
 ## 2. Perché la "w" è magica: Punti vs Vettori
