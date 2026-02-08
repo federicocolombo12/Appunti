@@ -217,7 +217,7 @@ $$I_{xx} = \int_V \rho(r) (y^2 + z^2) dr$$
 
 ---
 
-# 9. Lo Stato dell'Oggetto (The State Vector)
+# 9. Equazione di Stato di un Corpo Rigido
 
 Per simulare l'evoluzione del corpo rigido nel tempo, dobbiamo memorizzare le variabili che ne descrivono completamente la configurazione in un istante $t$. Queste variabili formano il vettore di stato $X(t)$.
 
