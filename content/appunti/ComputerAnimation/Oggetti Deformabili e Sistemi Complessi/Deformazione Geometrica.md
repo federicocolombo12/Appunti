@@ -1,4 +1,4 @@
-La deformazione non è solo un effetto visivo, ma uno strumento narrativo fondamentale nella [[Computer Animation]].
+La deformazione non è solo un effetto visivo, ma uno strumento narrativo fondamentale nella [[Index]].
 * **Obiettivo:** Aggiungere le nozioni di *malleabilità* e *densità* agli oggetti.
 * **Espressività:** Un corpo flessibile comunica meglio l'azione e la reazione (pensate a un personaggio che salta o impatta al suolo).
 * **Tecniche:**

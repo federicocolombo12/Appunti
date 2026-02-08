@@ -14,7 +14,7 @@ Tutto nasce dalla meteorologia negli anni '60 con **Edward Lorenz**.
 ---
 
 ## 2. Sistemi Lineari vs Non-Lineari
-La [[Computer Animation]] e la fisica classica spesso cercano di semplificare il mondo in sistemi lineari, ma la realtà è diversa.
+La [[Index]] e la fisica classica spesso cercano di semplificare il mondo in sistemi lineari, ma la realtà è diversa.
 
 ### Sistemi Lineari (Prevedibili)
 * Una piccola variazione dell'input causa una piccola variazione dell'output.

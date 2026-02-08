@@ -207,7 +207,8 @@
   },
   "active": "0ae20fb7baf881bd",
   "lastOpenFiles": [
-    "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Index.md",
+    "ComputerAnimation/Cinematica e Dinamica/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Cinematica e Dinamica/Gestione delle Collisioni..md",
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 2.md",
     "ComputerAnimation/Controllo del Moto e Animazione/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
@@ -242,7 +243,6 @@
     "ComputerAnimation/Generics/Tensore d'Inerzia.md",
     "ComputerAnimation/Generics/Sistema Molla Smorzatore.md",
     "ComputerAnimation/Generics/Simulazione di Corpi Rigidi.md",
-    "ComputerAnimation/Generics/Quaternioni.md",
     "ComputerAnimation/Domande Esame/Domande esame.pdf",
     "Domande esame.pdf",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione",

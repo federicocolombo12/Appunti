@@ -1,5 +1,3 @@
-# 📔 Indice Generale: Computer Animation
-
 ## 1. Fondamenti e Geometria della Visione
 
 _In questa sezione inseriamo le basi su cui poggia tutto il rendering 3D._

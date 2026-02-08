@@ -1,5 +1,5 @@
 
-La modellazione della vegetazione è una sfida unica in [[Computer Animation]]. Le piante esibiscono una **complessità arbitraria** (migliaia di foglie, rami intricati) pur mantenendo una **struttura ramificata vincolata**.
+La modellazione della vegetazione è una sfida unica in [[Index]]. Le piante esibiscono una **complessità arbitraria** (migliaia di foglie, rami intricati) pur mantenendo una **struttura ramificata vincolata**.
 
 ### Caratteristiche fondamentali:
 * **Sorgente singola:** Una pianta cresce partendo da un unico punto.
