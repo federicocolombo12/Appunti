@@ -1,0 +1,79 @@
+{
+  "id": "fdac97e1-1aec-4c11-9b9a-c043f397e76d",
+  "title": "non mi è chiara questa cosa del passaggio dal mode",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "non mi è chiara questa cosa del passaggio dal modello fisico all'oservartore virtuale, in come si ottiene un'immagine non capovolta, e dimmi pure cosa cercare su google per trovare un'immagine che me lo mostri",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nnon mi è chiara questa cosa del passaggio dal modello fisico all'oservartore virtuale, in come si ottiene un'immagine non capovolta, e dimmi pure cosa cercare su google per trovare un'immagine che me lo mostri\n\n"
+        }
+      ],
+      "id": "bc3b99bf-eef1-4744-bc8b-643024e9b61f",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "ComputerAnimation/Modello Pinhole Camera.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Ecco una spiegazione sintetica:\n\nNel modello fisico, i raggi di luce si incrociano nel foro (COP) e finiscono sulla pellicola posta **dietro**, quindi l'immagine si ribalta (alto diventa basso).\nNel modello virtuale (CG), immaginiamo che il \"piano della pellicola\" sia posto **davanti** all'occhio (tra l'occhio e l'oggetto). Il raggio che parte dall'oggetto colpisce questo piano virtuale *prima* di incrociarsi nel centro di proiezione. Non avvenendo l'incrocio prima del piano, l'immagine rimane dritta.\n\n**Cosa cercare su Google Immagini:**\n*   \"Pinhole camera virtual image plane\"\n*   \"Perspective projection view frustum\"\n\nEcco la modifica al file per chiarire il concetto:\n\n<smtcmp_block filename=\"ComputerAnimation/Modello Pinhole Camera.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n### Dal Modello Fisico all'Osservatore Virtuale\n\nSebbene nella realtà l'immagine sia dietro il foro e capovolta, nella Computer Graphics per comodità si utilizza una **convenzione virtuale**:\n\n1.  Si posiziona un **piano di vista virtuale** (Image Plane) a distanza _d_ **davanti** al centro di proiezione (tra l'occhio e l'oggetto), invece che dietro.\n    \n2.  Geometricamente, i raggi proiettati intercettano il piano *prima* di incrociarsi nel centro. Di conseguenza, l'immagine proiettata risulta **ben orientata** (dritta/upright) e i calcoli matematici sono semplificati (evitando segni negativi).\n    \n3.  Questo modello garantisce un **fuoco infinito** (tutti gli oggetti sono nitidi a prescindere dalla distanza) e una luminosità infinitesima.\n    \n\nNelle applicazioni reali (fotocamere fisiche o occhio umano), il pinhole è sostituito da una **lente**, che introduce una [[Profondità di Campo]] limitata e possibili distorsioni.![[Screenshot 2026-01-30 alle 16.07.08.png|500]]\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "aa4525e4-b051-4dcb-8818-d2dd97209ddf",
+      "metadata": {
+        "model": {
+          "providerType": "gemini-plan",
+          "providerId": "gemini-plan",
+          "id": "gemini-3-pro-preview (plan)",
+          "model": "gemini-3-pro-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1332,
+          "completion_tokens": 503,
+          "total_tokens": 3152
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    }
+  ],
+  "createdAt": 1770545107052,
+  "updatedAt": 1770545127713,
+  "schemaVersion": 1
+}

@@ -37,7 +37,8 @@ Sebbene nella realtà l'immagine sia dietro il foro e capovolta, nella Computer 
 3. Questo modello garantisce un **fuoco infinito** (tutti gli oggetti sono nitidi a prescindere dalla distanza) e una luminosità infinitesima.
     
 
-Nelle applicazioni reali (fotocamere fisiche o occhio umano), il pinhole è sostituito da una **lente**, che introduce una [[Profondità di Campo]] limitata e possibili distorsioni.![[Screenshot 2026-01-30 alle 16.07.08.png|500]]
+Nelle applicazioni reali (fotocamere fisiche o occhio umano), il pinhole è sostituito da una **lente**, che introduce una [[Profondità di Campo]] limitata e possibili distorsioni.
+![[Pasted image 20260208110628.png]]
 
 ---
 
