@@ -1,4 +1,3 @@
-
 In un ambiente virtuale popolato da oggetti in movimento, è inevitabile che le traiettorie si incrocino. Se non gestiamo questi eventi, otteniamo la **compenetrazione** degli oggetti, un artefatto visivo inaccettabile per una simulazione realistica.
 
 La gestione delle collisioni si divide in due grandi sottoproblemi che devono essere affrontati in sequenza:
