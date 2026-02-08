@@ -11,14 +11,14 @@
             "id": "d9339c31766ad4d9",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "content/appunti/.obsidian/plugins/smart-composer/data.json",
-                "bFile": "content/appunti/.obsidian/plugins/smart-composer/data.json",
-                "aRef": ""
+                "file": "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: data.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "Definizione Della Scena e Pipeline di Visualizzazione"
             }
           }
         ]
@@ -207,10 +207,10 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Modello Pinhole Camera.md",
     "Pasted image 20260208110628.png",
     "Pasted image 20260208110225.png",
-    "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Hardware e Software Graphics.md",
     "Pasted image 20260208105913.png",
     "Pasted image 20260208105810.png",
