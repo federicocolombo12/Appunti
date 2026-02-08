@@ -76,3 +76,4 @@ La sequenza logica che porta alla visualizzazione segue questi stadi fondamental
     - Il risultato sono i **frammenti** (potenziali pixel con dati associati come colore e profondità) che andranno nel [[Frame Buffer]].
     
 5. **Visibility (Hidden Surface Removal):** Si determina quali oggetti sono visibili e quali sono coperti da altri (spesso usando lo **Z-Buffer**).
+![[Pasted image 20260208111422.png]]

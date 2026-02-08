@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
+                "file": "ComputerAnimation/Trasformazioni Geometriche.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Definizione Della Scena e Pipeline di Visualizzazione"
+              "title": "Trasformazioni Geometriche"
             }
           }
         ]
@@ -205,9 +205,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "74ab024c44d80f54",
+  "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "Pasted image 20260208111632.png",
+    "Pasted image 20260208111611.png",
     "ComputerAnimation/Computer Animation.md",
+    "ComputerAnimation/Definizione Della Scena e Pipeline di Visualizzazione.md",
+    "Pasted image 20260208111422.png",
     "ComputerAnimation/Modello Pinhole Camera.md",
     "Pasted image 20260208110628.png",
     "Pasted image 20260208110225.png",
@@ -237,12 +241,8 @@
     "ComputerAnimation/Tecniche di integrazione numerica (Quadratura Gaussiana,  Metodo di Eulero e Metodo di Runge-Kutta).md",
     "ComputerAnimation/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
     "ComputerAnimation/Collisione piano-particella e forze di Impulso.md",
-    "ComputerAnimation/Gestione delle Collisioni..md",
     "Immagini/Screenshot 2026-02-03 alle 16.13.07.png",
-    "ComputerAnimation/Lunghezza d'arco, Look Up Table e Interpolazione.md",
     "Immagini/Screenshot 2026-02-05 alle 16.54.18.png",
-    "Immagini/Screenshot 2026-02-05 alle 16.52.02.png",
-    "Immagini/Screenshot 2026-02-05 alle 10.52.35.png",
     "Domande esame.pdf",
     "Immagini",
     "Untitled.base"

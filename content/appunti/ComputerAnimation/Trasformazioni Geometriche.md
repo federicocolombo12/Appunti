@@ -14,7 +14,7 @@ Le operazioni utilizzate per posizionare e deformare gli oggetti (Traslazione, R
 * **Definizione:** Una trasformazione è affine se **conserva le linee rette**.
   * Trasformando una retta, si ottiene ancora una retta.
   * *Nota:* Il parallelismo tra rette viene conservato, ma gli angoli e le lunghezze possono cambiare (es. nello scalamento non uniforme).
-
+![[Pasted image 20260208111632.png]]
 ---
 
 ## 2. La Fase di Visualizzazione (Viewing)
