@@ -227,7 +227,7 @@ $$
 Quando uniamo due curve di Bezier (Curva A e Curva B), la continuità dipende dalla geometria dei punti di giunzione:
 * **Continuità $C^0$ (Posizione):** L'ultimo punto di A coincide col primo di B ($P_{A3} = P_{B0}$).
 * **Continuità $C^1$ (Tangenziale - Smooth):** I tre punti alla giunzione ($P_{A2}, P_{A3}=P_{B0}, P_{B1}$) devono essere **colineari**.
-
+![[Pasted image 20260208124545.png]]
 ---
 
 ## 8. B-Spline (Basis Spline)
