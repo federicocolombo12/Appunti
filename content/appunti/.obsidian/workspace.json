@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Fondamenti e Geometria della Visione/Rappresentazione delle Curve.md",
+                "file": "ComputerAnimation/Domande Esame/Domande Esempio Cap 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rappresentazione delle Curve"
+              "title": "Domande Esempio Cap 1"
             }
           }
         ]
@@ -207,9 +207,12 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Index.md",
+    "ComputerAnimation/Cinematica e Dinamica/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
+    "ComputerAnimation/Cinematica e Dinamica/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
+    "ComputerAnimation/Fondamenti e Geometria della Visione/Rappresentazione delle Curve.md",
     "Immagini/Pasted image 20260208124545.png",
     "Immagini/Pasted image 20260208114618.png",
-    "ComputerAnimation/Index.md",
     "Pasted image 20260208124545.png",
     "ComputerAnimation/Computer Animation.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Trasformazioni Geometriche.md",
@@ -243,14 +246,11 @@
     "Immagini/Pasted image 20260208111422.png",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Modello Pinhole Camera.md",
     "Immagini/Pasted image 20260208110628.png",
-    "Immagini/Pasted image 20260208110225.png",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Hardware e Software Graphics.md",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione/Compositing.md",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione/Pipeline di Rendering.md",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione/Formati Video.md",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione/Jpeg.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Metodi di Compressione.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Rappresentazione dei Colori.md",
     "ComputerAnimation/Domande Esame/Domande esame.pdf",
     "Immagini"
   ]

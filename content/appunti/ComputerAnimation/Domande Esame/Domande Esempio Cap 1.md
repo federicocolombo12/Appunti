@@ -1,5 +1,3 @@
-
-
 ### 1.1 Architettura Hardware e Frame Buffer
 
 _Concetti chiave: GPU, Memoria, Risoluzione, Profondità di colore._
@@ -7,6 +5,7 @@ _Concetti chiave: GPU, Memoria, Risoluzione, Profondità di colore._
 **Domande Base e Discorsive**
 
 - **D1:** Definire cos'è il **Frame Buffer**. Quali sono i due parametri fondamentali che ne determinano la dimensione in memoria e la qualità dell'immagine?
+
     
 - **D2:** Qual è la differenza strutturale tra un'immagine definita da una "profondità" di 8 bit per pixel rispetto a una con 32 bit per pixel? (Cosa contiene quell'informazione aggiuntiva?)
     
