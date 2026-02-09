@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Deformazione Geometrica.md",
+                "file": "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Sistemi Particellari.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Deformazione Geometrica"
+              "title": "Sistemi Particellari"
             }
           },
           {
@@ -67,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ffd",
+                "query": "sistemi particel",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -222,6 +222,10 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Modellazione Avanzata e Natura/L-Systems.md",
+    "ComputerAnimation/Cinematica e Dinamica/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
+    "ComputerAnimation/Domande Esame/Domande Esempio Cap 4.md",
+    "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Deformazione Geometrica.md",
     "ComputerAnimation/Controllo del Moto e Animazione/Lunghezza d'arco, Look Up Table e Interpolazione.md",
     "ComputerAnimation/Index.md",
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 2.md",
@@ -251,9 +255,6 @@
     "ComputerAnimation/Riprogrammazione della Velocità.md",
     "ComputerAnimation/Generics",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Fenomeno Phi.md",
-    "ComputerAnimation/Modellazione Avanzata e Natura/Frattali e Caos.md",
-    "ComputerAnimation/Modellazione Avanzata e Natura/L-Systems.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Analogico e Digitale.md",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione",
     "ComputerAnimation/Modellazione Avanzata e Natura",
     "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi",
@@ -264,7 +265,6 @@
     "ComputerAnimation/Fondamenti e Geometria della Visione",
     "Immagini/Pasted image 20260208111632.png",
     "Immagini/Pasted image 20260208111611.png",
-    "ComputerAnimation/Fondamenti e Geometria della Visione/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "Immagini/Pasted image 20260208111422.png",
     "ComputerAnimation/Domande Esame/Domande esame.pdf",
     "Immagini"
