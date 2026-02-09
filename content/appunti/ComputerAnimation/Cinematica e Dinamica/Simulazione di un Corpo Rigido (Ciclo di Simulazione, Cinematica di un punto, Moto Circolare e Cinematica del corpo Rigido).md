@@ -53,7 +53,7 @@ La sua velocità istantanea è data dal **prodotto vettoriale** tra la velocità
 $$\dot{r}(t) = \omega(t) \times r(t)$$
 
 **Significato Fisico:**
-* La velocità è perpendicolare sia all'asse di rotazione ($\omega$) sia al raggio vettorre ($r$).
+* La velocità è perpendicolare sia all'asse di rotazione ($\omega$) sia al raggio vettore ($r$).
 * Più il punto è lontano dall'asse (modulo di $r$ grande), più veloce si muove linearmente.
 ![[Screenshot 2026-02-01 alle 19.14.20.png]]
 
@@ -218,7 +218,7 @@ $$I_{xx} = \int_V \rho(r) (y^2 + z^2) dr$$
 ---
 
 # 9. Equazione di Stato di un Corpo Rigido
-
+![[Pasted image 20260209170317.png]]
 Per simulare l'evoluzione del corpo rigido nel tempo, dobbiamo memorizzare le variabili che ne descrivono completamente la configurazione in un istante $t$. Queste variabili formano il vettore di stato $X(t)$.
 
 ## Cosa memorizziamo?
