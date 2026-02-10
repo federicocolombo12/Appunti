@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Cinematica e Dinamica/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
-                "mode": "source",
+                "file": "ComputerAnimation/Cinematica e Dinamica/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido)"
+              "title": "Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali)"
             }
           }
         ]
@@ -207,11 +207,11 @@
   },
   "active": "0ae20fb7baf881bd",
   "lastOpenFiles": [
+    "ComputerAnimation/Cinematica e Dinamica/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Cinematica e Dinamica/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
     "ComputerAnimation/Cinematica e Dinamica/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
     "ComputerAnimation/Cinematica e Dinamica/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
     "ComputerAnimation/Cinematica e Dinamica/Gestione delle Collisioni..md",
-    "ComputerAnimation/Cinematica e Dinamica/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Cinematica e Dinamica/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
     "ComputerAnimation/Index.md",
     "ComputerAnimation/Controllo del Moto e Animazione/Percezione del Moto e Intro all'Animazione.md",
