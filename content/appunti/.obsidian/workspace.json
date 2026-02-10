@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Fondamenti e Geometria della Visione/Modello Pinhole Camera.md",
+                "file": "ComputerAnimation/Fondamenti e Geometria della Visione/Trasformazioni Geometriche.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Modello Pinhole Camera"
+              "title": "Trasformazioni Geometriche"
             }
           },
           {
@@ -222,6 +222,8 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Index.md",
+    "ComputerAnimation/Fondamenti e Geometria della Visione/Definizione Della Scena e Pipeline di Visualizzazione.md",
+    "ComputerAnimation/Fondamenti e Geometria della Visione/Modello Pinhole Camera.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Hardware e Software Graphics.md",
     "ComputerAnimation/Cinematica e Dinamica/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
     "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Flocking e Comportamenti Emergenti.md",
@@ -239,7 +241,6 @@
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 4.md",
     "Pasted image 20260209170317.png",
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 1.md",
-    "ComputerAnimation/Fondamenti e Geometria della Visione/Modello Pinhole Camera.md",
     "ComputerAnimation/Cinematica e Dinamica/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Rappresentazione delle Curve.md",
     "Immagini/Pasted image 20260208124545.png",
@@ -253,7 +254,6 @@
     "ComputerAnimation/Generics/Simulazione di Corpi Rigidi.md",
     "Immagini/Screenshot 2026-01-30 alle 15.55.28.png",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Frame Buffer.md",
-    "ComputerAnimation/Generics/Prassinoscopio.md",
     "ComputerAnimation/Generics",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione",
     "ComputerAnimation/Modellazione Avanzata e Natura",
