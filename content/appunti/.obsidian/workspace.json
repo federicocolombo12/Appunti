@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Cinematica e Dinamica/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
+                "file": "ComputerAnimation/Index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore."
+              "title": "Index"
             }
           },
           {
@@ -67,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "spring mesh",
+                "query": "lunghezza d'arco",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -222,16 +222,16 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Controllo del Moto e Animazione/Lunghezza d'arco, Look Up Table e Interpolazione.md",
+    "ComputerAnimation/Index.md",
+    "ComputerAnimation/Domande Esame/Domande Esempio Cap 2.md",
+    "ComputerAnimation/Cinematica e Dinamica/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
     "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Sistemi Particellari.md",
     "Screenshot 2026-02-08 alle 20.16.52.png",
     "Double Buffering.md",
     "ComputerAnimation/Modellazione Avanzata e Natura/L-Systems.md",
-    "ComputerAnimation/Cinematica e Dinamica/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 4.md",
     "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Deformazione Geometrica.md",
-    "ComputerAnimation/Controllo del Moto e Animazione/Lunghezza d'arco, Look Up Table e Interpolazione.md",
-    "ComputerAnimation/Index.md",
-    "ComputerAnimation/Domande Esame/Domande Esempio Cap 2.md",
     "ComputerAnimation/Cinematica e Dinamica/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
     "Pasted image 20260209170317.png",
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 1.md",
