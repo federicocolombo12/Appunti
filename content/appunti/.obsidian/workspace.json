@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Rendering, Immagini e Post-Produzione/Jpeg.md",
+                "file": "ComputerAnimation/Rendering, Immagini e Post-Produzione/Metodi di Compressione.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Jpeg"
+              "title": "Metodi di Compressione"
             }
           }
         ]
@@ -205,21 +205,27 @@
       "smart-composer:Open smart composer": false
     }
   },
-  "active": "0ae20fb7baf881bd",
+  "active": "1a0c41ee2e162a97",
   "lastOpenFiles": [
+    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Pipeline di Rendering.md",
+    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Rappresentazione dei Colori.md",
+    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Metodi di Compressione.md",
+    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Formati Video.md",
+    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Compositing.md",
+    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Analogico e Digitale.md",
+    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Jpeg.md",
+    "ComputerAnimation/Index.md",
     "ComputerAnimation/Cinematica e Dinamica/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
     "ComputerAnimation/Cinematica e Dinamica/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Cinematica e Dinamica/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
     "ComputerAnimation/Cinematica e Dinamica/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
     "ComputerAnimation/Cinematica e Dinamica/Gravità, Attrito (Statico vs Cinetico), Viscosità e Sistema Molla-Smorzatore..md",
     "ComputerAnimation/Cinematica e Dinamica/Gestione delle Collisioni..md",
-    "ComputerAnimation/Index.md",
     "ComputerAnimation/Controllo del Moto e Animazione/Percezione del Moto e Intro all'Animazione.md",
     "conflict-files-obsidian-git.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Hardware e Software Graphics.md",
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 1.md",
     "ComputerAnimation/Domande Esame/Domande Esempio.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Compositing.md",
     "Double Buffering.md",
     "Screenshot 2026-02-08 alle 20.16.52.png",
     "Immagini/Pasted image 20260208114618.png",
@@ -237,12 +243,6 @@
     "Immagini/Screenshot 2026-02-04 alle 16.59.31.png",
     "Immagini/Screenshot 2026-02-04 alle 16.59.05.png",
     "Immagini/Screenshot 2026-02-04 alle 16.58.25.png",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Rappresentazione dei Colori.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Pipeline di Rendering.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Metodi di Compressione.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Jpeg.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Formati Video.md",
-    "ComputerAnimation/Rendering, Immagini e Post-Produzione/Analogico e Digitale.md",
     "ComputerAnimation/Domande Esame/Domande esame.pdf",
     "Domande esame.pdf",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione",
