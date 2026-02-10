@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Fondamenti e Geometria della Visione/Rappresentazione delle Curve.md",
+                "file": "ComputerAnimation/Controllo del Moto e Animazione/Lunghezza d'arco, Look Up Table e Interpolazione.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rappresentazione delle Curve"
+              "title": "Lunghezza d'arco, Look Up Table e Interpolazione"
             }
           },
           {
@@ -222,6 +222,8 @@
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
     "ComputerAnimation/Index.md",
+    "ComputerAnimation/Controllo del Moto e Animazione/Percezione del Moto e Intro all'Animazione.md",
+    "ComputerAnimation/Fondamenti e Geometria della Visione/Rappresentazione delle Curve.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Trasformazioni Geometriche.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Definizione Della Scena e Pipeline di Visualizzazione.md",
     "ComputerAnimation/Fondamenti e Geometria della Visione/Modello Pinhole Camera.md",
@@ -243,7 +245,6 @@
     "Pasted image 20260209170317.png",
     "ComputerAnimation/Domande Esame/Domande Esempio Cap 1.md",
     "ComputerAnimation/Cinematica e Dinamica/Modelli Gerarchici e Strutture Articolate, Cinematica Diretta e Inversa.md",
-    "ComputerAnimation/Fondamenti e Geometria della Visione/Rappresentazione delle Curve.md",
     "Immagini/Pasted image 20260208124545.png",
     "Immagini/Pasted image 20260208114618.png",
     "Pasted image 20260208124545.png",
@@ -253,7 +254,6 @@
     "ComputerAnimation/Generics/Sistema Molla Smorzatore.md",
     "ComputerAnimation/Generics/Simulazione di Corpi Rigidi.md",
     "Immagini/Screenshot 2026-01-30 alle 15.55.28.png",
-    "ComputerAnimation/Fondamenti e Geometria della Visione/Frame Buffer.md",
     "ComputerAnimation/Generics",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione",
     "ComputerAnimation/Modellazione Avanzata e Natura",
