@@ -1,4 +1,3 @@
-# Lezione 6 (Parte 2): Flocking (Stormi)
 
 ## 1. Introduzione: Dai Punti ai "Boids"
 Il Flocking simula il comportamento aggregato di animali come uccelli, pesci o mandrie.
