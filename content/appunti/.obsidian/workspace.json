@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Flocking e Comportamenti Emergenti.md",
+                "file": "ComputerAnimation/Rendering, Immagini e Post-Produzione/Formati Video.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flocking e Comportamenti Emergenti"
+              "title": "Formati Video"
             }
           },
           {
@@ -67,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "flocking",
+                "query": "INTRA",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -222,6 +222,7 @@
   },
   "active": "d9339c31766ad4d9",
   "lastOpenFiles": [
+    "ComputerAnimation/Oggetti Deformabili e Sistemi Complessi/Flocking e Comportamenti Emergenti.md",
     "ComputerAnimation/Cinematica e Dinamica/Simulazione di un Corpo Rigido (Ciclo di Simulazione, Cinematica di un punto, Moto Circolare e Cinematica del corpo Rigido).md",
     "ComputerAnimation/Cinematica e Dinamica/Collisione piano-particella e forze di Impulso.md",
     "ComputerAnimation/Cinematica e Dinamica/Figure Articolate (Braccia, Walk Cycle e Animazioni Facciali).md",
@@ -254,7 +255,6 @@
     "ComputerAnimation/Generics/Prassinoscopio.md",
     "ComputerAnimation/Generics/Prodotto Vettoriale.md",
     "ComputerAnimation/Generics/Quantità di Moto.md",
-    "ComputerAnimation/Generics/Quaternioni.md",
     "ComputerAnimation/Generics",
     "ComputerAnimation/Rendering, Immagini e Post-Produzione",
     "ComputerAnimation/Modellazione Avanzata e Natura",
