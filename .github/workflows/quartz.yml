@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
       - name: Build
-        uses: konstfish/quartz-build-action@v6
+        uses: konstfish/quartz-build-action@v7
         with:
           source: content
           page_title: "LM Ingegneria del Cinema"
@@ -24,7 +24,7 @@ jobs:
           quartz_layout: quartz.layout.ts
           quartz_config: quartz.config.ts
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
          path: dist/
   deploy:
